@@ -1,16 +1,17 @@
 """
-Regenerate the publication list from INSPIRE-HEP.
+Update the publication list and citation metrics from INSPIRE-HEP.
 
-    python3 tools/update_publications.py
+    python3 tools/update.py
 
-Prints a `const PUBLICATIONS = [...]` block and the current totals. Paste the
-block over the existing one in assets/js/content.js, and update PUB_STATS.
+Rewrites the PUBLICATIONS and METRICS blocks in assets/js/content.js in place,
+then bumps the cache-busting version on every page. Nothing to copy or paste:
+check the result with `git diff`, then commit and push.
 
-To add a new paper: add a distinctive fragment of its title to SELECT below,
-with the category it belongs to. To add an ATLAS paper, add its INSPIRE record
-id to ATLAS_IDS (the number at the end of its inspirehep.net/literature/ URL).
+To add a paper, add a distinctive fragment of its title to SELECT below with
+its category. For an ATLAS paper, add its INSPIRE record id to ATLAS_IDS (the
+number at the end of its inspirehep.net/literature/ URL). Then re-run.
 """
-import json, re, urllib.request, urllib.parse, pathlib
+import datetime, json, re, urllib.request, urllib.parse, pathlib
 
 AUTHOR = "T.Golling.1"
 
@@ -25,8 +26,36 @@ _own = _q("a %s not cn ATLAS" % AUTHOR, 250,
           "citation_count,texkeys,collaborations")
 OWN = _own["hits"]
 
-TOTAL = _q("a %s" % AUTHOR)["total"]
-ATLAS_TOTAL = _q("a %s and cn ATLAS" % AUTHOR)["total"]
+def _citations(query):
+    """Every citation count for a query, paging until exhausted."""
+    out, page = [], 1
+    while True:
+        url = "https://inspirehep.net/api/literature?" + urllib.parse.urlencode(
+            {"q": query, "size": 1000, "page": page, "fields": "citation_count"})
+        with urllib.request.urlopen(url, timeout=120) as r:
+            hits = json.load(r)["hits"]
+        out += [h["metadata"].get("citation_count", 0) for h in hits["hits"]]
+        if len(out) >= hits["total"] or not hits["hits"]:
+            return out, hits["total"]
+        page += 1
+
+
+def _hindex(counts):
+    h = 0
+    for i, n in enumerate(sorted(counts, reverse=True), 1):
+        if n < i:
+            break
+        h = i
+    return h
+
+
+def metrics():
+    """The numbers behind the METRICS block in content.js."""
+    out = {}
+    for key, query in [("small", "a %s and ac 1->10" % AUTHOR), ("all", "a %s" % AUTHOR)]:
+        counts, total = _citations(query)
+        out[key] = {"papers": total, "citations": sum(counts), "hindex": _hindex(counts)}
+    return out
 
 # ---- curated selection: title fragment -> category -------------------------
 # Only the group's own ML work (no D0-era, no FCC/hardware reports).
@@ -230,9 +259,73 @@ def js(e):
     out.append("  },")
     return "\n".join(out)
 
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+CONTENT = ROOT / "assets/js/content.js"
+
+SMALL_URL = ("https://inspirehep.net/literature?sort=mostrecent&size=100&page=1"
+             "&q=find%20a%20tobias%20golling&author_count=10%20authors%20or%20fewer")
+ALL_URL = ("https://inspirehep.net/literature?sort=mostrecent&size=25&page=1"
+           "&q=find%20a%20tobias%20golling")
+
+
+def splice(text, marker, new_block, closer):
+    """Replace `const NAME = ...` from its marker up to and including `closer`."""
+    i = text.index(marker)
+    j = text.index(closer, i) + len(closer)
+    return text[:i] + new_block + text[j:]
+
+
+def metrics_group(label, note, link, d):
+    lines = [
+        "    {",
+        '      label: "%s",' % label,
+        '      note: "%s",' % note,
+        '      link: "%s",' % link,
+        "      stats: [",
+        '        { label: "Papers",    value: %d },' % d["papers"],
+        '        { label: "Citations", value: %d },' % d["citations"],
+        '        { label: "h-index",   value: %d },' % d["hindex"],
+        "      ],",
+        "    },",
+    ]
+    return "\n".join(lines)
+
+
+def metrics_block(m, stamp):
+    return "\n".join([
+        "const METRICS = {",
+        '  updated: "%s",' % stamp,
+        "  groups: [",
+        metrics_group("Papers with 10 or fewer authors",
+                      "The group's own work, excluding large collaboration author lists.",
+                      SMALL_URL, m["small"]),
+        metrics_group("All publications", "Including ATLAS Collaboration papers.",
+                      ALL_URL, m["all"]),
+        "  ],",
+        "};",
+    ])
+
+
+m = metrics()
+stamp = datetime.date.today().strftime("%B %Y")
+
+text = CONTENT.read_text()
+text = splice(text, "const PUBLICATIONS = [",
+              "const PUBLICATIONS = [\n" + "\n".join(js(e) for e in entries) + "\n];",
+              "\n];")
+text = splice(text, "const METRICS = {", metrics_block(m, stamp), "\n};")
+CONTENT.write_text(text)
+
 print()
-print("PUB_STATS -> total: %d, atlas: %d" % (TOTAL, ATLAS_TOTAL))
+print("content.js updated")
+print("  publications        : %d selected papers" % len(entries))
+print("  10 or fewer authors : %d papers, %d citations, h-index %d"
+      % (m["small"]["papers"], m["small"]["citations"], m["small"]["hindex"]))
+print("  all publications    : %d papers, %d citations, h-index %d"
+      % (m["all"]["papers"], m["all"]["citations"], m["all"]["hindex"]))
+print("  dated               : %s" % stamp)
+
+# Bump the cache-busting version so the change reaches browsers straight away.
 print()
-pathlib.Path("pubs_block.js").write_text(
-    "const PUBLICATIONS = [\n" + "\n".join(js(e) for e in entries) + "\n];\n")
-print("written -> pubs_block.js")
+import bump_version
+bump_version.main()

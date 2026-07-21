@@ -188,6 +188,33 @@ img.avatar { display: block; } /* photos are replaced elements, not flex boxes *
 
 .star { color: var(--accent); }
 
+/* citation metrics — a KPI row, not a chart */
+.metrics {
+  display: grid; gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-bottom: 2rem;
+}
+.kpi-group {
+  background: var(--bg-soft); border: 1px solid var(--rule);
+  border-radius: 10px; padding: 1.3rem 1.4rem;
+}
+.kpi-group-title { font-family: var(--sans); font-size: .95rem; margin: 0 0 .2em; }
+.kpi-group-title a { text-decoration: none; }
+.kpi-group-title a:hover { text-decoration: underline; }
+.kpi-note { margin: 0 0 1.1rem; font-size: .84rem; color: var(--muted); }
+.kpi-row { display: flex; gap: 1.75rem; flex-wrap: wrap; }
+.kpi-value {
+  font-family: var(--sans); font-size: 1.85rem; font-weight: 600;
+  line-height: 1.1; color: var(--text);
+}
+.kpi-label {
+  font-size: .75rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--muted); margin-top: .25rem;
+}
+.metrics-source {
+  grid-column: 1 / -1; margin: 0; font-size: .8rem; color: var(--muted);
+}
+
 .pub-stats {
   margin: 0 0 1.75rem; padding: .9rem 1.1rem;
   background: var(--bg-soft); border: 1px solid var(--rule); border-radius: 8px;

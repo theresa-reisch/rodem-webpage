@@ -177,6 +177,41 @@ function renderNews(target, limit) {
 
 /* ---------------------------------------------------------- publications --- */
 
+/* 243350 -> "243,350". Done by hand rather than with toLocaleString so the
+   grouping does not depend on the browser's locale or Intl being available. */
+function thousands(n) {
+  return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+/* Citation metrics, shown as a row of figures rather than a chart: these are
+   six headline numbers with no trend behind them, so a plot would add nothing.
+   Values stay in normal text colour — the figures carry the emphasis by size. */
+function metricsHTML() {
+  if (typeof METRICS === "undefined" || !METRICS.groups) return "";
+
+  const groups = METRICS.groups.map((g) => {
+    const tiles = (g.stats || []).map((s) => `<div class="kpi">
+        <div class="kpi-value">${esc(thousands(s.value))}</div>
+        <div class="kpi-label">${esc(s.label)}</div>
+      </div>`).join("");
+
+    const heading = g.link
+      ? `<a href="${esc(g.link)}">${esc(g.label)}</a>`
+      : esc(g.label);
+
+    return `<section class="kpi-group">
+        <h3 class="kpi-group-title">${heading}</h3>
+        ${g.note ? `<p class="kpi-note">${esc(g.note)}</p>` : ""}
+        <div class="kpi-row">${tiles}</div>
+      </section>`;
+  }).join("");
+
+  return `<div class="metrics">
+      ${groups}
+      <p class="metrics-source">Source: INSPIRE-HEP${METRICS.updated ? ", " + esc(METRICS.updated) : ""}.</p>
+    </div>`;
+}
+
 function pubItemHTML(p) {
   const tags = [
     p.arxiv && `<a class="tag" href="${esc(p.arxiv)}">arXiv</a>`,
@@ -244,18 +279,10 @@ function renderPublications(target) {
       ${present.map((c) => `<button class="chip" type="button" data-filter="${esc(c.id)}">${esc(c.name)}</button>`).join("")}
     </div>`;
 
-  // Summary line: selected papers here, versus the full record on INSPIRE.
-  let stats = "";
-  if (typeof PUB_STATS !== "undefined") {
-    stats = `<p class="pub-stats">
-        Showing <strong>${PUBLICATIONS.length}</strong> selected papers.
-        The group's full record lists <strong>${esc(PUB_STATS.total)}</strong> publications,
-        including <strong>${esc(PUB_STATS.atlas)}</strong> ATLAS Collaboration papers
-        (INSPIRE-HEP, ${esc(PUB_STATS.updated)}).
-      </p>`;
-  }
+  const note = `<p class="pub-stats">Showing <strong>${PUBLICATIONS.length}</strong>
+      selected papers, grouped by topic.</p>`;
 
-  host.innerHTML = stats + filters + sections;
+  host.innerHTML = metricsHTML() + note + filters + sections;
   wirePublications(host);
 }
 

@@ -1,4 +1,4 @@
-# RODEM group website
+# Golling Group website
 
 A plain static website — HTML, CSS and a little JavaScript. There is no build
 step, no framework and nothing to install. Open `index.html` in a browser and it
@@ -8,17 +8,21 @@ works.
 
 ```
 index.html            Home: intro, research themes, team, latest news, contact
-publications.html     Full publication list
+publications.html     Publications, grouped by topic, with citation metrics
+talks.html            Talks and seminars
 news.html             Full news list
+cv.html               The PI's CV (not in the nav; linked from his profile card)
 assets/css/style.css  All styling (colours are set at the top)
-assets/js/content.js  <- EDIT THIS: team, news, publications, contact details
-assets/js/render.js   Turns content.js into the page. No need to touch.
+assets/js/content.js  <- EDIT THIS: team, news, talks, CV, publications, contact
+assets/js/render.js   Turns content.js into the pages. No need to touch.
+tools/update.py       Refresh publications + metrics from INSPIRE (one command)
+tools/bump_version.py Force browsers to pick up changed CSS/JS
 images/team/          Member photos go here
 ```
 
 ## How to edit the site
 
-**Team members, news items, publications, contact details**
+**Team members, news, talks, the CV, contact details**
 → edit `assets/js/content.js`. Everything is commented; copy an existing entry
 and change the values. Keep the commas and quotes as they are.
 
@@ -56,7 +60,7 @@ python3 -m http.server 8000     # then open http://localhost:8000
 
 GitHub tells browsers to cache the CSS and JS for 10 minutes, so after a push
 you can still see the old page. The asset links carry a version tag
-(`style.css?v=4`) to defeat this. Bump it whenever you change `content.js`,
+(`style.css?v=16`) to defeat this. Bump it whenever you change `content.js`,
 `render.js` or `style.css`:
 
 ```bash
@@ -64,14 +68,20 @@ python3 tools/bump_version.py
 git add -A && git commit -m "Update site" && git push
 ```
 
+(`tools/update.py` bumps the version for you, so you only need this when you
+have edited content by hand.)
+
 Visitors then get the new files straight away. If you forget, the change still
 appears — just up to 10 minutes later, or after a hard refresh
 (**Ctrl + Shift + R**).
 
 ## Publishing on GitHub Pages
 
-1. Create a new repository on GitHub — for a group site, `rodem-hep.github.io`
-   gives you the cleanest URL.
+The site is already published. These steps are here in case it ever needs to
+be set up again from scratch.
+
+1. Create a repository on GitHub — naming it `<username>.github.io` gives the
+   cleanest URL.
 2. Push these files to it:
 
    ```bash
@@ -93,36 +103,47 @@ Every later `git push` updates the live site automatically.
 The `.nojekyll` file tells GitHub Pages to publish the files as-is rather than
 running them through Jekyll. Leave it in place.
 
-## Publications
+## Publications and metrics
 
-The publication list is real data pulled from INSPIRE-HEP (author `T.Golling.1`),
-not hand-typed. 44 selected papers, grouped into five research themes, with the
-group's full record (1621 papers, of which 1498 are ATLAS Collaboration) shown
-as a summary line.
+Both come from INSPIRE-HEP (author `T.Golling.1`), not hand-typed. To refresh
+everything — the paper list, the citation counts, the h-index figures and the
+cache-busting version — run one command:
 
-- Papers are grouped by **theme**, not year, and filtered with the buttons on top.
-- A **★** marks papers with 50 or more citations.
-- Each paper links to arXiv, DOI, INSPIRE, and shows a BibTeX record on click.
-- Citation counts are a **snapshot**, not live — they go stale. Refresh with:
+```bash
+python3 tools/update.py
+```
 
-  ```bash
-  python3 tools/update_publications.py
-  ```
+It rewrites the `PUBLICATIONS` and `METRICS` blocks in `assets/js/content.js`
+in place and bumps every page's asset version. Check it with `git diff`, then:
 
-  That prints an updated `const PUBLICATIONS = [...]` block (into
-  `pubs_block.js`) plus current totals. Paste the block over the existing one in
-  `assets/js/content.js` and update `PUB_STATS`.
+```bash
+git add -A && git commit -m "Refresh publications" && git push
+```
 
-**To add a paper**, add a distinctive fragment of its title to the `SELECT` list
-in `tools/update_publications.py` with its category, then re-run. For an ATLAS
-paper, add its INSPIRE record id to `ATLAS_IDS`. Or just hand-write an entry in
-`content.js` — both work.
+Worth doing every few months — citation counts go stale.
+
+**The publications page** groups papers by research theme with filter buttons,
+marks papers with 50+ citations with a ★, and links arXiv / DOI / INSPIRE /
+BibTeX for each. Group members' names are bolded automatically by matching
+against the `TEAM` list, so there is a single source of truth for who is in
+the group.
+
+**The metrics row** shows two groupings: papers with 10 or fewer authors (the
+group's own work) and all publications including ATLAS Collaboration papers.
+
+**To add a paper**, add a distinctive fragment of its title to the `SELECT`
+list in `tools/update.py` with its category, then re-run. For an ATLAS paper,
+add its INSPIRE record id to `ATLAS_IDS`. You can also hand-write an entry
+directly in `content.js` — but it will be overwritten next time you run the
+updater, so prefer `SELECT`.
 
 ## Still to do
 
-- [ ] Check the team list — it was taken from the old DPNC page and may be out of date
+- [ ] Add member photos — `images/team/` is empty, so everyone shows initials
 - [ ] Rewrite the four research cards in `index.html` in the group's own words
-- [ ] Replace the example news items (the publications are now real)
-- [ ] Add member photos
-- [ ] Confirm what RODEM stands for (`groupFull` in `content.js` is a guess)
-- [ ] Check the 44 selected papers are the right ones, and the theme each sits in
+- [ ] Check the 40 selected papers and the theme each one sits in
+- [ ] Departure years for Lukas Ehrke and Johnny Raine (`left:` in the Alumni list)
+- [ ] Blurbs for the alumni who have none
+- [ ] The CV says "Associate Professor" at Geneva but the team list says
+      "Professeur ordinaire" — confirm the current title and the year
+- [ ] Decide whether the group name change means renaming the repo / GitHub org

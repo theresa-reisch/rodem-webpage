@@ -284,16 +284,40 @@ const PUB_CATEGORIES = [
 
 
 /* ---------------------------------------------------------------------------
-   4b. PUBLICATION TOTALS
+   4b. CITATION METRICS
    ------------------------------------------------------------------------
-   Shown as a summary line above the list. These are counts from INSPIRE-HEP
-   for author T.Golling.1 — refresh them occasionally, e.g. by searching
-   INSPIRE for  a T.Golling.1  and  a T.Golling.1 and cn ATLAS
+   Shown as a row of figures at the top of the publications page.
+
+   Refresh these with:   python3 tools/update_publications.py
+   which prints the current values straight from INSPIRE-HEP.
+
+   "Papers with 10 or fewer authors" isolates the group's own work from the
+   large ATLAS Collaboration author lists.
    ------------------------------------------------------------------------ */
-const PUB_STATS = {
-  total: 1621,      // all publications on INSPIRE
-  atlas: 1498,      // of which ATLAS Collaboration papers
+const METRICS = {
   updated: "July 2026",
+  groups: [
+    {
+      label: "Papers with 10 or fewer authors",
+      note: "The group's own work, excluding large collaboration author lists.",
+      link: "https://inspirehep.net/literature?sort=mostrecent&size=100&page=1&q=find%20a%20tobias%20golling&author_count=10%20authors%20or%20fewer",
+      stats: [
+        { label: "Papers",    value: 55 },
+        { label: "Citations", value: 1166 },
+        { label: "h-index",   value: 18 },
+      ],
+    },
+    {
+      label: "All publications",
+      note: "Including ATLAS Collaboration papers.",
+      link: "https://inspirehep.net/literature?sort=mostrecent&size=25&page=1&q=find%20a%20tobias%20golling",
+      stats: [
+        { label: "Papers",    value: 1621 },
+        { label: "Citations", value: 243350 },
+        { label: "h-index",   value: 217 },
+      ],
+    },
+  ],
 };
 
 

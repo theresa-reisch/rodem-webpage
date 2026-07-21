@@ -29,7 +29,11 @@
       "Bash(timeout 240 python3 /home/theresa/webpage/tools/update_publications.py)",
       "WebFetch(domain:indico.cern.ch)",
       "WebSearch",
-      "Bash(python3 /home/theresa/webpage/tools/bump_version.py)"
+      "Bash(python3 /home/theresa/webpage/tools/bump_version.py)",
+      "Skill(dataviz)",
+      "Bash(timeout 300 python3 /home/theresa/webpage/tools/update_publications.py)",
+      "Bash(python3 -c \"import ast,pathlib; ast.parse\\(pathlib.Path\\('tools/update.py'\\).read_text\\(\\)\\); print\\('syntax OK'\\)\")",
+      "Bash(timeout 300 python3 tools/update.py)"
     ]
   }
 }
