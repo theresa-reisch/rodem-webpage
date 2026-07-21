@@ -28,7 +28,8 @@
       "Bash(python3 tools/bump_version.py)",
       "Bash(timeout 240 python3 /home/theresa/webpage/tools/update_publications.py)",
       "WebFetch(domain:indico.cern.ch)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(python3 /home/theresa/webpage/tools/bump_version.py)"
     ]
   }
 }

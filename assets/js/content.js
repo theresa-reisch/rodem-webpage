@@ -17,9 +17,7 @@
    1. SITE BASICS — name, contact details, footer links.
    ------------------------------------------------------------------------ */
 const SITE = {
-  groupName: "RODEM",
-  groupFull: "Robust Deep-learning for Experimental Machine-learning",
-  tagline: "Machine learning for experimental particle physics at the LHC.",
+  groupName: "Golling Group",
   institution: "Département de Physique Nucléaire et Corpusculaire, University of Geneva",
 
   email: "tobias.golling@unige.ch",
@@ -149,14 +147,14 @@ const NEWS = [
     link: "https://indico.cern.ch/event/1593316/",
   },
   {
-    // TODO: replace this sentence with what the group actually showed at the
-    // stand — the event details (dates, place, theme) are correct.
     date: "July 2026",
     title: "The group at the Nuit de la Science",
     body: "Members of the group took part in Geneva's Nuit de la Science on 4-5 July " +
-          "2026 at the Parc de la Perle du Lac and the Musée d'histoire des sciences, " +
-          "presenting our work to the public. This year's edition was built around the " +
-          "theme of shadows.",
+          "2026 at the Parc de la Perle du Lac and the Musée d'histoire des sciences. " +
+          "We ran a cloud chamber, letting visitors see cosmic-ray tracks appear in " +
+          "real time, alongside a \"particle who's who\" guessing game introducing the " +
+          "zoo of elementary particles. This year's edition was built around the theme " +
+          "of shadows.",
     link: "https://www.geneve.ch/agenda/nuit-science-0",
   },
   {
