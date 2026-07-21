@@ -22,7 +22,7 @@ def _q(query, size=1, fields="titles"):
 
 _own = _q("a %s not cn ATLAS" % AUTHOR, 250,
           "titles,authors,publication_info,arxiv_eprints,dois,earliest_date,"
-          "citation_count,texkeys")
+          "citation_count,texkeys,collaborations")
 OWN = _own["hits"]
 
 TOTAL = _q("a %s" % AUTHOR)["total"]
@@ -87,7 +87,7 @@ GROUP = ["Golling","Raine","Wozniak","Shirabe","Algren","Drozdova","Ehrke","Hara
 
 def fetch(rid):
     url = ("https://inspirehep.net/api/literature/%d?fields=titles,authors,"
-           "publication_info,arxiv_eprints,dois,earliest_date,citation_count,texkeys" % rid)
+           "publication_info,arxiv_eprints,dois,earliest_date,citation_count,texkeys,collaborations" % rid)
     with urllib.request.urlopen(url, timeout=30) as r:
         return json.load(r)['metadata']
 
@@ -130,11 +130,19 @@ def short_author(full):
     name = (inits + " " + last).strip()
     return "*%s*" % name if any(g in last for g in GROUP) else name
 
+def collaboration(m):
+    """The collaboration that authored this, if any — never inferred from the
+    number of authors (large multi-author papers are not collaboration papers)."""
+    for c in m.get('collaborations', []):
+        if c.get('value'):
+            return "%s Collaboration" % c['value']
+    return None
+
 def authors_str(m):
-    auths = m.get('authors', [])
-    if len(auths) > 20:
-        return "ATLAS Collaboration"
-    names = [short_author(a['full_name']) for a in auths]
+    collab = collaboration(m)
+    if collab:
+        return collab
+    names = [short_author(a['full_name']) for a in m.get('authors', [])]
     if len(names) > 10:
         names = names[:10] + ["et al."]
     return ", ".join(names)
@@ -155,8 +163,9 @@ def journal_str(m):
 def bibtex(m, key):
     pi = (m.get('publication_info') or [{}])[0]
     title = m['titles'][0]['title'].replace("{","").replace("}","")
-    auth = " and ".join(a['full_name'] for a in m.get('authors', [])[:10])
-    if len(m.get('authors', [])) > 20: auth = "{ATLAS Collaboration}"
+    collab = collaboration(m)
+    auth = ("{%s}" % collab) if collab else \
+           " and ".join(a['full_name'] for a in m.get('authors', [])[:10])
     lines = ["@article{%s," % key,
              "  title   = {{%s}}," % title,
              "  author  = {%s}," % auth]
