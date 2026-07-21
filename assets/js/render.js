@@ -282,6 +282,86 @@ function wirePublications(host) {
   });
 }
 
+/* ----------------------------------------------------------------- talks --- */
+
+function talkHTML(t) {
+  const kind = t.kind || "Talk";
+  const links = [
+    t.slides && `<a class="tag" href="${esc(t.slides)}">Slides</a>`,
+    t.video  && `<a class="tag" href="${esc(t.video)}">Video</a>`,
+    t.link   && `<a class="tag" href="${esc(t.link)}">Event</a>`,
+  ].filter(Boolean).join("");
+
+  // Speaker is bolded when they are on the team page, same rule as the
+  // publication author list.
+  const speaker = isTeamAuthor(t.speaker) || teamFullName(t.speaker)
+    ? `<strong>${esc(t.speaker)}</strong>` : esc(t.speaker);
+
+  const where = [t.event, t.location].filter(Boolean).map(esc).join(" &middot; ");
+
+  return `<li data-kind="${esc(kind)}">
+      <p class="talk-meta"><span class="kind">${esc(kind)}</span>${t.date ? esc(t.date) : ""}</p>
+      <p class="title">${esc(t.title)}</p>
+      <p class="authors">${speaker}</p>
+      ${where ? `<p class="journal">${where}</p>` : ""}
+      ${links ? `<div class="tags">${links}</div>` : ""}
+    </li>`;
+}
+
+/* Talks list speakers by full name ("Tobias Golling"), not initials, so match
+   those directly against the team list too. */
+function teamFullName(name) {
+  if (typeof TEAM === "undefined" || !name) return false;
+  const target = fold(name).replace(/\s+/g, " ").trim();
+  return TEAM.some((g) => (g.members || []).some((m) => fold(m.name).replace(/\s+/g, " ").trim() === target));
+}
+
+function renderTalks(target) {
+  const host = el(target);
+  if (!host || typeof TALKS === "undefined") return;
+
+  if (!TALKS.length) { host.innerHTML = `<p class="empty">No talks listed yet.</p>`; return; }
+
+  const years = [...new Set(TALKS.map((t) => t.year))].sort((a, b) => b - a);
+  const sections = years.map((y) => {
+    const items = TALKS.filter((t) => t.year === y);
+    return `<section class="pub-cat" data-year="${esc(y)}">
+        <h2 class="pub-cat-title">${esc(y)}</h2>
+        <ul class="pub-list talk-list">${items.map(talkHTML).join("")}</ul>
+      </section>`;
+  }).join("");
+
+  // Filter buttons, but only for kinds that actually occur.
+  const kinds = (typeof TALK_KINDS !== "undefined" ? TALK_KINDS : [])
+    .filter((k) => TALKS.some((t) => (t.kind || "Talk") === k));
+
+  const filters = `<div class="pub-filters" role="group" aria-label="Filter talks by kind">
+      <button class="chip is-active" type="button" data-kind-filter="all">All</button>
+      ${kinds.map((k) => `<button class="chip" type="button" data-kind-filter="${esc(k)}">${esc(k)}</button>`).join("")}
+    </div>`;
+
+  host.innerHTML = filters + sections;
+  wireTalks(host);
+}
+
+function wireTalks(host) {
+  host.querySelectorAll("[data-kind-filter]").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const want = btn.dataset.kindFilter;
+      host.querySelectorAll("[data-kind-filter]").forEach((b) => b.classList.toggle("is-active", b === btn));
+
+      host.querySelectorAll("li[data-kind]").forEach((li) => {
+        li.hidden = !(want === "all" || li.dataset.kind === want);
+      });
+      // Hide a year heading once every talk under it is filtered out.
+      host.querySelectorAll("[data-year]").forEach((sec) => {
+        const any = [...sec.querySelectorAll("li[data-kind]")].some((li) => !li.hidden);
+        sec.hidden = !any;
+      });
+    });
+  });
+}
+
 /* ------------------------------------------------- shared header / footer --- */
 
 function renderChrome() {
@@ -311,4 +391,5 @@ document.addEventListener("DOMContentLoaded", function () {
   renderTeam("team-root");
   renderNews("news-root", el("news-root") && el("news-root").dataset.limit);
   renderPublications("publications-root");
+  renderTalks("talks-root");
 });

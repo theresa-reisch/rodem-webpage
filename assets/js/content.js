@@ -159,6 +159,36 @@ const NEWS = [
 
 
 /* ---------------------------------------------------------------------------
+   3b. TALKS
+   ------------------------------------------------------------------------
+   Grouped by year automatically (newest first) and filtered by "kind".
+
+   Required : year, title, speaker, event
+   Optional : date     free text shown next to the event, e.g. "14 March 2026"
+              location "Geneva, Switzerland"
+              kind     one of the labels in TALK_KINDS below — controls the
+                       filter buttons and the little badge. Defaults to "Talk".
+              slides / video / link   adds a button; delete what you don't have
+
+   Copy the entry below to add a talk. An Indico link is a good "link" value.
+   ------------------------------------------------------------------------ */
+const TALK_KINDS = ["Invited", "Conference", "Seminar", "Poster"];
+
+const TALKS = [
+  {
+    year: 2026,
+    date: "7 July 2026",
+    kind: "Conference",
+    title: "Summary of software/FTAG frameworks ATLAS",
+    speaker: "Alexander Froch",
+    event: "2026 CMS-ATLAS Flavour Tagging Workshop",
+    location: "Florence, Italy",
+    link: "https://indico.cern.ch/event/1593316/timetable/?view=standard#24-summary-of-softwareftag-fra",
+  },
+];
+
+
+/* ---------------------------------------------------------------------------
    4. PUBLICATION CATEGORIES
    ------------------------------------------------------------------------
    Papers are grouped on the page by research theme, in the order listed here.

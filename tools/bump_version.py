@@ -12,7 +12,7 @@ import re
 import pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-PAGES = ["index.html", "publications.html", "news.html"]
+PAGES = sorted(p.name for p in pathlib.Path(__file__).resolve().parent.parent.glob("*.html"))
 # Only rewrite real href="..." / src="..." attributes — never the file names
 # mentioned in the HTML comments that explain where content comes from.
 ASSET = re.compile(

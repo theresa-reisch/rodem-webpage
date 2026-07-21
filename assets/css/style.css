@@ -200,6 +200,18 @@ img.avatar { display: block; } /* photos are replaced elements, not flex boxes *
   padding: .16rem .2rem; align-self: center;
 }
 
+/* talks */
+.talk-meta {
+  display: flex; align-items: center; gap: .6rem; flex-wrap: wrap;
+  margin: 0 0 .35em; font-size: .8rem; color: var(--muted);
+}
+.kind {
+  font-size: .72rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--accent); border: 1px solid var(--rule); border-radius: 999px;
+  padding: .12rem .6rem;
+}
+.talk-list li[hidden], .pub-cat[hidden] { display: none; }
+
 .tag-btn { font-family: inherit; cursor: pointer; background: transparent; }
 .tag-btn.is-active { background: var(--accent); border-color: var(--accent); color: #fff; }
 @media (prefers-color-scheme: dark) { .tag-btn.is-active { color: #16161a; } }
