@@ -117,14 +117,14 @@ const TEAM = [
       // "left" is the year they finished/left. It is displayed automatically
       // next to the role — don't repeat it in the blurb. Use the blurb for
       // where they are now. Anyone without a "left" year is listed last.
-      { name: "Malte Algren",       role: "PhD Student", photo: "", left: 2026, blurb: "Now Postdoctoral Researcher at EPFL.", links: {} },
+      { name: "Malte Algren",       role: "PhD Student", photo: "", left: 2026, blurb: "", links: {} },
       { name: "Tomke Schröer",      role: "PhD Student", photo: "", left: 2026, blurb: "", links: {} },
       { name: "Alexandra Kolev",      role: "Master Student", photo: "", left: 2025, blurb: " ", links: {} },
+      { name: "Lucrezia Boccardo",      role: "Visiting PhD Student", photo: "", left: 2025, blurb: "PhD Student in Genoa.", links: {} },
       { name: "Yusong Tian",      role: "Postdoctoral Researcher", photo: "", left: 2025, blurb: " ", links: {} },
       { name: "Samuel Klein",       role: "PhD Student", photo: "", left: 2025, blurb: "Now Postdoctoral Researcher at SLAC.", links: {} },
       { name: "Matthew Leigh",      role: "PhD Student", photo: "", left: 2025, blurb: "Now ML-Researcher at Meta.", links: {} },
-      { name: "Debajyoti Sengupta", role: "PhD Student", photo: "", left: 2024, blurb: "", links: {} },
-      // TODO: add Lukas Ehrke's year, e.g.  left: 2025,  to place him correctly.
+      { name: "Debajyoti Sengupta", role: "PhD Student", photo: "", left: 2024, blurb: "Now Postdoctoral Researcher at EPFL.", links: {} },
       { name: "Lukas Ehrke",        role: "PhD Student", photo: "", blurb: "", links: {} },
       { name: "Johnny Raine",      role: "Postdoctoral Researcher", photo: "", blurb: " ", links: {} },
     ],
