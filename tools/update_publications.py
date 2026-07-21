@@ -81,10 +81,6 @@ ATLAS_IDS = {
  2880274: "anomaly",   # weakly supervised AD, dijet final state
 }
 
-GROUP = ["Golling","Raine","Wozniak","Shirabe","Algren","Drozdova","Ehrke","Harada",
-         "Klein","Leigh","Mate","Máté","Oleksiyuk","Quetant","Quétant","Schroer",
-         "Schröer","Sengupta"]
-
 def fetch(rid):
     url = ("https://inspirehep.net/api/literature/%d?fields=titles,authors,"
            "publication_info,arxiv_eprints,dois,earliest_date,citation_count,texkeys,collaborations" % rid)
@@ -127,8 +123,9 @@ def short_author(full):
     else:
         parts = full.split(); last, first = parts[-1], " ".join(parts[:-1])
     inits = " ".join(p[0] + "." for p in re.split(r"[\s\-]+", first) if p)
-    name = (inits + " " + last).strip()
-    return "*%s*" % name if any(g in last for g in GROUP) else name
+    # No highlighting markup here: the website bolds group members by matching
+    # against the TEAM list in content.js, so there is one source of truth.
+    return (inits + " " + last).strip()
 
 def collaboration(m):
     """The collaboration that authored this, if any — never inferred from the

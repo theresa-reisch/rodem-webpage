@@ -12,9 +12,63 @@ function esc(s) {
     .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
 }
 
-/* Turn *asterisks* into bold, after escaping. Used for author lists. */
+/* Strip accents and case so "Schröer" and "Schroer" compare equal. */
+function fold(s) {
+  return String(s).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+}
+
+/* Everyone who has ever been in the group, indexed as
+   surname -> set of first initials. Built once, from TEAM, so the author
+   highlighting in the publication list follows the team list automatically:
+   add someone to TEAM and their papers bold themselves.
+   Alumni are included — they were group members when the work was done. */
+let _teamIndex = null;
+function teamIndex() {
+  if (_teamIndex) return _teamIndex;
+  _teamIndex = new Map();
+  if (typeof TEAM === "undefined") return _teamIndex;
+
+  for (const group of TEAM) {
+    for (const m of group.members || []) {
+      const parts = String(m.name).trim().split(/\s+/);
+      if (parts.length < 2) continue;
+      const last = fold(parts[parts.length - 1]);
+      const initial = fold(parts[0]).charAt(0);
+      if (!_teamIndex.has(last)) _teamIndex.set(last, new Set());
+      _teamIndex.get(last).add(initial);
+    }
+  }
+  return _teamIndex;
+}
+
+/* Is "K. A. Wozniak" one of ours? Match on surname AND first initial, so an
+   unrelated author who happens to share a surname is not bolded by mistake. */
+function isTeamAuthor(author) {
+  const parts = author.trim().split(/\s+/);
+  if (parts.length < 2) return false;
+
+  const last = fold(parts[parts.length - 1]);
+  const initials = teamIndex().get(last);
+  if (!initials) return false;
+
+  const first = fold(parts[0]).charAt(0);
+  return initials.has(first);
+}
+
+/* Bold the group's own authors in a comma-separated author list.
+   Wrapping a name in *asterisks* still forces bold, for the occasional
+   collaborator who should be highlighted but is not on the team page. */
 function bold(s) {
-  return esc(s).replace(/\*([^*]+)\*/g, "<strong>$1</strong>");
+  return String(s == null ? "" : s)
+    .split(/,\s*/)
+    .map((author) => {
+      const forced = /^\*.*\*$/.test(author);
+      const clean = author.replace(/\*/g, "");
+      return (forced || isTeamAuthor(clean))
+        ? `<strong>${esc(clean)}</strong>`
+        : esc(clean);
+    })
+    .join(", ");
 }
 
 /* "Tobias Golling" -> "TG"  (used when a member has no photo) */
