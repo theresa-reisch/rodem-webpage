@@ -84,7 +84,7 @@ function el(id) { return document.getElementById(id); }
 /* ------------------------------------------------------------------ team --- */
 
 const LINK_LABELS = {
-  website: "Website", scholar: "Scholar", github: "GitHub",
+  cv: "CV", website: "Website", scholar: "Scholar", github: "GitHub",
   arxiv: "arXiv", email: "Email",
 };
 
@@ -362,6 +362,35 @@ function wireTalks(host) {
   });
 }
 
+/* -------------------------------------------------------------------- cv --- */
+
+function renderCV(target) {
+  const host = el(target);
+  if (!host || typeof CV === "undefined") return;
+
+  host.innerHTML = (CV.sections || []).map((sec) => {
+    const rows = (sec.rows || []).map((r) => `<div class="cv-row">
+        <div class="cv-period">${esc(r.period || "")}</div>
+        <div class="cv-what">
+          <span class="cv-title">${esc(r.what || "")}</span>
+          ${r.where ? `<span class="cv-where">${esc(r.where)}</span>` : ""}
+        </div>
+      </div>`).join("");
+
+    return `<section class="cv-section">
+        <h2 class="pub-cat-title">${esc(sec.title)}</h2>
+        ${rows}
+      </section>`;
+  }).join("");
+
+  // Fill the heading block at the top of the page.
+  const name = el("cv-name");
+  if (name) name.textContent = CV.name || "";
+  const role = el("cv-role");
+  if (role) role.textContent = [CV.role, CV.affiliation].filter(Boolean).join(" &middot; ")
+    .replace(" &middot; ", " · ");
+}
+
 /* ------------------------------------------------- shared header / footer --- */
 
 function renderChrome() {
@@ -392,4 +421,5 @@ document.addEventListener("DOMContentLoaded", function () {
   renderNews("news-root", el("news-root") && el("news-root").dataset.limit);
   renderPublications("publications-root");
   renderTalks("talks-root");
+  renderCV("cv-root");
 });

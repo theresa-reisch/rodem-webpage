@@ -212,6 +212,22 @@ img.avatar { display: block; } /* photos are replaced elements, not flex boxes *
 }
 .talk-list li[hidden], .pub-cat[hidden] { display: none; }
 
+/* cv */
+.cv-section + .cv-section { margin-top: 3rem; }
+.cv-row {
+  display: grid; gap: .2rem 1.5rem;
+  grid-template-columns: 9.5rem 1fr;
+  padding-block: .75rem;
+}
+.cv-row + .cv-row { border-top: 1px solid var(--rule); }
+.cv-period { color: var(--accent); font-size: .88rem; padding-top: .1rem; }
+.cv-title { display: block; font-weight: 600; }
+.cv-where { display: block; color: var(--muted); font-size: .92rem; }
+
+@media (max-width: 34rem) {
+  .cv-row { grid-template-columns: 1fr; }   /* stack the year above the entry */
+}
+
 .tag-btn { font-family: inherit; cursor: pointer; background: transparent; }
 .tag-btn.is-active { background: var(--accent); border-color: var(--accent); color: #fff; }
 @media (prefers-color-scheme: dark) { .tag-btn.is-active { color: #16161a; } }

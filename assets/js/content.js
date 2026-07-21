@@ -60,6 +60,7 @@ const TEAM = [
         photo: "",
         blurb: "Experimental particle physics and machine learning; ATLAS experiment at CERN.",
         links: {
+          cv: "cv.html",
           website: "https://www.unige.ch/dpnc/en/groups/tobias-golling/",
           email: "tobias.golling@unige.ch",
         },
@@ -163,6 +164,78 @@ const NEWS = [
     body: "The group website is online.",
   },
 ];
+
+
+/* ---------------------------------------------------------------------------
+   2b. CV  (shown on cv.html, linked from the PI's profile card)
+   ------------------------------------------------------------------------
+   Each section is a heading plus a list of { period, what, where } rows.
+   "where" is optional. To add a section, copy a whole { title: ..., rows: [...] }
+   block. Rows appear in the order written — newest first reads best.
+
+   NOTE: taken from the old DPNC CV page, so some of it may be out of date —
+   in particular the Geneva title, which the team list gives as
+   "Professeur ordinaire" but which appears below as "Associate Professor".
+   ------------------------------------------------------------------------ */
+const CV = {
+  name: "Tobias Golling",
+  role: "Professeur ordinaire",
+  affiliation: "Département de Physique Nucléaire et Corpusculaire, University of Geneva",
+
+  sections: [
+    {
+      title: "Education",
+      rows: [
+        { period: "2005", what: "Ph.D. in Physics", where: "Bonn University" },
+        { period: "2001", what: "Physics Diplom", where: "Heidelberg University" },
+      ],
+    },
+    {
+      title: "Appointments",
+      rows: [
+        { period: "since 2014", what: "Associate Professor", where: "Université de Genève, DPNC" },
+        { period: "2014",       what: "Associate Professor", where: "Yale University, Department of Physics" },
+        { period: "2009–2014",  what: "Assistant Professor", where: "Yale University, Department of Physics" },
+        { period: "2005–2009",  what: "Postdoctoral Fellow", where: "Lawrence Berkeley National Laboratory" },
+      ],
+    },
+    {
+      title: "ATLAS leadership",
+      rows: [
+        { period: "since 2020", what: "Fast Simulation Chain convener" },
+        { period: "2017–2018",  what: "Inner Detector alignment convener" },
+        { period: "2013–2015",  what: "Exotics group convener" },
+        { period: "2011–2013",  what: "Top-Exotics sub-group convener" },
+        { period: "2010–2011",  what: "Data Quality coordinator" },
+        { period: "2009–2010",  what: "Data Quality contact for tracking group" },
+        { period: "2008–2009",  what: "Monitoring coordinator for Inner Detector software" },
+      ],
+    },
+    {
+      title: "Prizes, awards and fellowships",
+      rows: [
+        { period: "2013–2016", what: "Cottrell Scholar Fellow" },
+        { period: "2012–2014", what: "Alfred P. Sloan Research Fellow" },
+        { period: "2005–2007", what: "Feodor Lynen Research Fellow", where: "Alexander von Humboldt Foundation" },
+        { period: "2006",      what: "Ph.D. prize", where: "Foundation of Physics and Astronomy in Bonn" },
+        { period: "2004",      what: "Heinrich Hertz Fellowship", where: "for research at Fermilab" },
+      ],
+    },
+    {
+      title: "Service and leadership",
+      rows: [
+        { period: "since 2022", what: "Executive Board member", where: "CHIPP" },
+        { period: "since 2021", what: "Topic editor", where: "Frontiers in AI and Big Data" },
+        { period: "since 2021", what: "Collaboration Board deputy", where: "Geneva FCC" },
+        { period: "since 2021", what: "Reviewer", where: "NeurIPS" },
+        { period: "since 2020", what: "Team Leader", where: "Geneva ATLAS Group" },
+        { period: "since 2020", what: "Team Leader", where: "Geneva ATLAS ITk" },
+        { period: "since 2018", what: "Institute Board representative", where: "Geneva ATLAS Pixel" },
+        { period: "since 2016", what: "Advisory board", where: "Machine Learning HEP school" },
+      ],
+    },
+  ],
+};
 
 
 /* ---------------------------------------------------------------------------
