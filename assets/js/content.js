@@ -141,19 +141,28 @@ const TEAM = [
 const NEWS = [
   {
     date: "July 2026",
+    title: "Group contributions to the CMS-ATLAS Flavour Tagging Workshop",
+    body: "Alexander Froch gave the plenary summary of the ATLAS software and " +
+          "flavour-tagging frameworks at the 2026 CMS-ATLAS Flavour Tagging Workshop " +
+          "in Florence (6-10 July). Stephen Mulligan and Theresa Reisch also presented " +
+          "ATLAS-internal talks at the workshop.",
+    link: "https://indico.cern.ch/event/1593316/",
+  },
+  {
+    // TODO: replace this sentence with what the group actually showed at the
+    // stand — the event details (dates, place, theme) are correct.
+    date: "July 2026",
+    title: "The group at the Nuit de la Science",
+    body: "Members of the group took part in Geneva's Nuit de la Science on 4-5 July " +
+          "2026 at the Parc de la Perle du Lac and the Musée d'histoire des sciences, " +
+          "presenting our work to the public. This year's edition was built around the " +
+          "theme of shadows.",
+    link: "https://www.geneve.ch/agenda/nuit-science-0",
+  },
+  {
+    date: "July 2026",
     title: "New group website",
-    body: "The RODEM group website is online. Replace this item with your first real update.",
-  },
-  {
-    date: "June 2026",
-    title: "Example: new paper on arXiv",
-    body: "A one- or two-sentence summary of the result, written for a general physics audience.",
-    link: "https://arxiv.org/",
-  },
-  {
-    date: "May 2026",
-    title: "Example: new group member",
-    body: "Welcome to our new PhD student, who will work on generative models for detector simulation.",
+    body: "The group website is online.",
   },
 ];
 

@@ -27,7 +27,8 @@
       "Bash(curl -sI https://theresa-reisch.github.io/rodem-webpage/assets/js/render.js)",
       "Bash(python3 tools/bump_version.py)",
       "Bash(timeout 240 python3 /home/theresa/webpage/tools/update_publications.py)",
-      "WebFetch(domain:indico.cern.ch)"
+      "WebFetch(domain:indico.cern.ch)",
+      "WebSearch"
     ]
   }
 }
