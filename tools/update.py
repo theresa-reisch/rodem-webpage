@@ -309,11 +309,22 @@ def metrics_block(m, stamp):
 m = metrics()
 stamp = datetime.date.today().strftime("%B %Y")
 
-text = CONTENT.read_text()
-text = splice(text, "const PUBLICATIONS = [",
+before = CONTENT.read_text()
+text = splice(before, "const PUBLICATIONS = [",
               "const PUBLICATIONS = [\n" + "\n".join(js(e) for e in entries) + "\n];",
               "\n];")
 text = splice(text, "const METRICS = {", metrics_block(m, stamp), "\n};")
+
+# The date stamp alone changes every month, so compare everything except it —
+# otherwise an unattended hourly run would churn out commits with no new data.
+def _without_stamp(t):
+    return re.sub(r'\n  updated: "[^"]*",', "", t)
+
+if _without_stamp(text) == _without_stamp(before):
+    print()
+    print("no change — INSPIRE data is identical, leaving content.js alone")
+    raise SystemExit(0)
+
 CONTENT.write_text(text)
 
 print()

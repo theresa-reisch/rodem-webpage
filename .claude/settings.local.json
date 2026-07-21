@@ -33,7 +33,10 @@
       "Skill(dataviz)",
       "Bash(timeout 300 python3 /home/theresa/webpage/tools/update_publications.py)",
       "Bash(python3 -c \"import ast,pathlib; ast.parse\\(pathlib.Path\\('tools/update.py'\\).read_text\\(\\)\\); print\\('syntax OK'\\)\")",
-      "Bash(timeout 300 python3 tools/update.py)"
+      "Bash(timeout 300 python3 tools/update.py)",
+      "Bash(echo \"exit=$?\")",
+      "Bash(git status *)",
+      "Bash(python3 *)"
     ]
   }
 }

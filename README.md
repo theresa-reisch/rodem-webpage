@@ -120,7 +120,25 @@ in place and bumps every page's asset version. Check it with `git diff`, then:
 git add -A && git commit -m "Refresh publications" && git push
 ```
 
-Worth doing every few months — citation counts go stale.
+### Automatic updates
+
+`.github/workflows/update-publications.yml` runs that same command on GitHub's
+servers once a day at 06:00 UTC, and commits only if INSPIRE actually returned
+something new. Your machine does not need to be on, and the live site updates itself.
+
+**One-time setup, needed before it can push:**
+GitHub → the repo → **Settings → Actions → General → Workflow permissions** →
+select **Read and write permissions** → Save.
+
+You can watch it, or trigger it by hand, from the repo's **Actions** tab.
+
+To change how often it runs, edit the `cron:` line in that file. Weekly and
+hourly alternatives are written in a comment right above it.
+
+Two things to know about GitHub's scheduler: runs can be delayed by a few
+minutes when GitHub is busy, and **scheduled workflows are switched off
+automatically after 60 days without activity in the repository**. If updates
+ever stop, check the Actions tab — re-enabling is one click.
 
 **The publications page** groups papers by research theme with filter buttons,
 marks papers with 50+ citations with a ★, and links arXiv / DOI / INSPIRE /
