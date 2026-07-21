@@ -78,11 +78,7 @@ ATLAS_IDS = {
  2926001: "recon",     # Transforming jet flavour tagging at ATLAS
  2923234: "recon",     # continuous calibration of flavour-tagging via optimal transport
  2605177: "recon",     # ATLAS flavour-tagging algorithms Run 2
- 2669599: "recon",     # Fast b-tagging at the HLT
- 2964453: "lhc",       # anomaly detection in multilepton final states
- 2880274: "lhc",       # weakly supervised AD, dijet
- 2674351: "lhc",       # two-body invariant mass, unsupervised ML
- 2666488: "lhc",       # AD search, Higgs + generic X
+ 2880274: "anomaly",   # weakly supervised AD, dijet final state
 }
 
 GROUP = ["Golling","Raine","Wozniak","Shirabe","Algren","Drozdova","Ehrke","Harada",

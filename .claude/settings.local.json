@@ -23,7 +23,10 @@
       "Bash(python3 gen.py)",
       "Bash(grep -E '<|\\\\\\\\\\\\\\\\[a-z]+\\\\{|\\\\$' pubs_block.js)",
       "Bash(mkdir -p tools)",
-      "Bash(timeout 180 python3 update_publications.py)"
+      "Bash(timeout 180 python3 update_publications.py)",
+      "Bash(curl -sI https://theresa-reisch.github.io/rodem-webpage/assets/js/render.js)",
+      "Bash(python3 tools/bump_version.py)",
+      "Bash(timeout 240 python3 /home/theresa/webpage/tools/update_publications.py)"
     ]
   }
 }

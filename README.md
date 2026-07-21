@@ -52,6 +52,22 @@ If you prefer a local server:
 python3 -m http.server 8000     # then open http://localhost:8000
 ```
 
+## Making changes show up immediately
+
+GitHub tells browsers to cache the CSS and JS for 10 minutes, so after a push
+you can still see the old page. The asset links carry a version tag
+(`style.css?v=4`) to defeat this. Bump it whenever you change `content.js`,
+`render.js` or `style.css`:
+
+```bash
+python3 tools/bump_version.py
+git add -A && git commit -m "Update site" && git push
+```
+
+Visitors then get the new files straight away. If you forget, the change still
+appears — just up to 10 minutes later, or after a hard refresh
+(**Ctrl + Shift + R**).
+
 ## Publishing on GitHub Pages
 
 1. Create a new repository on GitHub — for a group site, `rodem-hep.github.io`
