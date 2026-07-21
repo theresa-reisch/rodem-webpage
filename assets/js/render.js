@@ -48,13 +48,47 @@ function memberHTML(m) {
     })
     .join("");
 
+  // For alumni the departure year is shown next to the role, so it never has
+  // to be written into the blurb by hand.
+  const role = [m.role, m.left].filter(Boolean).map(esc).join(" &middot; ");
+
+  // Treat a blank or whitespace-only blurb as absent, so it leaves no gap.
+  const blurb = (m.blurb || "").trim();
+
   return `<div class="member">
       ${avatar}
       <p class="name">${esc(m.name)}</p>
-      ${m.role ? `<p class="role">${esc(m.role)}</p>` : ""}
-      ${m.blurb ? `<p class="blurb">${esc(m.blurb)}</p>` : ""}
+      ${role ? `<p class="role">${role}</p>` : ""}
+      ${blurb ? `<p class="blurb">${esc(blurb)}</p>` : ""}
       ${links ? `<div class="links">${links}</div>` : ""}
     </div>`;
+}
+
+/* Surname = last word of the name, so "Kinga Anna Wozniak" sorts under W.
+   localeCompare keeps accented names (Schröer, Máté) in the right place. */
+function surname(name) {
+  const parts = String(name).trim().split(/\s+/);
+  return parts[parts.length - 1] || "";
+}
+
+function byName(a, b) {
+  return surname(a.name).localeCompare(surname(b.name), "en", { sensitivity: "base" });
+}
+
+/* Alumni order: most recent departure first. Anyone with no `left` year goes
+   to the end rather than disappearing or sorting as year zero. */
+function byDeparture(a, b) {
+  const x = a.left, y = b.left;
+  if (x == null && y == null) return byName(a, b);
+  if (x == null) return 1;
+  if (y == null) return -1;
+  if (x !== y) return y - x;
+  return byName(a, b);
+}
+
+function sortMembers(group) {
+  const members = group.members.slice();  // never reorder the source array
+  return members.sort(group.sort === "left" ? byDeparture : byName);
 }
 
 function renderTeam(target) {
@@ -66,7 +100,7 @@ function renderTeam(target) {
     .filter((g) => g.members && g.members.length)
     .map((g) => `<section class="team-group">
         <h3>${esc(g.group)}</h3>
-        <div class="grid-team">${g.members.map(memberHTML).join("")}</div>
+        <div class="grid-team">${sortMembers(g).map(memberHTML).join("")}</div>
       </section>`)
     .join("");
 }

@@ -22,8 +22,8 @@ const SITE = {
   tagline: "Machine learning for experimental particle physics at the LHC.",
   institution: "Département de Physique Nucléaire et Corpusculaire, University of Geneva",
 
-  email: "rodem.unige@gmail.com",
-  address: "24 quai Ernest-Ansermet, 1211 Geneva 4, Switzerland",
+  email: "tobias.golling@unige.ch",
+  address: "24 Quai Ernest-Ansermet, 1211 Geneva 4, Switzerland",
 
   // Footer links. Delete any line you don't want; add more in the same format.
   links: [
@@ -46,6 +46,11 @@ const SITE = {
           no photos yet. Square images around 600x600px work best.
 
    links: optional. Any of website / scholar / github / email / arxiv.
+
+   ORDER: you do not need to keep this file sorted. Each group is sorted
+   automatically when the page is built — alphabetically by surname, except
+   the Alumni group, which is marked  sort: "left"  and is ordered by year of
+   departure, most recent first. Paste a new person anywhere in their group.
    ------------------------------------------------------------------------ */
 const TEAM = [
   {
@@ -64,32 +69,27 @@ const TEAM = [
     ],
   },
   {
-    group: "Senior Researchers",
-    members: [
-      {
-        name: "Johnny Raine",
-        role: "Maître-assistant",
-        photo: "",
-        blurb: "Anomaly detection and data-driven background estimation for new physics searches.",
-        links: {},
-      },
-    ],
-  },
-  {
     group: "Postdoctoral Researchers",
     members: [
+      {
+        name: "Alexander Froch",
+        role: "Postdoctoral Researcher",
+        photo: "",
+        blurb: "Flavour Tagging in ATLAS",
+        links: {},
+      },
+      {
+        name: "Chris Scheulen",
+        role: "Postdoctoral Researcher",
+        photo: "",
+        blurb: "Foundation Models and ATLAS Pixel Operation",
+        links: {},
+      },
       {
         name: "Kinga Anna Wozniak",
         role: "Postdoctoral Researcher",
         photo: "",
-        blurb: "Unsupervised and anomaly-detection methods for collider data.",
-        links: {},
-      },
-      {
-        name: "Shohei Shirabe",
-        role: "Postdoctoral Researcher",
-        photo: "",
-        blurb: "ATLAS physics analysis and detector performance.",
+        blurb: "Optimal Detector Design for Future Experiments",
         links: {},
       },
     ],
@@ -97,23 +97,36 @@ const TEAM = [
   {
     group: "PhD Students",
     members: [
-      { name: "Malte Algren",      role: "PhD Student", photo: "", blurb: "Co-supervised with Prof. Voloshynovskiy.", links: {} },
-      { name: "Mariia Drozdova",   role: "PhD Student", photo: "", blurb: "Co-supervised with Prof. Voloshynovskiy.", links: {} },
-      { name: "Lukas Ehrke",       role: "PhD Student", photo: "", blurb: "", links: {} },
-      { name: "Daigo Harada",      role: "PhD Student", photo: "", blurb: "", links: {} },
-      { name: "Samuel Klein",      role: "PhD Student", photo: "", blurb: "Co-supervised with Prof. Voloshynovskiy.", links: {} },
-      { name: "Matthew Leigh",     role: "PhD Student", photo: "", blurb: "", links: {} },
-      { name: "Bálint Máté",       role: "PhD Student", photo: "", blurb: "Co-supervised with Prof. Fleuret.", links: {} },
-      { name: "Ivan Oleksiyuk",    role: "PhD Student", photo: "", blurb: "Co-supervised with Prof. Voloshynovskiy.", links: {} },
-      { name: "Guillaume Quétant", role: "PhD Student", photo: "", blurb: "Co-supervised with Prof. Voloshynovskiy.", links: {} },
-      { name: "Tomke Schröer",     role: "PhD Student", photo: "", blurb: "Co-supervised with Prof. Voloshynovskiy.", links: {} },
+      { name: "Jona Ackerschott",   role: "PhD Student", photo: "", blurb: "Anomaly Detection in Stellar Streams and Unfolding.", links: {} },
+      { name: "Pradyun Hebbar",     role: "PhD Student", photo: "", blurb: "Foundation Models and Agentic AI.", links: {} },
+      { name: "Andreas Hermansen",  role: "PhD Student", photo: "", blurb: "Co-supervised with Prof. Voloshynovskiy. Foundation Models and Event Reconstruction", links: {} },
+      { name: "Stephen Mulligan",   role: "PhD Student", photo: "", blurb: "Searches for New Physics and Optimal Detector Design.", links: {} },
+      { name: "Ivan Oleksiyuk",     role: "PhD Student", photo: "", blurb: "Co-supervised with Prof. Voloshynovskiy. Searches for New Physics.", links: {} },
+      { name: "Giovanni Ottaviano", role: "PhD Student", photo: "", blurb: "Co-supervised with Prof. Biau (Sorbonne University). Foundation Models and Agentic AI.", links: {} },
+      { name: "Theresa Reisch",     role: "PhD Student", photo: "", blurb: "Searches for New Physics and Flavour Tagging in ATLAS.", links: {} },
+      { name: "Matej Repik",        role: "PhD Student", photo: "", blurb: "ATLAS ITk Upgrade Development.", links: {} },
+      { name: "Vincent Riechers",   role: "PhD Student", photo: "", blurb: "Optimal Detector Design.", links: {} },
+      { name: "Franck Rothen",      role: "PhD Student", photo: "", blurb: "Uncertainty Aware Classification.", links: {} },
     ],
   },
   {
     group: "Alumni",
+    // Sorted by "left" (year of departure), most recent first, instead of by name.
+    sort: "left",
     members: [
-      // Alumni entries can keep it short — role doubles as "where they are now".
-      { name: "Debajyoti Sengupta", role: "PhD, former group member", photo: "", blurb: "", links: {} },
+      // "left" is the year they finished/left. It is displayed automatically
+      // next to the role — don't repeat it in the blurb. Use the blurb for
+      // where they are now. Anyone without a "left" year is listed last.
+      { name: "Malte Algren",       role: "PhD Student", photo: "", left: 2026, blurb: "Now Postdoctoral Researcher at EPFL.", links: {} },
+      { name: "Tomke Schröer",      role: "PhD Student", photo: "", left: 2026, blurb: "", links: {} },
+      { name: "Alexandra Kolev",      role: "Master Student", photo: "", left: 2025, blurb: " ", links: {} },
+      { name: "Yusong Tian",      role: "Postdoctoral Researcher", photo: "", left: 2025, blurb: " ", links: {} },
+      { name: "Samuel Klein",       role: "PhD Student", photo: "", left: 2025, blurb: "Now Postdoctoral Researcher at SLAC.", links: {} },
+      { name: "Matthew Leigh",      role: "PhD Student", photo: "", left: 2025, blurb: "Now ML-Researcher at Meta.", links: {} },
+      { name: "Debajyoti Sengupta", role: "PhD Student", photo: "", left: 2024, blurb: "", links: {} },
+      // TODO: add Lukas Ehrke's year, e.g.  left: 2025,  to place him correctly.
+      { name: "Lukas Ehrke",        role: "PhD Student", photo: "", blurb: "", links: {} },
+      { name: "Johnny Raine",      role: "Postdoctoral Researcher", photo: "", blurb: " ", links: {} },
     ],
   },
 ];
