@@ -77,11 +77,36 @@ Every later `git push` updates the live site automatically.
 The `.nojekyll` file tells GitHub Pages to publish the files as-is rather than
 running them through Jekyll. Leave it in place.
 
+## Publications
+
+The publication list is real data pulled from INSPIRE-HEP (author `T.Golling.1`),
+not hand-typed. 44 selected papers, grouped into five research themes, with the
+group's full record (1621 papers, of which 1498 are ATLAS Collaboration) shown
+as a summary line.
+
+- Papers are grouped by **theme**, not year, and filtered with the buttons on top.
+- A **★** marks papers with 50 or more citations.
+- Each paper links to arXiv, DOI, INSPIRE, and shows a BibTeX record on click.
+- Citation counts are a **snapshot**, not live — they go stale. Refresh with:
+
+  ```bash
+  python3 tools/update_publications.py
+  ```
+
+  That prints an updated `const PUBLICATIONS = [...]` block (into
+  `pubs_block.js`) plus current totals. Paste the block over the existing one in
+  `assets/js/content.js` and update `PUB_STATS`.
+
+**To add a paper**, add a distinctive fragment of its title to the `SELECT` list
+in `tools/update_publications.py` with its category, then re-run. For an ATLAS
+paper, add its INSPIRE record id to `ATLAS_IDS`. Or just hand-write an entry in
+`content.js` — both work.
+
 ## Still to do
 
 - [ ] Check the team list — it was taken from the old DPNC page and may be out of date
 - [ ] Rewrite the four research cards in `index.html` in the group's own words
-- [ ] Replace the example publications with real ones (or link to INSPIRE-HEP instead)
-- [ ] Replace the example news items
+- [ ] Replace the example news items (the publications are now real)
 - [ ] Add member photos
 - [ ] Confirm what RODEM stands for (`groupFull` in `content.js` is a guess)
+- [ ] Check the 44 selected papers are the right ones, and the theme each sits in

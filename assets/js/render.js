@@ -89,38 +89,109 @@ function renderNews(target, limit) {
 
 /* ---------------------------------------------------------- publications --- */
 
+function pubItemHTML(p) {
+  const tags = [
+    p.arxiv && `<a class="tag" href="${esc(p.arxiv)}">arXiv</a>`,
+    p.doi   && `<a class="tag" href="${esc(p.doi)}">DOI</a>`,
+    p.code  && `<a class="tag" href="${esc(p.code)}">Code</a>`,
+    p.inspire && `<a class="tag" href="${esc(p.inspire)}">INSPIRE</a>`,
+    p.bibtex && `<button class="tag tag-btn" type="button" data-bib>BibTeX</button>`,
+    (p.citations > 0) && `<span class="cites">${esc(p.citations)} citation${p.citations === 1 ? "" : "s"}</span>`,
+  ].filter(Boolean).join("");
+
+  // The BibTeX record is rendered hidden and revealed by the button above.
+  const bib = p.bibtex
+    ? `<pre class="bibtex" hidden>${esc(p.bibtex)}</pre>`
+    : "";
+
+  const star = p.star
+    ? `<span class="star" title="Selected publication" aria-label="Selected publication">&#9733;</span> `
+    : "";
+
+  return `<li>
+      <p class="title">${star}${esc(p.title)}</p>
+      <p class="authors">${bold(p.authors)}</p>
+      ${p.journal ? `<p class="journal">${esc(p.journal)}</p>` : ""}
+      ${tags ? `<div class="tags">${tags}</div>` : ""}
+      ${bib}
+    </li>`;
+}
+
 function renderPublications(target) {
   const host = el(target);
   if (!host || typeof PUBLICATIONS === "undefined") return;
 
-  if (!PUBLICATIONS.length) { host.innerHTML = `<p class="empty">No publications listed yet.</p>`; return; }
-
-  // Group by year, newest year first.
-  const byYear = new Map();
-  for (const p of PUBLICATIONS) {
-    if (!byYear.has(p.year)) byYear.set(p.year, []);
-    byYear.get(p.year).push(p);
+  if (!PUBLICATIONS.length) {
+    host.innerHTML = `<p class="empty">No publications listed yet.</p>`;
+    return;
   }
-  const years = [...byYear.keys()].sort((a, b) => b - a);
 
-  host.innerHTML = years.map((year) => {
-    const items = byYear.get(year).map((p) => {
-      const tags = [
-        p.arxiv && `<a class="tag" href="${esc(p.arxiv)}">arXiv</a>`,
-        p.doi   && `<a class="tag" href="${esc(p.doi)}">DOI</a>`,
-        p.code  && `<a class="tag" href="${esc(p.code)}">Code</a>`,
-      ].filter(Boolean).join("");
+  // Category order comes from PUB_CATEGORIES; anything with an unknown or
+  // missing category falls into a trailing "Other" group so nothing vanishes.
+  const cats = (typeof PUB_CATEGORIES !== "undefined" ? PUB_CATEGORIES : []).slice();
+  const known = new Set(cats.map((c) => c.id));
+  if (PUBLICATIONS.some((p) => !known.has(p.category))) {
+    cats.push({ id: "__other", name: "Other" });
+  }
 
-      return `<li>
-          <p class="title">${esc(p.title)}</p>
-          <p class="authors">${bold(p.authors)}</p>
-          ${p.journal ? `<p class="journal">${esc(p.journal)}</p>` : ""}
-          ${tags ? `<div class="tags">${tags}</div>` : ""}
-        </li>`;
-    }).join("");
+  const sections = cats.map((c) => {
+    const items = PUBLICATIONS
+      .filter((p) => (c.id === "__other" ? !known.has(p.category) : p.category === c.id))
+      .sort((a, b) => b.year - a.year);
 
-    return `<h2 class="pub-year">${esc(year)}</h2><ul class="pub-list">${items}</ul>`;
-  }).join("");
+    if (!items.length) return "";  // skip empty categories
+
+    return `<section class="pub-cat" data-cat="${esc(c.id)}">
+        <h2 class="pub-cat-title">${esc(c.name)}</h2>
+        <ul class="pub-list">${items.map(pubItemHTML).join("")}</ul>
+      </section>`;
+  }).filter(Boolean).join("");
+
+  // Filter buttons — only for categories that actually have papers.
+  const present = cats.filter((c) =>
+    PUBLICATIONS.some((p) => (c.id === "__other" ? !known.has(p.category) : p.category === c.id)));
+
+  const filters = `<div class="pub-filters" role="group" aria-label="Filter publications by topic">
+      <button class="chip is-active" type="button" data-filter="all">All</button>
+      ${present.map((c) => `<button class="chip" type="button" data-filter="${esc(c.id)}">${esc(c.name)}</button>`).join("")}
+    </div>`;
+
+  // Summary line: selected papers here, versus the full record on INSPIRE.
+  let stats = "";
+  if (typeof PUB_STATS !== "undefined") {
+    stats = `<p class="pub-stats">
+        Showing <strong>${PUBLICATIONS.length}</strong> selected papers.
+        The group's full record lists <strong>${esc(PUB_STATS.total)}</strong> publications,
+        including <strong>${esc(PUB_STATS.atlas)}</strong> ATLAS Collaboration papers
+        (INSPIRE-HEP, ${esc(PUB_STATS.updated)}).
+      </p>`;
+  }
+
+  host.innerHTML = stats + filters + sections;
+  wirePublications(host);
+}
+
+function wirePublications(host) {
+  // Category filtering: show or hide whole sections.
+  host.querySelectorAll("[data-filter]").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const want = btn.dataset.filter;
+      host.querySelectorAll("[data-filter]").forEach((b) => b.classList.toggle("is-active", b === btn));
+      host.querySelectorAll(".pub-cat").forEach((sec) => {
+        sec.hidden = !(want === "all" || sec.dataset.cat === want);
+      });
+    });
+  });
+
+  // BibTeX show/hide.
+  host.querySelectorAll("[data-bib]").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const pre = btn.closest("li").querySelector(".bibtex");
+      if (!pre) return;
+      pre.hidden = !pre.hidden;
+      btn.classList.toggle("is-active", !pre.hidden);
+    });
+  });
 }
 
 /* ------------------------------------------------- shared header / footer --- */

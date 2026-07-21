@@ -168,11 +168,47 @@ img.avatar { display: block; } /* photos are replaced elements, not flex boxes *
 
 /* --------------------------------------------------------- publications --- */
 
-.pub-year {
-  font-family: var(--serif); font-size: 1.5rem; margin: 2.5rem 0 1rem;
-  padding-bottom: .4rem; border-bottom: 1px solid var(--rule);
+/* filter chips */
+.pub-filters { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2.5rem; }
+.chip {
+  font: inherit; font-size: .85rem; cursor: pointer;
+  background: transparent; color: var(--muted);
+  border: 1px solid var(--rule); border-radius: 999px; padding: .35rem .95rem;
 }
-.pub-year:first-of-type { margin-top: 0; }
+.chip:hover { color: var(--text); border-color: var(--muted); }
+.chip.is-active { background: var(--accent); border-color: var(--accent); color: #fff; }
+@media (prefers-color-scheme: dark) { .chip.is-active { color: #16161a; } }
+
+/* category sections */
+.pub-cat + .pub-cat { margin-top: 3rem; }
+.pub-cat-title {
+  font-size: 1.35rem; margin: 0 0 1rem;
+  padding-bottom: .5rem; border-bottom: 1px solid var(--rule);
+}
+
+.star { color: var(--accent); }
+
+.pub-stats {
+  margin: 0 0 1.75rem; padding: .9rem 1.1rem;
+  background: var(--bg-soft); border: 1px solid var(--rule); border-radius: 8px;
+  font-size: .9rem; color: var(--muted);
+}
+.pub-stats strong { color: var(--text); }
+
+.cites {
+  font-size: .76rem; color: var(--muted);
+  padding: .16rem .2rem; align-self: center;
+}
+
+.tag-btn { font-family: inherit; cursor: pointer; background: transparent; }
+.tag-btn.is-active { background: var(--accent); border-color: var(--accent); color: #fff; }
+@media (prefers-color-scheme: dark) { .tag-btn.is-active { color: #16161a; } }
+
+.bibtex {
+  margin: .8rem 0 0; padding: .9rem 1rem; overflow-x: auto;
+  background: var(--bg-soft); border: 1px solid var(--rule); border-radius: 8px;
+  font-size: .8rem; line-height: 1.5; white-space: pre;
+}
 .pub-list { list-style: none; margin: 0; padding: 0; }
 .pub-list li { padding-block: 1rem; }
 .pub-list li + li { border-top: 1px solid var(--rule); }

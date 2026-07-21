@@ -12,7 +12,18 @@
       "Bash(git --version)",
       "Bash(git config *)",
       "Bash(gh auth *)",
-      "Bash(timeout 20 ssh -o StrictHostKeyChecking=accept-new -o BatchMode=yes -T git@github.com)"
+      "Bash(timeout 20 ssh -o StrictHostKeyChecking=accept-new -o BatchMode=yes -T git@github.com)",
+      "Bash(timeout 30 git ls-remote --heads origin)",
+      "Bash(timeout 20 ssh -o BatchMode=yes -T git@github.com)",
+      "WebFetch(domain:theoryandpractice.org)",
+      "Bash(python3 -)",
+      "Bash(curl -s \"https://inspirehep.net/api/authors?q=Tobias%20Golling&fields=name,ids,positions&size=5\")",
+      "Bash(python3 -c ' *)",
+      "Bash(curl -s -G https://inspirehep.net/api/literature --data-urlencode 'q=a T.Golling.1 not cn ATLAS' --data-urlencode sort=mostrecent --data-urlencode size=200 --data-urlencode fields=titles,authors,publication_info,arxiv_eprints,dois,earliest_date,citation_count,texkeys,document_type -o golling_own.json)",
+      "Bash(python3 gen.py)",
+      "Bash(grep -E '<|\\\\\\\\\\\\\\\\[a-z]+\\\\{|\\\\$' pubs_block.js)",
+      "Bash(mkdir -p tools)",
+      "Bash(timeout 180 python3 update_publications.py)"
     ]
   }
 }
