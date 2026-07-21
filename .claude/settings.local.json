@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.unige.ch)",
+      "Bash(command -v node nodejs deno bun d8 js)",
+      "Skill(claude-in-chrome)",
+      "Bash(timeout 180 pip install quickjs)",
+      "Bash(python3 test.py)",
+      "Bash(pkill -f \"http.server 8765\")",
+      "Bash(pkill -9 -f \"8765\")",
+      "Bash(command -v git gh)",
+      "Bash(git --version)",
+      "Bash(git config *)",
+      "Bash(gh auth *)",
+      "Bash(timeout 20 ssh -o StrictHostKeyChecking=accept-new -o BatchMode=yes -T git@github.com)"
+    ]
+  }
+}

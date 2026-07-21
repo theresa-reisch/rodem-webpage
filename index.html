@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RODEM — Machine Learning for Particle Physics | University of Geneva</title>
+<meta name="description" content="The RODEM group at the University of Geneva develops machine learning methods for experimental particle physics at the LHC, with the ATLAS experiment at CERN.">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ===================== HEADER (same on every page) ====================== -->
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span data-site-name>RODEM</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="index.html#research">Research</a>
+      <a href="index.html#team">Team</a>
+      <a href="publications.html">Publications</a>
+      <a href="news.html">News</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============================ HERO ==================================
+       EDIT THIS TEXT DIRECTLY. This is the first thing visitors and search
+       engines read, so it lives in the page rather than in content.js.
+       ================================================================== -->
+  <section class="hero">
+    <div class="wrap">
+      <h1>Machine learning for experimental particle physics</h1>
+      <p class="lede">
+        We are the <strong>RODEM</strong> group at the University of Geneva. We develop
+        deep learning methods for the analysis of data from the
+        <strong>ATLAS experiment</strong> at the Large Hadron Collider — building tools that
+        simulate detectors faster, reconstruct events more precisely, and search for
+        new physics without assuming in advance what it looks like.
+      </p>
+      <p class="affil" data-site-institution></p>
+    </div>
+  </section>
+
+  <!-- ========================== RESEARCH ================================
+       EDIT THESE CARDS DIRECTLY. To add one, copy a whole <article> block.
+       These themes were drafted from the group's publication record —
+       please rewrite them in your own words.
+       ================================================================== -->
+  <section class="section" id="research">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Research</p>
+        <h2>What we work on</h2>
+        <p>
+          Our work sits between machine learning and collider physics: methods
+          developed here are designed to be deployed on real LHC data.
+        </p>
+      </div>
+
+      <div class="grid-research">
+
+        <article class="card">
+          <h3>Anomaly detection</h3>
+          <p>
+            Model-agnostic searches for new physics that do not presuppose a specific
+            signal, using unsupervised and weakly supervised learning to find rare,
+            unexpected structure in collision data.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Generative models</h3>
+          <p>
+            Normalizing flows, diffusion models and autoencoders for fast simulation of
+            particle showers and event generation — replacing expensive Monte Carlo
+            with learned surrogates.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Reconstruction &amp; tagging</h3>
+          <p>
+            Neural approaches to jet physics, heavy-flavour tagging and particle
+            identification, improving how raw detector signals become physics objects.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Physics at the LHC</h3>
+          <p>
+            Measurements and searches with the ATLAS detector — top quark and Higgs
+            boson properties, and direct searches for physics beyond the Standard Model.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ TEAM ==================================
+       Built automatically from the TEAM list in assets/js/content.js
+       ================================================================== -->
+  <section class="section" id="team">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">People</p>
+        <h2>Team</h2>
+        <p>The group brings together physicists and machine learning researchers, with
+           several students co-supervised across the Physics and Computer Science departments.</p>
+      </div>
+      <div id="team-root"></div>
+    </div>
+  </section>
+
+  <!-- ============================ NEWS ==================================
+       Shows the 3 most recent items from NEWS in content.js
+       ================================================================== -->
+  <section class="section" id="news">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Latest</p>
+        <h2>News</h2>
+      </div>
+      <ul class="news-list" id="news-root" data-limit="3"></ul>
+      <p style="margin-top:1.5rem"><a href="news.html">All news &rarr;</a></p>
+    </div>
+  </section>
+
+  <!-- ========================== CONTACT ================================= -->
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Get in touch</p>
+        <h2>Contact</h2>
+      </div>
+      <div class="contact-grid">
+        <div>
+          <h3>Email</h3>
+          <p><a data-site-email href="#"></a></p>
+        </div>
+        <div>
+          <h3>Address</h3>
+          <p data-site-address></p>
+        </div>
+        <div>
+          <h3>Joining us</h3>
+          <p>We welcome enquiries from prospective PhD students and postdocs.
+             Please get in touch by email.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER (same on every page) ====================== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; <span id="footer-year"></span> <span data-site-name></span>, University of Geneva</p>
+    <div class="footer-links" id="footer-links"></div>
+  </div>
+</footer>
+
+<script src="assets/js/content.js"></script>
+<script src="assets/js/render.js"></script>
+</body>
+</html>
