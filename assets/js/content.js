@@ -124,8 +124,8 @@ const TEAM = [
       { name: "Samuel Klein",       role: "PhD Student", photo: "", left: 2025, blurb: "Now Postdoctoral Researcher at SLAC.", links: {} },
       { name: "Matthew Leigh",      role: "PhD Student", photo: "", left: 2025, blurb: "Now ML-Researcher at Meta.", links: {} },
       { name: "Debajyoti Sengupta", role: "PhD Student", photo: "", left: 2024, blurb: "Now Postdoctoral Researcher at EPFL.", links: {} },
-      { name: "Lukas Ehrke",        role: "PhD Student", photo: "", blurb: "", links: {} },
-      { name: "Johnny Raine",      role: "Postdoctoral Researcher", photo: "", blurb: " ", links: {} },
+      { name: "Lukas Ehrke",        role: "PhD Student", photo: "", left: 2023, blurb: "", links: {} },
+      { name: "Johnny Raine",      role: "Postdoctoral Researcher", photo: "", left: 2024, blurb: " ", links: {} },
     ],
   },
 ];
@@ -138,6 +138,15 @@ const TEAM = [
    link is optional; delete the line if there's nothing to link to.
    ------------------------------------------------------------------------ */
 const NEWS = [
+  {
+    date: "July 2026",
+    title: "Four abstracts submitted to EuCAIFCon 2026",
+    body: "Pradyun Hebbar, Giovanni Ottaviano, Andreas Hermansen and Theresa Reisch " +
+          "have submitted abstracts to EuCAIFCon 2026, the European AI for " +
+          "Fundamental Physics Conference, which takes place at the Kirchhoff " +
+          "Institute for Physics in Heidelberg from 24 to 28 August 2026.",
+    link: "https://indico.physi.uni-heidelberg.de/event/1277/overview",
+  },
   {
     date: "July 2026",
     title: "Group contributions to the CMS-ATLAS Flavour Tagging Workshop",
@@ -163,6 +172,64 @@ const NEWS = [
     title: "New group website",
     body: "The group website is online.",
   },
+  {
+    date: "May 2026",
+    title: "Workshop: ML opportunities for HEP in the era of agentic AI",
+    body: "Tobias Golling organised a workshop on machine-learning opportunities " +
+          "for high-energy physics in the era of agentic AI, held at the Villa " +
+          "Boninchi in Geneva.",
+  },
+  {
+    date: "October 2025",
+    title: "G.IST workshop on computing challenges for future colliders",
+    body: "Tobias Golling organised \"Computing Challenges and AI Opportunities " +
+          "for Future Colliders\" for the Institut de Sciences Théoriques de " +
+          "Genève (G.IST), at the Villa Boninchi in Geneva.",
+  },
+  {
+    date: "October 2025",
+    title: "Public lecture on AI and particle physics in Marseille",
+    body: "Tobias Golling gave a public lecture on artificial intelligence and " +
+          "high-energy physics in the CPPM conference series \"Mystères au cœur " +
+          "de l'Univers et de la matière\" in Marseille.",
+  },
+  {
+    date: "September 2025",
+    title: "Build Big or Build Smart, Munich",
+    body: "Tobias Golling served on the organising committee of \"Build Big or " +
+          "Build Smart: Examining Scale and Domain Knowledge in Machine Learning " +
+          "for Fundamental Physics\" in Munich.",
+  },
+  {
+    date: "August 2025",
+    title: "Fourth Women in Physics Career Symposium",
+    body: "Tobias Golling was on the organising committee of the fourth edition " +
+          "of the Women in Physics Career Symposium, held in Vienna. He has " +
+          "coordinated the Swiss edition of the symposium since 2023.",
+  },
+  {
+    date: "June 2025",
+    title: "The group at EuCAIFCon 2025 in Cagliari",
+    body: "Tobias Golling was on the organising committee of the second European " +
+          "AI for Fundamental Physics Conference in Cagliari, where he also " +
+          "organised the working group on foundation models, sat on the panel on " +
+          "AI and fundamental physics, and presented \"Machine-learning-driven " +
+          "anomaly detection in dijet events with ATLAS\".",
+  },
+  {
+    date: "June 2025",
+    title: "PhD school: Between Models and Reality",
+    body: "Tobias Golling served on the scientific advisory committee of the " +
+          "\"Between Models and Reality\" PhD school on machine learning in " +
+          "physics, at the Niels Bohr Institute in Copenhagen.",
+  },
+  {
+    date: "2025",
+    title: "International Masterclasses in Geneva",
+    body: "The group again hosted the International Masterclasses at the " +
+          "University of Geneva, where school students spend a day analysing real " +
+          "LHC data alongside physicists.",
+  },
 ];
 
 
@@ -173,14 +240,15 @@ const NEWS = [
    "where" is optional. To add a section, copy a whole { title: ..., rows: [...] }
    block. Rows appear in the order written — newest first reads best.
 
-   NOTE: taken from the old DPNC CV page, so some of it may be out of date —
-   in particular the Geneva title, which the team list gives as
-   "Professeur ordinaire" but which appears below as "Associate Professor".
+   Source: CV_long.docx, the full CV supplied by Tobias in July 2026. The long
+   lists below (talks, events, outreach) are the recent entries only — the full
+   document has more. Everything here is copied from it, nothing invented.
    ------------------------------------------------------------------------ */
 const CV = {
   name: "Tobias Golling",
-  role: "Professeur ordinaire",
+  role: "Professeur ordinaire (Full Professor)",
   affiliation: "Département de Physique Nucléaire et Corpusculaire, University of Geneva",
+  orcid: "0000-0001-8535-6687",
 
   sections: [
     {
@@ -193,45 +261,67 @@ const CV = {
     {
       title: "Appointments",
       rows: [
-        { period: "since 2014", what: "Associate Professor", where: "Université de Genève, DPNC" },
+        { period: "since 2025", what: "Full Professor", where: "Université de Genève, DPNC" },
+        { period: "2014–2025",  what: "Associate Professor", where: "Université de Genève, DPNC" },
         { period: "2014",       what: "Associate Professor", where: "Yale University, Department of Physics" },
         { period: "2009–2014",  what: "Assistant Professor", where: "Yale University, Department of Physics" },
         { period: "2005–2009",  what: "Postdoctoral Fellow", where: "Lawrence Berkeley National Laboratory" },
       ],
     },
     {
-      title: "ATLAS leadership",
-      rows: [
-        { period: "since 2020", what: "Fast Simulation Chain convener" },
-        { period: "2017–2018",  what: "Inner Detector alignment convener" },
-        { period: "2013–2015",  what: "Exotics group convener" },
-        { period: "2011–2013",  what: "Top-Exotics sub-group convener" },
-        { period: "2010–2011",  what: "Data Quality coordinator" },
-        { period: "2009–2010",  what: "Data Quality contact for tracking group" },
-        { period: "2008–2009",  what: "Monitoring coordinator for Inner Detector software" },
-      ],
-    },
-    {
       title: "Prizes, awards and fellowships",
       rows: [
+        { period: "2025",      what: "Breakthrough Prize in Fundamental Physics" },
         { period: "2013–2016", what: "Cottrell Scholar Fellow" },
         { period: "2012–2014", what: "Alfred P. Sloan Research Fellow" },
         { period: "2005–2007", what: "Feodor Lynen Research Fellow", where: "Alexander von Humboldt Foundation" },
         { period: "2006",      what: "Ph.D. prize", where: "Foundation of Physics and Astronomy in Bonn" },
-        { period: "2004",      what: "Heinrich Hertz Fellowship", where: "for research at Fermilab" },
+        { period: "2004",      what: "Heinrich Hertz Fellowship", where: "for a research stay at Fermilab" },
+      ],
+    },
+    {
+      title: "ATLAS leadership",
+      rows: [
+        { period: "since 2020", what: "Team Leader", where: "Geneva ATLAS group" },
+        { period: "since 2020", what: "Team Leader", where: "Geneva ATLAS ITk" },
+        { period: "since 2018", what: "Institute Board representative", where: "Geneva ATLAS Pixel" },
+        { period: "since 2014", what: "Editorial board chair", where: "final sign-off for ATLAS publications and notes" },
+        { period: "2020–2022",  what: "Fast Simulation Chain convener" },
+        { period: "2017–2019",  what: "Contact on Diversity and Inclusion" },
+        { period: "2017–2018",  what: "Inner Detector alignment convener" },
+        { period: "2013–2015",  what: "Exotics group convener" },
+        { period: "2011–2013",  what: "Top-Exotics sub-group convener" },
+        { period: "2010–2011",  what: "Data Quality coordinator" },
+        { period: "2009–2010",  what: "Data Quality contact for the tracking group" },
+        { period: "2008–2009",  what: "Monitoring coordinator for Inner Detector software" },
       ],
     },
     {
       title: "Service and leadership",
       rows: [
+        { period: "since 2025", what: "President of the Conseil de Section", where: "Université de Genève" },
+        { period: "since 2025", what: "Swiss National Contact for ATLAS" },
+        { period: "since 2025", what: "Council Board member", where: "CHART" },
+        { period: "since 2024", what: "Director", where: "Département de Physique Nucléaire et Corpusculaire" },
+        { period: "since 2024", what: "WP4: AI", where: "JENA Computing" },
+        { period: "since 2023", what: "Founding Board member", where: "EuCAIF, the European initiative for AI in fundamental physics" },
+        { period: "since 2023", what: "Coordinator", where: "Swiss Women in Physics Career Symposium" },
         { period: "since 2022", what: "Executive Board member", where: "CHIPP" },
-        { period: "since 2021", what: "Topic editor", where: "Frontiers in AI and Big Data" },
         { period: "since 2021", what: "Collaboration Board deputy", where: "Geneva FCC" },
         { period: "since 2021", what: "Reviewer", where: "NeurIPS" },
-        { period: "since 2020", what: "Team Leader", where: "Geneva ATLAS Group" },
-        { period: "since 2020", what: "Team Leader", where: "Geneva ATLAS ITk" },
-        { period: "since 2018", what: "Institute Board representative", where: "Geneva ATLAS Pixel" },
         { period: "since 2016", what: "Advisory board", where: "Machine Learning HEP school" },
+        { period: "since 2009", what: "Journal referee", where: "PRL, EPJC, JHEP, Frontiers in AI, SciPost" },
+      ],
+    },
+    {
+      title: "Supervision and teaching",
+      rows: [
+        { period: "24", what: "PhD students supervised", where: "University of Geneva" },
+        { period: "16", what: "Postdoctoral researchers supervised", where: "University of Geneva" },
+        { period: "4",  what: "Master students supervised", where: "University of Geneva" },
+        { period: "37", what: "Thesis committees, not as supervisor", where: "25 at Geneva, 12 as external member elsewhere" },
+        { period: "since 2022", what: "Lecturer, Physics Applications of Artificial Intelligence", where: "master level course designed by TG" },
+        { period: "since 2015", what: "Lecturer for Electrodynamique, Physique d'aujourd'hui and Physique générale", where: "bachelor level" },
       ],
     },
   ],
@@ -252,8 +342,10 @@ const CV = {
 
    Copy the entry below to add a talk. An Indico link is a good "link" value.
    ------------------------------------------------------------------------ */
-const TALK_KINDS = ["Invited", "Conference", "Seminar", "Poster"];
+const TALK_KINDS = ["Invited", "Conference", "Seminar", "Lecture", "Poster"];
 
+// The entries for Tobias Golling come from the "Selected invitations" section
+// of his CV and go back to 2019; the full CV lists earlier ones too.
 const TALKS = [
   {
     year: 2026,
@@ -264,6 +356,269 @@ const TALKS = [
     event: "2026 CMS-ATLAS Flavour Tagging Workshop",
     location: "Florence, Italy",
     link: "https://indico.cern.ch/event/1593316/timetable/?view=standard#24-summary-of-softwareftag-fra",
+  },
+  {
+    year: 2026,
+    date: "1 June 2026",
+    kind: "Invited",
+    title: "Seize the AI moment in HEP — an opportunity to rethink how we do physics",
+    speaker: "Tobias Golling",
+    event: "COMETA meeting",
+    location: "Stockholm, Sweden",
+  },
+  {
+    year: 2026,
+    date: "27 April 2026",
+    kind: "Seminar",
+    title: "The AlphaFold moment that hasn't happened (yet) — AI meets the LHC",
+    speaker: "Tobias Golling",
+    event: "AISC Seminar",
+    location: "Geneva, Switzerland",
+  },
+  {
+    year: 2025,
+    date: "11 October 2025",
+    kind: "Invited",
+    title: "AI and high-energy physics",
+    speaker: "Tobias Golling",
+    event: "Cycle de conférences « Mystères au cœur de l'Univers et de la matière »",
+    location: "Marseille, France",
+  },
+  {
+    year: 2025,
+    date: "July 2025",
+    kind: "Lecture",
+    title: "Lecturer at the Como school on Advanced Artificial Intelligence for Precision HEP",
+    speaker: "Tobias Golling",
+    event: "Como School",
+    location: "Como, Italy",
+  },
+  {
+    year: 2025,
+    date: "June 2025",
+    kind: "Conference",
+    title: "Machine-learning-driven anomaly detection in dijet events with ATLAS",
+    speaker: "Tobias Golling",
+    event: "EuCAIFCon 2025 — also panel on AI and fundamental physics, and organiser of the foundation-models working group",
+    location: "Cagliari, Italy",
+  },
+  {
+    year: 2025,
+    date: "May 2025",
+    kind: "Seminar",
+    title: "Scientific discovery in the era of AI",
+    speaker: "Tobias Golling",
+    event: "UNIGE colloquium",
+    location: "Geneva, Switzerland",
+  },
+  {
+    year: 2025,
+    date: "May 2025",
+    kind: "Seminar",
+    title: "Transformative potential of machine learning in high-energy physics",
+    speaker: "Tobias Golling",
+    event: "Seminar, University of Würzburg",
+    location: "Würzburg, Germany",
+  },
+  {
+    year: 2024,
+    kind: "Seminar",
+    title: "Scientific discovery in the era of AI",
+    speaker: "Tobias Golling",
+    event: "DPNC seminar",
+    location: "Geneva, Switzerland",
+  },
+  {
+    year: 2024,
+    kind: "Invited",
+    title: "Conditional generation — in the LHC context",
+    speaker: "Tobias Golling",
+    event: "PHYSTAT workshop « Statistics meets ML » in particle physics and astrophysics",
+    location: "London, UK",
+  },
+  {
+    year: 2024,
+    kind: "Invited",
+    title: "AI for future accelerators",
+    speaker: "Tobias Golling",
+    event: "Corfu 2024 workshop on future accelerators",
+    location: "Corfu, Greece",
+  },
+  {
+    year: 2024,
+    kind: "Lecture",
+    title: "Advanced deep learning",
+    speaker: "Tobias Golling",
+    event: "IN2P3 School of Statistics",
+    location: "Carry-le-Rouet, France",
+  },
+  {
+    year: 2024,
+    kind: "Conference",
+    title: "Working group on foundation models, and panel on AI infrastructure",
+    speaker: "Tobias Golling",
+    event: "EuCAIFCon 2024",
+    location: "Amsterdam, Netherlands",
+  },
+  {
+    year: 2024,
+    kind: "Invited",
+    title: "Accelerate discovery with AI",
+    speaker: "Tobias Golling",
+    event: "Symposium 20. Promotionspreis",
+    location: "Bonn, Germany",
+  },
+  {
+    year: 2023,
+    kind: "Invited",
+    title: "Optimal search strategy",
+    speaker: "Tobias Golling",
+    event: "ATLAS HDBS and Exotics 2023 workshop",
+    location: "Barcelona, Spain",
+  },
+  {
+    year: 2023,
+    kind: "Seminar",
+    title: "Automating and accelerating scientific discovery in HEP with generative models",
+    speaker: "Tobias Golling",
+    event: "Seminar, Research Center for Statistics, UNIGE",
+    location: "Geneva, Switzerland",
+  },
+  {
+    year: 2023,
+    kind: "Lecture",
+    title: "Bringing ML back to physics",
+    speaker: "Tobias Golling",
+    event: "ML in High Energy Physics Summer School",
+    location: "Erice, Italy",
+  },
+  {
+    year: 2023,
+    kind: "Seminar",
+    title: "Generative models — opportunities in particle physics",
+    speaker: "Tobias Golling",
+    event: "Seminar, University of Tokyo",
+    location: "Tokyo, Japan",
+  },
+  {
+    year: 2023,
+    kind: "Invited",
+    title: "Machine learning at HEP",
+    speaker: "Tobias Golling",
+    event: "International Conference on the Physics of the Two Infinities",
+    location: "Kyoto, Japan",
+  },
+  {
+    year: 2023,
+    kind: "Invited",
+    title: "Generative models in HEP",
+    speaker: "Tobias Golling",
+    event: "ML at HEP workshop, KEK",
+    location: "Tsukuba, Japan",
+  },
+  {
+    year: 2023,
+    kind: "Lecture",
+    title: "Collider physics",
+    speaker: "Tobias Golling",
+    event: "CHIPP Winter School of Particle Physics",
+    location: "Leukerbad, Switzerland",
+  },
+  {
+    year: 2022,
+    kind: "Lecture",
+    title: "Graph neural networks for HEP",
+    speaker: "Tobias Golling",
+    event: "Active Training Course « Advanced Deep Learning »",
+    location: "Meinerzhagen, Germany",
+  },
+  {
+    year: 2022,
+    kind: "Conference",
+    title: "ML in experimental HEP",
+    speaker: "Tobias Golling",
+    event: "ML4Jets 2022, Rutgers University",
+    location: "New Jersey, USA",
+  },
+  {
+    year: 2022,
+    kind: "Invited",
+    title: "Crash course in ML4HEP",
+    speaker: "Tobias Golling",
+    event: "ITK Weizmann workshop on machine learning and HEP",
+    location: "Rehovot, Israel",
+  },
+  {
+    year: 2022,
+    kind: "Lecture",
+    title: "ML at colliders",
+    speaker: "Tobias Golling",
+    event: "HEP graduate workshop",
+    location: "Algeria",
+  },
+  {
+    year: 2021,
+    kind: "Invited",
+    title: "Machine learning and particle physics",
+    speaker: "Tobias Golling",
+    event: "Physics Applications of AI Day, UNIGE",
+    location: "Geneva, Switzerland",
+  },
+  {
+    year: 2019,
+    kind: "Invited",
+    title: "Machine learning and particle physics",
+    speaker: "Tobias Golling",
+    event: "Computer Science Day, UNIGE",
+    location: "Geneva, Switzerland",
+  },
+  {
+    year: 2019,
+    kind: "Invited",
+    title: "Generative models in high energy physics",
+    speaker: "Tobias Golling",
+    event: "Artificial Intelligence for Science, Industry and Society",
+    location: "Mexico City, Mexico",
+  },
+  {
+    year: 2019,
+    kind: "Invited",
+    title: "Hashing and metric learning for track reconstruction",
+    speaker: "Tobias Golling",
+    event: "Artificial Intelligence for Science, Industry and Society",
+    location: "Mexico City, Mexico",
+  },
+  {
+    year: 2019,
+    kind: "Invited",
+    title: "Generative models in HEP",
+    speaker: "Tobias Golling",
+    event: "ITK Weizmann workshop on machine learning and HEP",
+    location: "Rehovot, Israel",
+  },
+  {
+    year: 2019,
+    kind: "Invited",
+    title: "Machine learning at ATLAS",
+    speaker: "Tobias Golling",
+    event: "Game of Flavours",
+    location: "Dubrovnik, Croatia",
+  },
+  {
+    year: 2019,
+    kind: "Seminar",
+    title: "Machine learning at ATLAS",
+    speaker: "Tobias Golling",
+    event: "Colloquium, University of Dortmund",
+    location: "Dortmund, Germany",
+  },
+  {
+    year: 2019,
+    kind: "Seminar",
+    title: "Machine learning at ATLAS",
+    speaker: "Tobias Golling",
+    event: "Colloquium, University of Heidelberg",
+    location: "Heidelberg, Germany",
   },
 ];
 

@@ -414,8 +414,12 @@ function renderCV(target) {
   const name = el("cv-name");
   if (name) name.textContent = CV.name || "";
   const role = el("cv-role");
-  if (role) role.textContent = [CV.role, CV.affiliation].filter(Boolean).join(" &middot; ")
-    .replace(" &middot; ", " · ");
+  if (role) {
+    const orcid = CV.orcid
+      ? `<a href="https://orcid.org/${esc(CV.orcid)}">ORCID ${esc(CV.orcid)}</a>` : "";
+    role.innerHTML = [CV.role, CV.affiliation, orcid]
+      .filter(Boolean).map((s) => (s === orcid ? s : esc(s))).join(" &middot; ");
+  }
 }
 
 /* ------------------------------------------------- shared header / footer --- */

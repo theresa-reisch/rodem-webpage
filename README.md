@@ -160,8 +160,5 @@ updater, so prefer `SELECT`.
 - [ ] Add member photos — `images/team/` is empty, so everyone shows initials
 - [ ] Rewrite the four research cards in `index.html` in the group's own words
 - [ ] Check the 40 selected papers and the theme each one sits in
-- [ ] Departure years for Lukas Ehrke and Johnny Raine (`left:` in the Alumni list)
 - [ ] Blurbs for the alumni who have none
-- [ ] The CV says "Associate Professor" at Geneva but the team list says
-      "Professeur ordinaire" — confirm the current title and the year
 - [ ] Decide whether the group name change means renaming the repo / GitHub org

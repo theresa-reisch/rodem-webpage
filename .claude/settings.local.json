@@ -36,7 +36,18 @@
       "Bash(timeout 300 python3 tools/update.py)",
       "Bash(echo \"exit=$?\")",
       "Bash(git status *)",
-      "Bash(python3 *)"
+      "Bash(python3 *)",
+      "WebFetch(domain:indico.physi.uni-heidelberg.de)",
+      "Bash(node -e \"1\")",
+      "Bash(echo \"--- exit: $? \\(no matches = clean\\)\")",
+      "Bash(git rm *)",
+      "Bash(git commit *)",
+      "Bash(git add *)",
+      "Bash(sed -n '/## Still to do/,$p' README.md)",
+      "Bash(git fetch *)",
+      "Bash(git rebase *)",
+      "Bash(git stash *)",
+      "Bash(git checkout *)"
     ]
   }
 }
