@@ -57,7 +57,7 @@ const TEAM = [
       {
         name: "Tobias Golling",
         role: "Professeur ordinaire",
-        photo: "",
+        photo: "images/team/Tobias.png",
         blurb: "Experimental particle physics and machine learning; ATLAS experiment at CERN.",
         links: {
           cv: "cv.html",
@@ -91,6 +91,13 @@ const TEAM = [
         blurb: "Optimal Detector Design for Future Experiments",
         links: {},
       },
+      {
+        name: "André Aimé Atangana",
+        role: "Postdoctoral Researcher",
+        photo: "images/team/Andre.jpeg",
+        blurb: "Part of the Swiss Government Excellence Scholarchip. Decoding LHC exotics via amplitude analysis and deep learning.",
+        links: {},
+      },
     ],
   },
   {
@@ -102,7 +109,7 @@ const TEAM = [
       { name: "Stephen Mulligan",   role: "PhD Student", photo: "", blurb: "Searches for New Physics and Optimal Detector Design.", links: {} },
       { name: "Ivan Oleksiyuk",     role: "PhD Student", photo: "", blurb: "Co-supervised with Prof. Voloshynovskiy. Searches for New Physics.", links: {} },
       { name: "Giovanni Ottaviano", role: "PhD Student", photo: "", blurb: "Co-supervised with Prof. Biau (Sorbonne University). Foundation Models and Agentic AI.", links: {} },
-      { name: "Theresa Reisch",     role: "PhD Student", photo: "", blurb: "Searches for New Physics and Flavour Tagging in ATLAS.", links: {} },
+      { name: "Theresa Reisch",     role: "PhD Student", photo: "images/team/Theresa.Reisch.jpeg", blurb: "Searches for New Physics and Flavour Tagging in ATLAS.", links: {} },
       { name: "Matej Repik",        role: "PhD Student", photo: "", blurb: "ATLAS ITk Upgrade Development.", links: {} },
       { name: "Vincent Riechers",   role: "PhD Student", photo: "", blurb: "Optimal Detector Design.", links: {} },
       { name: "Franck Rothen",      role: "PhD Student", photo: "", blurb: "Uncertainty Aware Classification.", links: {} },
@@ -138,6 +145,13 @@ const TEAM = [
    link is optional; delete the line if there's nothing to link to.
    ------------------------------------------------------------------------ */
 const NEWS = [
+  {
+    date: "July 2026",
+    title: "André Aimé Atangana joins the group",
+    body: "André Aimé Atangana joins the group as a postdoctoral researcher, " +
+          "supported by a Swiss Government Excellence Scholarship. His work " +
+          "decodes LHC exotics via amplitude analysis and deep learning.",
+  },
   {
     date: "July 2026",
     title: "Four abstracts submitted to EuCAIFCon 2026",
