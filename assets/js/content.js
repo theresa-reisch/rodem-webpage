@@ -107,7 +107,7 @@ const TEAM = [
       { name: "Pradyun Hebbar",     role: "PhD Student", photo: "", blurb: "Foundation Models and Agentic AI.", links: {} },
       { name: "Andreas Hermansen",  role: "PhD Student", photo: "", blurb: "Co-supervised with Prof. Voloshynovskiy. Foundation Models and Event Reconstruction", links: {} },
       { name: "Stephen Mulligan",   role: "PhD Student", photo: "", blurb: "Searches for New Physics and Optimal Detector Design.", links: {} },
-      { name: "Ivan Oleksiyuk",     role: "PhD Student", photo: "", blurb: "Co-supervised with Prof. Voloshynovskiy. Searches for New Physics.", links: {} },
+      { name: "Ivan Oleksiyuk",     role: "PhD Student", photo: "images/team/Ivan.png", blurb: "Co-supervised with Prof. Voloshynovskiy. Searches for New Physics.", links: {} },
       { name: "Giovanni Ottaviano", role: "PhD Student", photo: "", blurb: "Co-supervised with Prof. Biau (Sorbonne University). Foundation Models and Agentic AI.", links: {} },
       { name: "Theresa Reisch",     role: "PhD Student", photo: "images/team/Theresa.png", blurb: "Searches for New Physics and Flavour Tagging in ATLAS.", links: {} },
       { name: "Matej Repik",        role: "PhD Student", photo: "", blurb: "ATLAS ITk Upgrade Development.", links: {} },
@@ -123,16 +123,16 @@ const TEAM = [
       // "left" is the year they finished/left. It is displayed automatically
       // next to the role — don't repeat it in the blurb. Use the blurb for
       // where they are now. Anyone without a "left" year is listed last.
-      { name: "Malte Algren",       role: "PhD Student", photo: "", left: 2026, blurb: "", links: {} },
-      { name: "Tomke Schröer",      role: "PhD Student", photo: "", left: 2026, blurb: "", links: {} },
+      { name: "Malte Algren",       role: "PhD Student", photo: "images/team/Malte.png", left: 2026, blurb: "", links: {} },
+      { name: "Tomke Schröer",      role: "PhD Student", photo: "images/team/Tomke.png", left: 2026, blurb: "", links: {} },
       { name: "Alexandra Kolev",      role: "Master Student", photo: "", left: 2025, blurb: " ", links: {} },
       { name: "Lucrezia Boccardo",      role: "Visiting PhD Student", photo: "", left: 2025, blurb: "PhD Student in Genoa.", links: {} },
       { name: "Yusong Tian",      role: "Postdoctoral Researcher", photo: "", left: 2025, blurb: " ", links: {} },
-      { name: "Samuel Klein",       role: "PhD Student", photo: "", left: 2025, blurb: "Now Postdoctoral Researcher at SLAC.", links: {} },
-      { name: "Matthew Leigh",      role: "PhD Student", photo: "", left: 2025, blurb: "Now ML-Researcher at Meta.", links: {} },
-      { name: "Debajyoti Sengupta", role: "PhD Student", photo: "", left: 2024, blurb: "Now Postdoctoral Researcher at EPFL.", links: {} },
-      { name: "Lukas Ehrke",        role: "PhD Student", photo: "", left: 2023, blurb: "", links: {} },
-      { name: "Johnny Raine",      role: "Postdoctoral Researcher", photo: "", left: 2024, blurb: " ", links: {} },
+      { name: "Samuel Klein",       role: "PhD Student", photo: "images/team/Sam.png", left: 2025, blurb: "Now Postdoctoral Researcher at SLAC.", links: {} },
+      { name: "Matthew Leigh",      role: "PhD Student", photo: "images/team/Matt.png", left: 2025, blurb: "Now ML-Researcher at Meta.", links: {} },
+      { name: "Debajyoti Sengupta", role: "PhD Student", photo: "images/team/Deb.png", left: 2024, blurb: "Now Postdoctoral Researcher at EPFL.", links: {} },
+      { name: "Lukas Ehrke",        role: "PhD Student", photo: "images/team/Lukas.png", left: 2023, blurb: "", links: {} },
+      { name: "Johnny Raine",      role: "Postdoctoral Researcher", photo: "images/team/Johnny.png", left: 2024, blurb: " ", links: {} },
     ],
   },
 ];
