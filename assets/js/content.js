@@ -147,13 +147,6 @@ const TEAM = [
 const NEWS = [
   {
     date: "July 2026",
-    title: "André Aimé Atangana joins the group",
-    body: "André Aimé Atangana joins the group as a postdoctoral researcher, " +
-          "supported by a Swiss Government Excellence Scholarship. His work " +
-          "decodes LHC exotics via amplitude analysis and deep learning.",
-  },
-  {
-    date: "July 2026",
     title: "Four abstracts submitted to EuCAIFCon 2026",
     body: "Pradyun Hebbar, Giovanni Ottaviano, Andreas Hermansen and Theresa Reisch " +
           "have submitted abstracts to EuCAIFCon 2026, the European AI for " +
