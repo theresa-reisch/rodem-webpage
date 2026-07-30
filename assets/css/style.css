@@ -295,6 +295,13 @@ img.avatar { display: block; } /* photos are replaced elements, not flex boxes *
 .site-footer a { color: var(--muted); }
 .site-footer a:hover { color: var(--accent); }
 .footer-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+/* The plain-HTML list of every page. flex-basis:100% gives it the whole first
+   row of the footer, leaving the copyright and outside links side by side
+   underneath as before. */
+.footer-sitemap {
+  flex-basis: 100%; display: flex; gap: 1.25rem; flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
 
 .empty { color: var(--muted); font-style: italic; }
 

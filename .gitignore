@@ -11,5 +11,12 @@ __pycache__/
 # Written by tools/watch.py; regenerated on every run.
 drafts/
 
+# Working files kept beside the site but never part of it. The repository is
+# public and every tracked file is served from the web root, so a stray commit
+# of these would publish them. Source material and hand-over artefacts.
+CV_long.docx
+rodem-site-update.patch
+rodem-webpage-updated.zip
+
 # macOS
 .DS_Store

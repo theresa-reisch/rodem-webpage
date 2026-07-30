@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Every indexable page on the site. The two redirect stubs
+     (publications.html, talks.html) are left out on purpose.
+     Submit this at https://search.google.com/search-console -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://dpnc.unige.ch/golling/</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://dpnc.unige.ch/golling/vision.html</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://dpnc.unige.ch/golling/research.html</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://dpnc.unige.ch/golling/output.html</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://dpnc.unige.ch/golling/join.html</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://dpnc.unige.ch/golling/outreach.html</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://dpnc.unige.ch/golling/news.html</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://dpnc.unige.ch/golling/cv.html</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+</urlset>
