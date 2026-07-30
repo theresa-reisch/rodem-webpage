@@ -1,6 +1,10 @@
 name: Update publications
 
 # Runs on GitHub's servers, so your own machine can be off.
+#
+# This job refreshes what INSPIRE already knows about papers that are on the
+# site. Noticing *new* papers, and drafting the news item and student project
+# that go with them, is a separate job — see watch.yml.
 on:
   schedule:
     # Once a day at 06:00 UTC. GitHub may delay a run when it is busy.
@@ -15,7 +19,7 @@ on:
 permissions:
   contents: write
 
-# If a run is still going when the next hour comes round, skip the new one
+# If a run is still going when the next one comes round, skip the new one
 # rather than having two jobs push at once.
 concurrency:
   group: update-publications
@@ -33,6 +37,18 @@ jobs:
 
       - name: Fetch publications and metrics from INSPIRE-HEP
         run: python3 tools/update.py
+
+      - name: Bump the cache-buster so edits appear immediately
+        run: python3 tools/bump_version.py
+
+      # A commit — any commit — resets GitHub's 60-day inactivity timer.
+      # Without this, every scheduled workflow in this repository switches
+      # itself off over a quiet summer, which is exactly the failure this
+      # whole setup exists to prevent.
+      - name: Heartbeat
+        run: |
+          mkdir -p .github
+          date -u +%FT%TZ > .github/heartbeat
 
       - name: Commit and push if anything changed
         run: |

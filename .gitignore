@@ -1,0 +1,15 @@
+# Local editor and assistant configuration — personal, and specific to one
+# machine. It should never have been in a public repository.
+.claude/
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+
+# Written by tools/watch.py; regenerated on every run.
+drafts/
+
+# macOS
+.DS_Store

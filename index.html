@@ -3,117 +3,114 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Golling Group — Machine Learning for Particle Physics | University of Geneva</title>
-<meta name="description" content="The Golling Group at the University of Geneva develops machine learning methods for experimental particle physics at the LHC, with the ATLAS experiment at CERN.">
-<link rel="stylesheet" href="assets/css/style.css?v=27">
+<title>RODEM — machine learning for experimental particle physics | Golling Group, UNIGE</title>
+<meta name="description" content="RODEM (Golling Group, University of Geneva) develops machine learning for the ATLAS experiment at CERN: anomaly detection, generative models, foundation models, reconstruction and detector design.">
+<link rel="icon" href="images/logo/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/style.css?v=29">
 </head>
 <body>
 
 <a class="skip" href="#main">Skip to content</a>
 
-<!-- ===================== HEADER (same on every page) ====================== -->
+<!-- ===================== HEADER (same on every page) ======================
+     The menu itself is built from NAV in assets/js/content.js, so adding a
+     tab is a one-line edit there — not an edit to every page.
+     ==================================================================== -->
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="index.html"><span data-site-name>Golling Group</span></a>
-    <nav class="site-nav" aria-label="Main">
-      <a href="index.html" aria-current="page">Home</a>
-      <a href="index.html#research">Research</a>
-      <a href="index.html#team">Team</a>
-      <a href="publications.html">Publications</a>
-      <a href="talks.html">Talks</a>
-      <a href="news.html">News</a>
-    </nav>
+    <a class="brand" href="index.html">
+      <img class="brand-mark" src="images/logo/rodem-mark-small.svg" alt="" aria-hidden="true">
+      <span class="brand-text">
+        <span data-site-name>RODEM</span>
+        <span class="brand-sub" data-site-sub>Golling Group</span>
+      </span>
+    </a>
+    <button id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Main"></nav>
   </div>
 </header>
 
 <main id="main">
 
   <!-- ============================ HERO ==================================
-       EDIT THIS TEXT DIRECTLY. This is the first thing visitors and search
+       EDIT THIS TEXT DIRECTLY. It is the first thing visitors and search
        engines read, so it lives in the page rather than in content.js.
+       The <title> and <meta description> above carry the keywords; the
+       headline is free to be a sentence rather than a list of nouns.
        ================================================================== -->
   <section class="hero">
     <div class="wrap">
-      <h1>Machine learning for experimental particle physics</h1>
+      <h1>Beyond the Standard&nbsp;Model,<br>beyond supervised&nbsp;learning.</h1>
       <p class="lede">
-        We are the <strong>Golling Group</strong> at the University of Geneva. We develop
-        deep learning methods for the analysis of data from the
-        <strong>ATLAS experiment</strong> at the Large Hadron Collider — building tools that
-        simulate detectors faster, reconstruct events more precisely, and search for
-        new physics without assuming in advance what it looks like.
+        We build the machine learning that searches for new physics. At CERN&rsquo;s
+        <strong>ATLAS experiment</strong>, we ask the LHC&rsquo;s data what it contains
+        that the Standard Model cannot explain.
       </p>
-      <p class="affil" data-site-institution></p>
+      <p class="affil"><span data-site-institution></span></p>
     </div>
   </section>
 
-  <!-- ========================== RESEARCH ================================
-       EDIT THESE CARDS DIRECTLY. To add one, copy a whole <article> block.
-       These themes were drafted from the group's publication record —
-       please rewrite them in your own words.
+  <!-- ==================== THREE DOORS ===================================
+       One hero for everyone, then three doors, because a prospective
+       master's student and a grant panel want different pages.
        ================================================================== -->
+  <div class="wrap">
+    <section class="doors" aria-label="Where to start">
+      <a class="card door" href="outreach.html">
+        <p class="eyebrow">New here</p>
+        <h3>What we are looking for</h3>
+        <p>The Standard Model, what is missing from it, and why a machine is better
+           at noticing surprises than we are. No physics required.</p>
+      </a>
+      <a class="card door" href="join.html">
+        <p class="eyebrow">Students</p>
+        <h3>Thesis projects</h3>
+        <p>Master&rsquo;s projects available now, how PhD funding works here, and what
+           we expect you to already know.</p>
+      </a>
+      <a class="card door" href="research.html">
+        <p class="eyebrow">Colleagues</p>
+        <h3>What we build</h3>
+        <p>Foundation models, optimisation, reconstruction, generation, exploration
+           &mdash; and every paper, sorted by which of the five it belongs to.</p>
+      </a>
+    </section>
+  </div>
+
+  <!-- ========================== RESEARCH TEASER ========================= -->
   <section class="section" id="research">
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Research</p>
         <h2>What we work on</h2>
-        <p>
-          Our work sits between machine learning and collider physics: methods
-          developed here are designed to be deployed on real LHC data.
-        </p>
+        <p>A forge is where tools are made. We are a physics group, not a toolmaker,
+           but the honest description of most of our days is that we build the
+           instruments a search needs &mdash; and then we run the search.</p>
       </div>
 
-      <div class="grid-research">
-
-        <article class="card">
-          <h3>Anomaly detection</h3>
-          <p>
-            Model-agnostic searches for new physics that do not presuppose a specific
-            signal, using unsupervised and weakly supervised learning to find rare,
-            unexpected structure in collision data.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Generative models</h3>
-          <p>
-            Normalizing flows, diffusion models and autoencoders for fast simulation of
-            particle showers and event generation — replacing expensive Monte Carlo
-            with learned surrogates.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Reconstruction &amp; tagging</h3>
-          <p>
-            Neural approaches to jet physics, heavy-flavour tagging and particle
-            identification, improving how raw detector signals become physics objects.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Physics at the LHC</h3>
-          <p>
-            Measurements and searches with the ATLAS detector — top quark and Higgs
-            boson properties, and direct searches for physics beyond the Standard Model.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>ATLAS Inner Tracker</h3>
-          <p>
-            Assembly, construction and quality control of the Inner Tracker Pixel
-            Outer Barrel — a new, state-of-the-art hybridised pixel detector for
-            ATLAS operations in Run 4 and beyond.
-          </p>
-        </article>
-
+      <div class="figure-split">
+        <div>
+          <ul class="forge-strip">
+            <li><a href="research.html#f"><span class="g">F</span>oundation models</a></li>
+            <li><a href="research.html#o"><span class="g">O</span>ptimisation</a></li>
+            <li><a href="research.html#r"><span class="g">R</span>econstruction</a></li>
+            <li><a href="research.html#g"><span class="g">G</span>eneration</a></li>
+            <li><a href="research.html#e"><span class="g">E</span>xploration</a></li>
+          </ul>
+          <p>The first four are what we make. The last is what we make them for.
+             <a href="research.html">Where the tools for discovery get made &rarr;</a></p>
+        </div>
+        <figure class="band">
+          <img src="images/hero/atlas-event-transverse.jpg" width="900" height="900"
+               alt="An ATLAS collision seen end-on: tracks radiating from the collision point, with one muon crossing the whole detector."
+               loading="lazy">
+          <figcaption>ATLAS candidate event pp&nbsp;&rarr;&nbsp;H(&rarr;bb) + W(&rarr;&micro;&nu;), Run 338712, Event 335908183. ATLAS Experiment &copy; 2017 CERN.</figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
-  <!-- ============================ TEAM ==================================
-       Built automatically from the TEAM list in assets/js/content.js
-       ================================================================== -->
+  <!-- ============================ TEAM ================================== -->
   <section class="section" id="team">
     <div class="wrap">
       <div class="section-head">
@@ -126,9 +123,7 @@
     </div>
   </section>
 
-  <!-- ============================ NEWS ==================================
-       Shows the 3 most recent items from NEWS in content.js
-       ================================================================== -->
+  <!-- ============================ NEWS ================================== -->
   <section class="section" id="news">
     <div class="wrap">
       <div class="section-head">
@@ -158,8 +153,8 @@
         </div>
         <div>
           <h3>Joining us</h3>
-          <p>We welcome enquiries from prospective PhD students and postdocs.
-             Please get in touch by email.</p>
+          <p>Master&rsquo;s projects, PhD openings and the fellowship routes we know well
+             are all on the <a href="join.html">Join us</a> page.</p>
         </div>
       </div>
     </div>
@@ -167,7 +162,6 @@
 
 </main>
 
-<!-- ===================== FOOTER (same on every page) ====================== -->
 <footer class="site-footer">
   <div class="wrap">
     <p>&copy; <span id="footer-year"></span> <span data-site-name></span>, University of Geneva</p>
@@ -175,7 +169,7 @@
   </div>
 </footer>
 
-<script src="assets/js/content.js?v=27"></script>
-<script src="assets/js/render.js?v=27"></script>
+<script src="assets/js/content.js?v=29"></script>
+<script src="assets/js/render.js?v=29"></script>
 </body>
 </html>

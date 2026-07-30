@@ -1,0 +1,35 @@
+name: Freshness audit
+
+# Once a week, check what has quietly gone stale — a position whose deadline has
+# passed, a draft nobody finished, a pull request nobody reviewed, two months
+# with no news — and record it in ONE issue that is edited in place.
+#
+# One issue, not seven new ones a week. A nagging system that is itself noisy
+# gets muted within a month, and then nothing gets nagged about at all.
+on:
+  schedule:
+    - cron: "0 7 * * 1"       # Mondays, 07:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Audit and update the freshness issue
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python3 tools/freshness.py --issue

@@ -60,54 +60,55 @@ def metrics():
 # ---- curated selection: title fragment -> category -------------------------
 # Only the group's own ML work (no D0-era, no FCC/hardware reports).
 SELECT = [
- # anomaly detection & searches
- ("Strong CWoLa",                                   "anomaly"),
- ("TRANSIT your events",                            "anomaly"),
- ("Robust resonant anomaly detection with NPLM",    "anomaly"),
- ("Accelerating template generation",               "anomaly"),
- ("skycurtains",                                    "anomaly"),
- ("Cluster Scanning",                               "anomaly"),
- ("Improving new physics searches with diffusion",  "anomaly"),
- ("interplay of machine learning-based resonant",   "anomaly"),
- ("CURTAINs flows for flows",                       "anomaly"),
- ("The Mass-ive Issue",                             "anomaly"),
- ("Flow-enhanced transportation",                   "anomaly"),
- ("CURTAINs for your sliding window",               "anomaly"),
- ("Variational autoencoders for anomalous jet",     "anomaly"),
- ("Morphing one dataset into another",              "anomaly"),
- # generative models & simulation
- ("EPiC-ly Fast Particle Cloud Generation",         "generative"),
- ("Faster diffusion model with improved quality",   "generative"),
- ("PC-JeDi",                                        "generative"),
- ("Generating variable length full events",         "generative"),
- ("Turbo-Sim",                                      "generative"),
- ("Deep Generative Models for Fast Shower",         "generative"),
- ("Variational inference for pile-up removal",      "generative"),
- # foundation models & representation learning
- ("Is Tokenization Needed for Masked Particle",     "foundation"),
- ("Masked particle modeling on sets",               "foundation"),
- ("Large physics models",                           "foundation"),
- ("RODEM Jet Datasets",                             "foundation"),
- ("Mind the Gap",                                   "foundation"),
- # reconstruction, tagging & detector
- ("Fast and improved neutrino reconstruction",      "recon"),
- (r"\nu$-flows",                                    "recon"),
- ("Topological reconstruction of particle physics", "recon"),
- ("Hashing and metric learning",                    "recon"),
- ("Similarity hashing",                             "recon"),
- ("Decorrelation using optimal transport",          "recon"),
- ("Decorrelation with conditional normalizing",     "recon"),
- ("End-to-end optimal detector design",             "recon"),
- ("Enhancing generalization in high-energy",        "recon"),
- ("Flow Away your Differences",                     "recon"),
+ # ---- F: foundation models -------------------------------------------------
+ ("Is Tokenization Needed for Masked Particle",     "f"),
+ ("Masked particle modeling on sets",               "f"),
+ ("Large physics models",                           "f"),
+ ("RODEM Jet Datasets",                             "f"),
+ # ---- O: optimisation — calibration, decorrelation, robustness, design ------
+ ("Mind the Gap",                                   "o"),   # OT maps for inference, not pre-training
+ ("End-to-end optimal detector design",             "o"),
+ ("Enhancing generalization in high-energy",        "o"),
+ ("Decorrelation using optimal transport",          "o"),
+ ("Decorrelation with conditional normalizing",     "o"),
+ ("Flow Away your Differences",                     "o"),
+ # ---- R: reconstruction ----------------------------------------------------
+ ("Fast and improved neutrino reconstruction",      "r"),
+ (r"\nu$-flows",                                    "r"),
+ ("Topological reconstruction of particle physics", "r"),
+ ("Hashing and metric learning",                    "r"),
+ ("Similarity hashing",                             "r"),
+ ("Variational inference for pile-up removal",      "r"),   # diffusion method, but it delivers a cleaned event
+ # ---- G: generation --------------------------------------------------------
+ ("EPiC-ly Fast Particle Cloud Generation",         "g"),
+ ("Faster diffusion model with improved quality",   "g"),
+ ("PC-JeDi",                                        "g"),
+ ("Generating variable length full events",         "g"),
+ ("Turbo-Sim",                                      "g"),
+ ("Deep Generative Models for Fast Shower",         "g"),
+ # ---- E: exploration -------------------------------------------------------
+ ("Strong CWoLa",                                   "e"),
+ ("TRANSIT your events",                            "e"),
+ ("Robust resonant anomaly detection with NPLM",    "e"),
+ ("Accelerating template generation",               "e"),
+ ("skycurtains",                                    "e"),
+ ("Cluster Scanning",                               "e"),
+ ("Improving new physics searches with diffusion",  "e"),
+ ("interplay of machine learning-based resonant",   "e"),
+ ("CURTAINs flows for flows",                       "e"),
+ ("The Mass-ive Issue",                             "e"),
+ ("Flow-enhanced transportation",                   "e"),
+ ("CURTAINs for your sliding window",               "e"),
+ ("Variational autoencoders for anomalous jet",     "e"),
+ ("Morphing one dataset into another",              "e"),
 ]
 
 # ---- ATLAS papers the user asked for, by INSPIRE record id -----------------
 ATLAS_IDS = {
- 2926001: "recon",     # Transforming jet flavour tagging at ATLAS
- 2923234: "recon",     # continuous calibration of flavour-tagging via optimal transport
- 2605177: "recon",     # ATLAS flavour-tagging algorithms Run 2
- 2880274: "anomaly",   # weakly supervised AD, dijet final state
+ 2926001: "r",     # Transforming jet flavour tagging at ATLAS  (Nature Communications)
+ 2923234: "o",     # continuous calibration of flavour tagging via optimal transport
+ 2605177: "r",     # ATLAS flavour-tagging algorithms, Run 2
+ 2880274: "e",     # weakly supervised anomaly detection, dijet final state
 }
 
 def fetch(rid):

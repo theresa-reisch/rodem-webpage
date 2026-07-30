@@ -1,0 +1,39 @@
+name: Add a talk
+description: Add a talk, seminar or lecture to the website
+title: "Talk: "
+labels: ["talk"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        There is no reliable public API that lists "talks by person X", so this
+        one step stays manual. It takes about fifteen seconds, and it is the only
+        part of the site nobody can automate for you.
+  - type: input
+    id: speaker
+    attributes: { label: Speaker, placeholder: Theresa Reisch }
+    validations: { required: true }
+  - type: input
+    id: title
+    attributes: { label: Talk title }
+    validations: { required: true }
+  - type: input
+    id: event
+    attributes: { label: Event, placeholder: EuCAIFCon 2026 }
+    validations: { required: true }
+  - type: input
+    id: location
+    attributes: { label: Place, placeholder: Heidelberg, Germany }
+  - type: input
+    id: date
+    attributes: { label: Date, placeholder: 25 August 2026 }
+    validations: { required: true }
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options: [Invited, Conference, Seminar, Lecture, Poster]
+    validations: { required: true }
+  - type: input
+    id: slides
+    attributes: { label: Link to slides or the event page (optional) }

@@ -1,0 +1,66 @@
+name: Checks
+
+# Runs on every pull request, including the ones the bot opens. Fast, no
+# dependencies, and it catches the two things that actually go wrong with a
+# content-file-driven site: a missing comma, and a position being advertised
+# that does not exist.
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: content.js and render.js are valid JavaScript
+        run: |
+          node --check assets/js/content.js
+          node --check assets/js/render.js
+
+      - name: Every publication has a category that exists
+        run: |
+          node -e '
+            const fs = require("fs");
+            const src = fs.readFileSync("assets/js/content.js", "utf8");
+            const c = new Function(src + ";return {PUB_CATEGORIES,PUBLICATIONS};")();
+            const ids = new Set(c.PUB_CATEGORIES.map((x) => x.id));
+            const bad = c.PUBLICATIONS.filter((p) => !ids.has(p.category));
+            if (bad.length) {
+              console.error("Unknown category on:", bad.map((p) => p.title));
+              process.exit(1);
+            }
+            console.log(`${c.PUBLICATIONS.length} papers, all in ${[...ids].join("/")}.`);
+          '
+
+      - name: No position is advertised that does not exist
+        run: python3 tools/check_positions.py
+
+      - name: Every internal link points at a file that is there
+        run: |
+          python3 - <<'PY'
+          import pathlib, re, sys
+          bad = []
+          for page in pathlib.Path(".").glob("*.html"):
+              for href in re.findall(r'href="([^"#?:]+\.html)', page.read_text(encoding="utf-8")):
+                  if not pathlib.Path(href).exists():
+                      bad.append(f"{page.name} -> {href}")
+          for js in pathlib.Path("assets/js").glob("*.js"):
+              for href in re.findall(r'"([a-z0-9\-]+\.html)', js.read_text(encoding="utf-8")):
+                  if not pathlib.Path(href).exists():
+                      bad.append(f"{js.name} -> {href}")
+          print("\n".join("broken: " + b for b in bad) if bad else "all internal links resolve")
+          sys.exit(1 if bad else 0)
+          PY

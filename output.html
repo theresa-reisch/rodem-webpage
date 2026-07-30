@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tobias Golling — Curriculum Vitae | RODEM, University of Geneva</title>
-<meta name="description" content="Curriculum vitae of Tobias Golling, Professor of Physics at the University of Geneva.">
+<title>Output — publications and talks | RODEM, Golling Group</title>
+<meta name="description" content="Publications grouped by the five FORGE themes, and talks and seminars given by members of the RODEM group at the University of Geneva.">
 <link rel="icon" href="images/logo/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/css/style.css?v=29">
 </head>
@@ -32,20 +32,37 @@
 
 <main id="main">
 
-  <!-- This page is deliberately NOT in the main navigation: it is reached from
-       the PI's profile card in the team section of the home page. -->
   <section class="hero" style="padding-bottom:1rem">
     <div class="wrap">
-      <p class="eyebrow">Curriculum Vitae</p>
-      <h1 id="cv-name">Tobias Golling</h1>
-      <p class="lede" id="cv-role"></p>
-      <p><a href="index.html#team">&larr; Back to the team</a></p>
+      <p class="eyebrow">Output</p>
+      <h1>Publications &amp; talks</h1>
+      <p class="lede">
+        Papers are grouped by which of the five things they belong to;
+        <span class="star">&#9733;</span> marks a highlight. A complete and always-current
+        list is on <a href="https://inspirehep.net/authors/1030162">INSPIRE-HEP</a>, from
+        which this page refreshes itself daily.
+      </p>
+      <p class="subnav"><a href="#publications">Publications</a> <a href="#talks">Talks &amp; seminars</a></p>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="publications">
     <div class="wrap">
-      <div id="cv-root"></div>
+      <!-- Built automatically from PUBLICATIONS in assets/js/content.js -->
+      <div id="publications-root"></div>
+    </div>
+  </section>
+
+  <section class="section" id="talks">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Talks</p>
+        <h2>Talks &amp; seminars</h2>
+        <p>Conference presentations, invited talks and seminars given by members of the group.
+           Use the buttons to filter by kind.</p>
+      </div>
+      <!-- Built automatically from TALKS in assets/js/content.js -->
+      <div id="talks-root"></div>
     </div>
   </section>
 

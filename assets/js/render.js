@@ -168,11 +168,19 @@ function renderNews(target, limit) {
   const items = limit ? NEWS.slice(0, limit) : NEWS;
   if (!items.length) { host.innerHTML = `<p class="empty">No news yet.</p>`; return; }
 
-  host.innerHTML = items.map((n) => `<li>
-      <p class="date">${esc(n.date)}</p>
+  // A "spotlight" item is a longer piece about a whole line of work rather
+  // than a single event. It gets a tint, a mark, and no date-first framing.
+  host.innerHTML = items.map((n) => {
+    const spot = n.kind === "spotlight";
+    const mark = spot && n.mark
+      ? `<img class="news-mark" src="${esc(n.mark)}" alt="" aria-hidden="true">` : "";
+    return `<li${spot ? ` class="spotlight"` : ""}>
+      ${mark}
+      <p class="date">${esc(n.date)}${spot ? ` &middot; Method spotlight` : ""}</p>
       <h3>${n.link ? `<a href="${esc(n.link)}">${esc(n.title)}</a>` : esc(n.title)}</h3>
       <p>${esc(n.body)}</p>
-    </li>`).join("");
+    </li>`;
+  }).join("");
 }
 
 /* ---------------------------------------------------------- publications --- */
@@ -284,6 +292,14 @@ function renderPublications(target) {
 
   host.innerHTML = metricsHTML() + note + filters + sections;
   wirePublications(host);
+
+  // Deep link: output.html?cat=e opens with only that letter shown, so the
+  // research page can point straight at one slice.
+  const wanted = new URLSearchParams(location.search).get("cat");
+  if (wanted) {
+    const btn = host.querySelector(`[data-filter="${CSS.escape(wanted)}"]`);
+    if (btn) btn.click();
+  }
 }
 
 function wirePublications(host) {
@@ -422,12 +438,134 @@ function renderCV(target) {
   }
 }
 
+
+/* -------------------------------------------------------------- research --- */
+/* The five letters of FORGE. Order comes from RESEARCH and is deliberate:
+   the first four are what we build, the last is what we build them for. */
+function renderResearch(target) {
+  const host = el(target);
+  if (!host || typeof RESEARCH === "undefined") return;
+
+  host.innerHTML = RESEARCH.map((r) => {
+    const examples = (r.examples || [])
+      .map((e) => `<li>${esc(e)}</li>`).join("");
+    const mark = r.mark
+      ? `<img class="letter-mark" src="${esc(r.mark)}" alt="" aria-hidden="true">` : "";
+    return `<section class="letter" id="${esc(r.id)}">
+        <div class="letter-head">
+          <span class="letter-glyph" aria-hidden="true">${esc(r.letter)}</span>
+          <h2>${esc(r.name)}</h2>
+        </div>
+        <div class="letter-body">
+          <p>${esc(r.body)}</p>
+          ${examples ? `<ul class="letter-examples">${examples}</ul>` : ""}
+          <p class="letter-more">
+            <a href="output.html?cat=${esc(r.id)}">All ${esc(r.name.toLowerCase())} papers &rarr;</a>
+          </p>
+        </div>
+        ${mark}
+      </section>`;
+  }).join("");
+}
+
+/* ------------------------------------------------------------- positions --- */
+/* A PhD entry only ever reaches the page if it has a funding source and a
+   deadline that has not passed. tools/check_positions.py enforces the same
+   rule in CI — please keep both. */
+function positionIsLive(p) {
+  if (p.status !== "open") return false;
+  if (p.level !== "PhD") return true;
+  if (!p.funding || !p.deadline) return false;
+  return new Date(p.deadline) >= new Date(new Date().toDateString());
+}
+
+function renderPositions(target, level) {
+  const host = el(target);
+  if (!host || typeof POSITIONS === "undefined") return;
+
+  const items = POSITIONS.filter((p) => p.level === level && positionIsLive(p));
+  if (!items.length) {
+    host.innerHTML = `<p class="empty">${esc(host.dataset.empty || "Nothing open at the moment.")}</p>`;
+    return;
+  }
+
+  host.innerHTML = items.map((p) => `<article class="position">
+      <h3>${esc(p.title)}</h3>
+      <p>${esc(p.body)}</p>
+      <dl class="position-meta">
+        <dt>Supervisor</dt><dd>${esc(p.supervisor)}</dd>
+        <dt>You should already have</dt><dd>${esc(p.prerequisites)}</dd>
+        ${p.funding  ? `<dt>Funded by</dt><dd>${esc(p.funding)}</dd>` : ""}
+        ${p.deadline ? `<dt>Apply by</dt><dd>${esc(p.deadline)}</dd>` : ""}
+      </dl>
+    </article>`).join("");
+}
+
+/* ---------------------------------------------------------------- events --- */
+function renderEvents(target) {
+  const host = el(target);
+  if (!host || typeof EVENTS === "undefined") return;
+
+  host.innerHTML = EVENTS.map((e) => {
+    const speakers = (e.speakers || []).length
+      ? `<p class="event-speakers"><span>Among the speakers</span> ${e.speakers.map(esc).join(" &middot; ")}</p>` : "";
+    const title = e.url
+      ? `<a href="${esc(e.url)}">${esc(e.title)}</a>` : esc(e.title);
+    return `<article class="event${e.upcoming ? " is-upcoming" : ""}">
+        <p class="event-year">${esc(e.year)}${e.upcoming ? ` &middot; upcoming` : ""}</p>
+        <h3>${title}</h3>
+        <p class="event-where">${[e.series, e.venue].filter(Boolean).map(esc).join(" &middot; ")}
+           ${e.role ? `&middot; <em>${esc(e.role)}</em>` : ""}</p>
+        ${e.body ? `<p>${esc(e.body)}</p>` : ""}
+        ${speakers}
+      </article>`;
+  }).join("");
+}
+
+/* --------------------------------------------------------------- funding --- */
+function renderFunding(target) {
+  const host = el(target);
+  if (!host || typeof FUNDING === "undefined") return;
+
+  host.innerHTML = `<ul class="funding-list">${FUNDING.map((f) => `<li>
+      <span class="funding-years">${esc(f.years)}</span>
+      <span class="funding-what"><strong>${esc(f.name)}</strong>
+        <span class="funding-who">${esc(f.funder)} &middot; ${esc(f.role)}${f.note ? " &middot; " + esc(f.note) : ""}</span>
+      </span>
+    </li>`).join("")}</ul>`;
+}
+
 /* ------------------------------------------------- shared header / footer --- */
 
 function renderChrome() {
   if (typeof SITE === "undefined") return;
 
   document.querySelectorAll("[data-site-name]").forEach((n) => { n.textContent = SITE.groupName; });
+  document.querySelectorAll("[data-site-sub]").forEach((n) => { n.textContent = SITE.groupSub || ""; });
+
+  // The menu is built from NAV in content.js, so adding a tab is a one-line
+  // edit there rather than an edit to every HTML file.
+  const here = (location.pathname.split("/").pop() || "index.html");
+  document.querySelectorAll("nav.site-nav").forEach((nav) => {
+    if (typeof NAV === "undefined") return;
+    nav.innerHTML = NAV.map((i) => {
+      const target = i.href.split("#")[0];
+      const current = target === here && (!i.href.includes("#") || here !== "index.html")
+        ? ` aria-current="page"` : "";
+      return `<a href="${esc(i.href)}"${current}>${esc(i.label)}</a>`;
+    }).join("");
+  });
+
+  // Narrow screens: collapse the menu behind a button rather than wrapping it
+  // onto three lines.
+  const toggle = el("nav-toggle");
+  const header = document.querySelector(".site-header");
+  if (toggle && header) {
+    toggle.addEventListener("click", function () {
+      const open = header.classList.toggle("nav-open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  }
   document.querySelectorAll("[data-site-email]").forEach((n) => {
     n.textContent = SITE.email;
     n.setAttribute("href", "mailto:" + SITE.email);
@@ -453,4 +591,10 @@ document.addEventListener("DOMContentLoaded", function () {
   renderPublications("publications-root");
   renderTalks("talks-root");
   renderCV("cv-root");
+  renderResearch("research-root");
+  renderPositions("positions-master", "Master");
+  renderPositions("positions-phd", "PhD");
+  renderPositions("positions-postdoc", "Postdoc");
+  renderEvents("events-root");
+  renderFunding("funding-root");
 });

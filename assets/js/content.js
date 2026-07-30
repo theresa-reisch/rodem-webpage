@@ -17,7 +17,8 @@
    1. SITE BASICS — name, contact details, footer links.
    ------------------------------------------------------------------------ */
 const SITE = {
-  groupName: "Golling Group",
+  groupName: "RODEM",
+  groupSub: "Golling Group",
   institution: "Département de Physique Nucléaire et Corpusculaire, University of Geneva",
 
   email: "tobias.golling@unige.ch",
@@ -25,11 +26,30 @@ const SITE = {
 
   // Footer links. Delete any line you don't want; add more in the same format.
   links: [
-    { label: "GitHub",       url: "https://github.com/rodem-hep" },
-    { label: "UniGe DPNC",   url: "https://www.unige.ch/dpnc/en/" },
+    { label: "GitHub",        url: "https://github.com/rodem-hep" },
+    { label: "INSPIRE-HEP",   url: "https://inspirehep.net/authors/1030162" },
+    { label: "UniGe DPNC",    url: "https://www.unige.ch/dpnc/en/" },
     { label: "ATLAS at CERN", url: "https://atlas.cern/" },
   ],
 };
+
+
+/* ---------------------------------------------------------------------------
+   1b. NAVIGATION
+   ------------------------------------------------------------------------
+   The one place the menu is defined. Every page renders this list, so adding
+   a tab is a one-line edit here rather than an edit to every HTML file.
+   ------------------------------------------------------------------------ */
+const NAV = [
+  { label: "Home",     href: "index.html" },
+  { label: "Vision",   href: "vision.html" },
+  { label: "Research", href: "research.html" },
+  { label: "Output",   href: "output.html" },
+  { label: "Team",     href: "index.html#team" },
+  { label: "News",     href: "news.html" },
+  { label: "Join us",  href: "join.html" },
+  { label: "Outreach", href: "outreach.html" },
+];
 
 
 /* ---------------------------------------------------------------------------
@@ -147,12 +167,22 @@ const TEAM = [
 const NEWS = [
   {
     date: "July 2026",
-    title: "Four abstracts submitted to EuCAIFCon 2026",
-    body: "Pradyun Hebbar, Giovanni Ottaviano, Andreas Hermansen and Theresa Reisch " +
-          "have submitted abstracts to EuCAIFCon 2026, the European AI for " +
-          "Fundamental Physics Conference, which takes place at the Kirchhoff " +
-          "Institute for Physics in Heidelberg from 24 to 28 August 2026.",
-    link: "https://indico.physi.uni-heidelberg.de/event/1277/overview",
+    kind: "spotlight",
+    mark: "images/marks/curtain.svg",
+    title: "Lifting the curtain: five years of CURTAINs",
+    body: "A bump hunt needs a background estimate, and a background estimate normally needs a simulation you trust. CURTAINs — Constructing Unobserved Regions by Transforming Adjacent Intervals — does without one: it learns to transport events from the sidebands of a mass spectrum into the signal region, so the background template comes from the data itself. What began in 2022 as one method is now a family. CURTAINs F4F replaced the original transformation with a maximum-likelihood construction; FETA and TRANSIT attacked the same problem through optimal transport and fast interpolation to a new mass; SkyCURTAINs took the machinery out of particle physics entirely and pointed it at Gaia data, searching for stellar streams in the Milky Way. Along the way we compared our methods against everyone else's in a community paper on the interplay of resonant anomaly detection techniques. Nine papers, one idea — and the point of a method family is that the next search does not start from zero.",
+    link: "output.html?cat=e",
+  },
+  {
+    date: "July 2026",
+    title: "Hammers & Nails returns: Munich, 10–16 January 2027",
+    body: "The next edition of Hammers & Nails will be held in Munich from 10 to 16 January 2027. The series began at the Weizmann Institute in 2017 and is the closest thing the field has to a place where machine learning researchers and physicists argue in the same room for a week. Tobias Golling has been on the scientific organising committee since the first edition, and led the 2023 Swiss edition at Monte Verità.",
+  },
+  {
+    date: "July 2026",
+    title: "EuCAIFCon 2026: Heidelberg, 24–28 August",
+    body: "The third European AI for Fundamental Physics Conference takes place at the Kirchhoff Institute for Physics in Heidelberg from 24 to 28 August 2026. EuCAIF is a joint activity of ECFA, NuPECC and APPEC; Tobias Golling was among the signatories of the founding expression of interest and co-leads its working group on foundation models. Pradyun Hebbar, Giovanni Ottaviano, Andreas Hermansen and Theresa Reisch have submitted abstracts.",
+    link: "https://indico.physi.uni-heidelberg.de/event/1277/",
   },
   {
     date: "July 2026",
@@ -638,10 +668,16 @@ const TALKS = [
    Add, rename or reorder freely — the filter buttons update automatically.
    ------------------------------------------------------------------------ */
 const PUB_CATEGORIES = [
-  { id: "anomaly",    name: "Anomaly Detection & New Physics Searches" },
-  { id: "generative", name: "Generative Models & Fast Simulation" },
-  { id: "foundation", name: "Foundation Models & Representation Learning" },
-  { id: "recon",      name: "Reconstruction, Tagging & Detector Performance" },
+  { id: "f", letter: "F", name: "Foundation models",
+    sub: "Pre-train once on collisions, fine-tune everywhere" },
+  { id: "o", letter: "O", name: "Optimisation",
+    sub: "Calibration, decorrelation, robustness — and the detector itself" },
+  { id: "r", letter: "R", name: "Reconstruction",
+    sub: "From detector signals to physics objects" },
+  { id: "g", letter: "G", name: "Generation",
+    sub: "Simulation at the speed the LHC actually needs" },
+  { id: "e", letter: "E", name: "Exploration",
+    sub: "Searching without knowing what to search for" },
 ];
 
 
@@ -650,7 +686,7 @@ const PUB_CATEGORIES = [
    ------------------------------------------------------------------------
    Shown as a row of figures at the top of the publications page.
 
-   Refresh these with:   python3 tools/update_publications.py
+   Refresh these with:   python3 tools/update.py
    which prints the current values straight from INSPIRE-HEP.
 
    "Papers with 10 or fewer authors" isolates the group's own work from the
@@ -702,7 +738,7 @@ const METRICS = {
    ------------------------------------------------------------------------ */
 const PUBLICATIONS = [
   {
-    category: "anomaly",
+    category: "e",
     year: 2026,
     title: "Strong CWoLa: binary classification without background simulation",
     authors: "S. Klein, M. Leigh, S. Mulligan, T. Golling",
@@ -722,7 +758,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "recon",
+    category: "r",
     year: 2026,
     title: "Transforming jet flavour tagging at ATLAS",
     authors: "ATLAS Collaboration",
@@ -743,7 +779,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "anomaly",
+    category: "e",
     year: 2025,
     title: "TRANSIT your events into a new mass: fast background interpolation for weakly-supervised anomaly searches",
     authors: "I. Oleksiyuk, S. Voloshynovskiy, T. Golling",
@@ -763,7 +799,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "anomaly",
+    category: "e",
     year: 2025,
     title: "Robust resonant anomaly detection with NPLM",
     authors: "G. Grosso, D. Sengupta, T. Golling, P. Harris",
@@ -783,7 +819,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "anomaly",
+    category: "e",
     year: 2025,
     title: "Accelerating template generation in resonant anomaly detection searches with optimal transport",
     authors: "M. Leigh, D. Sengupta, B. Nachman, T. Golling",
@@ -803,7 +839,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "generative",
+    category: "r",  // diffusion method, but the deliverable is a cleaned event
     year: 2025,
     title: "Variational inference for pile-up removal at hadron colliders with diffusion models",
     authors: "M. Algren, T. Golling, C. Pollard, J. A. Raine",
@@ -823,7 +859,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "foundation",
+    category: "f",
     year: 2025,
     title: "Large physics models: towards a collaborative approach with large language models and foundation models",
     authors: "K. G. Barman, S. Caron, E. Sullivan, H. W. de Regt, R. R. de Austri, M. Boon, M. Färber, S. Fröse, T. Golling, L. G. Lopez, et al.",
@@ -843,7 +879,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "foundation",
+    category: "o",  // optimal-transport maps for inference, not pre-training
     year: 2025,
     title: "Mind the Gap: Navigating Inference with Optimal Transport Maps",
     authors: "M. Algren, T. Golling, F. A. Di Bello, C. Pollard",
@@ -859,7 +895,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "recon",
+    category: "o",
     year: 2025,
     title: "End-to-end optimal detector design with mutual information surrogates",
     authors: "K. A. Woźniak, S. Mulligan, J. Kieseler, M. Klute, F. Fleuret, T. Golling",
@@ -879,7 +915,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "recon",
+    category: "o",
     year: 2025,
     title: "Enhancing generalization in high-energy physics using white-box adversarial attacks",
     authors: "F. Rothen, S. Klein, M. Leigh, T. Golling",
@@ -899,7 +935,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "recon",
+    category: "o",
     year: 2025,
     title: "A continuous calibration of the ATLAS flavour-tagging classifiers via optimal transportation maps",
     authors: "ATLAS Collaboration",
@@ -919,7 +955,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "anomaly",
+    category: "e",
     year: 2025,
     title: "Weakly supervised anomaly detection for resonant new physics in the dijet final state using proton-proton collisions at √s=13 TeV with the ATLAS detector",
     authors: "ATLAS Collaboration",
@@ -939,7 +975,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "anomaly",
+    category: "e",
     year: 2024,
     title: "skycurtains: model-agnostic search for stellar streams with Gaia data",
     authors: "D. Sengupta, S. Mulligan, D. Shih, J. A. Raine, T. Golling",
@@ -959,7 +995,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "anomaly",
+    category: "e",
     year: 2024,
     title: "Cluster Scanning: a novel approach to resonance searches",
     authors: "I. Oleksiyuk, J. A. Raine, M. Krämer, S. Voloshynovskiy, T. Golling",
@@ -979,7 +1015,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "anomaly",
+    category: "e",
     year: 2024,
     title: "Improving new physics searches with diffusion models for event observables and jet constituents",
     authors: "D. Sengupta, M. Leigh, J. A. Raine, S. Klein, T. Golling",
@@ -999,7 +1035,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "anomaly",
+    category: "e",
     year: 2024,
     title: "The interplay of machine learning-based resonant anomaly detection methods",
     authors: "T. Golling, G. Kasieczka, C. Krause, R. Mastandrea, B. Nachman, J. A. Raine, D. Sengupta, D. Shih, M. Sommerhalder",
@@ -1019,7 +1055,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "anomaly",
+    category: "e",
     year: 2024,
     title: "CURTAINs flows for flows: Constructing unobserved regions with maximum likelihood estimation",
     authors: "D. Sengupta, S. Klein, J. A. Raine, T. Golling",
@@ -1040,7 +1076,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "generative",
+    category: "g",
     year: 2024,
     title: "Faster diffusion model with improved quality for particle cloud generation",
     authors: "M. Leigh, D. Sengupta, J. A. Raine, G. Quétant, T. Golling",
@@ -1060,7 +1096,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "generative",
+    category: "g",
     year: 2024,
     title: "PC-JeDi: Diffusion for particle cloud generation in high energy physics",
     authors: "M. Leigh, D. Sengupta, G. Quétant, J. A. Raine, K. Zoch, T. Golling",
@@ -1081,7 +1117,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "generative",
+    category: "g",
     year: 2024,
     title: "Generating variable length full events from partons",
     authors: "G. Quétant, J. A. Raine, M. Leigh, D. Sengupta, T. Golling",
@@ -1101,7 +1137,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "foundation",
+    category: "f",
     year: 2024,
     title: "Is Tokenization Needed for Masked Particle Modelling?",
     authors: "M. Leigh, S. Klein, F. Charton, T. Golling, L. Heinrich, M. Kagan, I. Ochoa, M. Osadchy",
@@ -1117,7 +1153,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "foundation",
+    category: "f",
     year: 2024,
     title: "Masked particle modeling on sets: towards self-supervised high energy physics foundation models",
     authors: "T. Golling, L. Heinrich, M. Kagan, S. Klein, M. Leigh, M. Osadchy, J. A. Raine",
@@ -1138,7 +1174,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "foundation",
+    category: "f",
     year: 2024,
     title: "RODEM Jet Datasets",
     authors: "K. Zoch, J. A. Raine, D. Sengupta, T. Golling",
@@ -1154,7 +1190,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "recon",
+    category: "r",
     year: 2024,
     title: "Fast and improved neutrino reconstruction in multineutrino final states with conditional normalizing flows",
     authors: "J. A. Raine, M. Leigh, K. Zoch, T. Golling",
@@ -1174,7 +1210,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "recon",
+    category: "o",
     year: 2024,
     title: "Decorrelation using optimal transport",
     authors: "M. Algren, J. A. Raine, T. Golling",
@@ -1194,7 +1230,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "anomaly",
+    category: "e",
     year: 2023,
     title: "The Mass-ive Issue: Anomaly Detection in Jet Physics",
     authors: "T. Golling, T. Nobe, D. Proios, J. A. Raine, D. Sengupta, S. Voloshynovskiy, J. F. Arguin, J. L. Martin, J. Pilette, D. B. Gupta, et al.",
@@ -1210,7 +1246,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "anomaly",
+    category: "e",
     year: 2023,
     title: "Flow-enhanced transportation for anomaly detection",
     authors: "T. Golling, S. Klein, R. Mastandrea, B. Nachman",
@@ -1231,7 +1267,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "anomaly",
+    category: "e",
     year: 2023,
     title: "CURTAINs for your sliding window: Constructing unobserved regions by transforming adjacent intervals",
     authors: "J. A. Raine, S. Klein, D. Sengupta, T. Golling",
@@ -1252,7 +1288,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "anomaly",
+    category: "e",
     year: 2023,
     title: "Variational autoencoders for anomalous jet tagging",
     authors: "T. Cheng, J. F. Arguin, J. Leissner-Martin, J. Pilette, T. Golling",
@@ -1273,7 +1309,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "anomaly",
+    category: "e",
     year: 2023,
     title: "Morphing one dataset into another with maximum likelihood estimation",
     authors: "T. Golling, S. Klein, R. Mastandrea, B. Nachman, J. A. Raine",
@@ -1293,7 +1329,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "generative",
+    category: "g",
     year: 2023,
     title: "EPiC-ly Fast Particle Cloud Generation with Flow-Matching and Diffusion",
     authors: "E. Buhmann, C. Ewen, D. A. Faroughy, T. Golling, G. Kasieczka, M. Leigh, G. Quétant, J. A. Raine, D. Sengupta, D. Shih",
@@ -1309,7 +1345,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "recon",
+    category: "r",
     year: 2023,
     title: "ν-flows: Conditional neutrino regression",
     authors: "M. Leigh, J. A. Raine, K. Zoch, T. Golling",
@@ -1329,7 +1365,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "recon",
+    category: "r",
     year: 2023,
     title: "Topological reconstruction of particle physics processes using graph neural networks",
     authors: "L. Ehrke, J. A. Raine, K. Zoch, M. Guth, T. Golling",
@@ -1349,7 +1385,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "recon",
+    category: "o",
     year: 2023,
     title: "Flow Away your Differences: Conditional Normalizing Flows as an Improvement to Reweighting",
     authors: "M. Algren, T. Golling, M. Guth, C. Pollard, J. A. Raine",
@@ -1365,7 +1401,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "recon",
+    category: "r",
     year: 2023,
     title: "ATLAS flavour-tagging algorithms for the LHC Run 2 pp collision dataset",
     authors: "ATLAS Collaboration",
@@ -1386,7 +1422,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "recon",
+    category: "o",
     year: 2022,
     title: "Decorrelation with conditional normalizing flows",
     authors: "S. Klein, T. Golling",
@@ -1402,7 +1438,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "generative",
+    category: "g",
     year: 2021,
     title: "Turbo-Sim: a generalised generative model with a physical latent space",
     authors: "G. Quétant, M. Drozdova, V. Kinakh, T. Golling, S. Voloshynovskiy",
@@ -1418,7 +1454,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "recon",
+    category: "r",
     year: 2021,
     title: "Hashing and metric learning for charged particle tracking",
     authors: "S. Amrouche, M. Kiehn, T. Golling, A. Salzburger",
@@ -1434,7 +1470,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "recon",
+    category: "r",
     year: 2019,
     title: "Similarity hashing for charged particle tracking",
     authors: "S. Amrouche, T. Golling, M. Kiehn, C. Plant, A. Salzburger",
@@ -1450,7 +1486,7 @@ const PUBLICATIONS = [
 }`,
   },
   {
-    category: "generative",
+    category: "g",
     year: 2018,
     title: "Deep Generative Models for Fast Shower Simulation in ATLAS",
     authors: "D. Salamani, S. Gadatsch, T. Golling, G. A. Stewart, A. Ghosh, D. Rousseau, A. Hasib, J. Schaarschmidt",
@@ -1465,4 +1501,159 @@ const PUBLICATIONS = [
   doi     = {10.1109/eScience.2018.00091},
 }`,
   },
+];
+
+
+/* ---------------------------------------------------------------------------
+   6. RESEARCH — the five letters of FORGE
+   ------------------------------------------------------------------------
+   Drives research.html. `id` must match a PUB_CATEGORIES id, so each letter
+   can link straight to its own filtered slice of the output page.
+
+   The order is deliberate and should not be changed: the first four letters
+   are what we build, the last is what we build them for.
+   ------------------------------------------------------------------------ */
+const RESEARCH = [
+  {
+    id: "f", letter: "F", name: "Foundation models",
+    body: "Every analysis at the LHC has historically started from scratch: label a training set, train a network, throw it away. That is a strange way to treat the largest dataset in the physical sciences. We pre-train on collisions themselves — masking parts of an event and asking a model to fill them in, the way language models learn from text — and then fine-tune the result for whatever the specific measurement needs. Fewer labels, better performance on small samples, and one representation that many analyses can share.",
+    examples: [
+      "Masked particle modeling on sets — towards self-supervised foundation models for high energy physics",
+      "Is tokenization needed for masked particle modelling?",
+      "The RODEM Jet Datasets — open pre-training data for the community",
+    ],
+  },
+  {
+    id: "o", letter: "O", name: "Optimisation",
+    body: "The parts of a pipeline that decide whether a result can be believed. Calibrating a classifier so its output means the same thing in data as in simulation. Decorrelating a tagger from the mass it is not supposed to know about. Making a network robust to the ways simulation is subtly wrong. And, further upstream than most groups go, optimising the detector itself: if the reconstruction is differentiable, so is the geometry, and you can ask what a detector should look like rather than only what to do with the one you have.",
+    examples: [
+      "End-to-end optimal detector design with mutual information surrogates",
+      "A continuous calibration of the ATLAS flavour-tagging classifiers via optimal transport",
+      "Decorrelation using optimal transport",
+    ],
+  },
+  {
+    id: "r", letter: "R", name: "Reconstruction",
+    body: "Turning detector signals into physics. Which quark started this jet — work that took transformers into ATLAS flavour tagging for the first time and ended up in Nature Communications. Where the neutrinos went, when there are two of them and the event is under-constrained. What the decay chain of a b-hadron actually looked like, treated as a graph rather than a list of numbers. How to find a charged particle's trajectory among a hundred thousand hits without the cost growing quadratically.",
+    examples: [
+      "Transforming jet flavour tagging at ATLAS",
+      "Fast and improved neutrino reconstruction with conditional normalizing flows",
+      "Topological reconstruction of particle physics processes using graph neural networks",
+    ],
+  },
+  {
+    id: "g", letter: "G", name: "Generation",
+    body: "Simulation is the LHC's computing bottleneck: a substantial fraction of the grid exists to make fake collisions, and the High-Luminosity era needs far more of them than anyone can afford. So we learn the simulator. Diffusion and flow-matching models that generate jets as point clouds, calorimeter showers, and eventually whole events — fast enough to matter, and checked hard enough that the speed is not bought with a subtly wrong distribution.",
+    examples: [
+      "PC-JeDi — diffusion for particle cloud generation in high energy physics",
+      "EPiC-ly fast particle cloud generation with flow matching and diffusion",
+      "Deep generative models for fast shower simulation in ATLAS",
+    ],
+  },
+  {
+    id: "e", letter: "E", name: "Exploration",
+    mark: "images/marks/bump.svg",
+    body: "The point of the other four. A conventional search asks the data whether one specific new particle is there; you have to know what you are looking for before you can look. We build searches that do not need the answer in advance — that learn what ordinary collisions look like and flag what does not fit, with the statistics done carefully enough that \"does not fit\" means something. This is where the CURTAINs family lives, and it is what took weakly supervised anomaly detection into an ATLAS Run 2 publication for the first time.",
+    examples: [
+      "Weakly supervised anomaly detection for resonant new physics in the dijet final state with ATLAS",
+      "CURTAINs for your sliding window — constructing unobserved regions by transforming adjacent intervals",
+      "Cluster scanning — a novel approach to resonance searches",
+    ],
+  },
+];
+
+
+/* ---------------------------------------------------------------------------
+   7. POSITIONS — what a student or postdoc can actually apply for
+   ------------------------------------------------------------------------
+   RULE, enforced twice on purpose: a PhD entry is only shown when it has a
+   real funding source AND a deadline in the future. render.js checks this at
+   display time, and tools/check_positions.py fails the build if a PhD entry
+   is published without one. Do not remove either check — the point is that
+   this page never advertises a position that does not exist.
+
+   level        "Master" | "PhD" | "Postdoc"
+   status       "open" | "filled" | "draft"   (only "open" is displayed)
+   funding      REQUIRED for PhD. A grant name, not a hope.
+   deadline     REQUIRED for PhD. ISO date.
+   reviewed     the date a human last confirmed this is still true.
+   ------------------------------------------------------------------------ */
+const POSITIONS = [
+  {
+    id: "msc-dijet-theory-prior",
+    level: "Master",
+    status: "open",
+    title: "What has the field actually predicted? Building a theory prior for the dijet spectrum",
+    body: "Thousands of papers propose new particles that would show up as a bump in the dijet mass spectrum. Nobody has ever collected them. This project reads the literature at scale — an automated sweep of hep-ph on arXiv, with a language model extracting the claim from each paper: what particle, what mass range, what production cross-section, what final state — and turns it into a machine-readable catalogue. The result is a prior over what theorists have actually asked for, which you can then lay over what experiments have actually looked at. Expect the two maps to disagree, and expect the gaps to be interesting. Half literature archaeology, half tool-building; genuinely nobody knows what the answer looks like.",
+    supervisor: "Tobias Golling",
+    prerequisites: "Python. Enough curiosity about phenomenology to enjoy reading abstracts. No ATLAS experience, no prior NLP experience needed.",
+    reviewed: "2026-07-29",
+  },
+];
+
+
+/* ---------------------------------------------------------------------------
+   8. EVENTS — workshops and conferences the group organises
+   ------------------------------------------------------------------------
+   Peer recognition, stated as fact rather than as claim. Every entry here is
+   backed by a public page; keep it that way. `speakers` should be people a
+   reader would recognise, with affiliations spelled correctly.
+   ------------------------------------------------------------------------ */
+const EVENTS = [
+  {
+    year: 2027, title: "Hammers & Nails 2027",
+    series: "Hammers & Nails", venue: "Munich, 10–16 January 2027",
+    role: "Scientific organising committee", upcoming: true,
+    body: "The next edition of the series that puts machine learning researchers and physicists in the same room for a week.",
+  },
+  {
+    year: 2026, title: "ML opportunities for HEP in the era of agentic AI",
+    series: "G·IST", venue: "Villa Boninchi, Geneva", role: "Organiser",
+    body: "What changes about how physics gets done when the tools can write and test their own code.",
+  },
+  {
+    year: 2025, title: "Computing Challenges and AI Opportunities for Future Colliders",
+    series: "G·IST", venue: "Villa Boninchi, Geneva", role: "Organiser",
+    speakers: ["Tilman Plehn (Heidelberg)", "Sven Krippendorf (Cambridge)", "Thea Aarrestad (ETH Zurich)", "Sascha Caron (Nikhef / Radboud)"],
+    url: "https://www.unige.ch/math/GIST/events/past-events/computing-challenges-and-ai-opportunities-future-colliders",
+  },
+  {
+    year: 2024, title: "Challenges & opportunities in foundation models",
+    series: "G·IST", venue: "Villa Boninchi, Geneva", role: "Co-organiser",
+    body: "Opened by Yann LeCun.",
+    speakers: ["Yann LeCun (Meta AI / NYU)", "Dan Alistarh (ISTA)", "Taco Cohen (Meta)", "Lucas Beyer (OpenAI)", "Hervé Jégou (FAIR)", "Emmanuel Abbe (EPFL)"],
+    url: "https://www.unige.ch/math/GIST/events/past-events/liouville-quantum-gravity-continuum-discrete-1",
+  },
+  {
+    year: 2023, title: "Hammers & Nails 2023 — Swiss Edition",
+    series: "Hammers & Nails", venue: "Congressi Stefano Franscini, Monte Verità, Ascona",
+    role: "Lead organiser", body: "59 participants, by invitation.",
+    speakers: ["Michael Bronstein (Oxford)", "Kyle Cranmer (Wisconsin–Madison)", "Taco Cohen (Qualcomm AI)", "Shirley Ho (Flatiron Institute)", "Konstantin Novoselov (NUS, Nobel Laureate 2010)", "Jesse Thaler (MIT)", "Michael Elad (Technion)"],
+    url: "https://indico.cern.ch/event/1202995/",
+  },
+  {
+    year: 2023, title: "Automating & Accelerating Scientific Discovery with AI",
+    series: "G·IST · UNIGE Institute of Advanced Study", venue: "Geneva",
+    role: "Co-director",
+    body: "Included a public lecture by Konstantin Novoselov, the 2010 Nobel laureate in physics.",
+    speakers: ["Konstantin Novoselov (NUS, Nobel Laureate 2010)", "Daniel Whiteson (UC Irvine)", "Anna Scaife (Manchester)", "David Shih (Rutgers)", "Michael Kagan (SLAC)", "Lukas Heinrich (TU Munich)"],
+    url: "https://ias-ai.unige.ch/",
+  },
+];
+
+
+/* ---------------------------------------------------------------------------
+   9. FUNDING
+   ------------------------------------------------------------------------
+   No amounts. They read as boasting to peers and as noise to students, and
+   anyone who needs the figures can ask.
+   ------------------------------------------------------------------------ */
+const FUNDING = [
+  { years: "2027–2030", name: "AI Foundation Models for Scientific Discovery (FUNDIS)", funder: "Fondation pour l'Université de Genève", role: "Co-applicant" },
+  { years: "2025–2029", name: "Machine Learning and Quantum Computing for Future Colliders", funder: "COST Action CA24146", role: "Co-applicant" },
+  { years: "2025–2028", name: "CHEF", funder: "SERI and UNIGE", role: "Co-applicant" },
+  { years: "2024–2028", name: "AIPHY — Challenging AI with Challenges from Physics", funder: "HORIZON MSCA Doctoral Network", role: "Co-applicant" },
+  { years: "2022–2026", name: "At the two upgrade frontiers: machine learning and the ITk Pixel detector", funder: "SNSF 200020_212127", role: "Principal investigator" },
+  { years: "2020–2024", name: "RODEM — Robust Deep Density Models for High-Energy Particle Physics and Solar Flare Analysis", funder: "SNSF Sinergia CRSII5_193716", role: "Co-applicant", note: "the group's namesake" },
+  { years: "2018–2022", name: "Exploiting LHC data with machine learning, and preparing for the HL-LHC", funder: "SNSF 200020_181984", role: "Principal investigator" },
 ];

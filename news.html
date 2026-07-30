@@ -3,43 +3,51 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>News — Golling Group | University of Geneva</title>
-<meta name="description" content="News and updates from the Golling Group at the University of Geneva.">
-<link rel="stylesheet" href="assets/css/style.css?v=27">
+<title>News — RODEM, Golling Group | University of Geneva</title>
+<meta name="description" content="Papers, talks, workshops, arrivals and departures from the RODEM group at the University of Geneva.">
+<link rel="icon" href="images/logo/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/style.css?v=29">
 </head>
 <body>
 
 <a class="skip" href="#main">Skip to content</a>
 
+<!-- ===================== HEADER (same on every page) ======================
+     The menu itself is built from NAV in assets/js/content.js, so adding a
+     tab is a one-line edit there — not an edit to every page.
+     ==================================================================== -->
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="index.html"><span data-site-name>Golling Group</span></a>
-    <nav class="site-nav" aria-label="Main">
-      <a href="index.html">Home</a>
-      <a href="index.html#research">Research</a>
-      <a href="index.html#team">Team</a>
-      <a href="publications.html">Publications</a>
-      <a href="talks.html">Talks</a>
-      <a href="news.html" aria-current="page">News</a>
-    </nav>
+    <a class="brand" href="index.html">
+      <img class="brand-mark" src="images/logo/rodem-mark-small.svg" alt="" aria-hidden="true">
+      <span class="brand-text">
+        <span data-site-name>RODEM</span>
+        <span class="brand-sub" data-site-sub>Golling Group</span>
+      </span>
+    </a>
+    <button id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Main"></nav>
   </div>
 </header>
 
 <main id="main">
+
   <section class="hero" style="padding-bottom:1rem">
     <div class="wrap">
       <p class="eyebrow">News</p>
       <h1>Group updates</h1>
-      <p class="lede">Papers, talks, arrivals and departures.</p>
+      <p class="lede">Papers, talks, arrivals and departures &mdash; and, occasionally, a
+         longer piece about a whole line of work.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="wrap">
-      <!-- Built automatically from NEWS in assets/js/content.js (all items) -->
+      <!-- Built automatically from NEWS in assets/js/content.js -->
       <ul class="news-list" id="news-root"></ul>
     </div>
   </section>
+
 </main>
 
 <footer class="site-footer">
@@ -49,7 +57,7 @@
   </div>
 </footer>
 
-<script src="assets/js/content.js?v=27"></script>
-<script src="assets/js/render.js?v=27"></script>
+<script src="assets/js/content.js?v=29"></script>
+<script src="assets/js/render.js?v=29"></script>
 </body>
 </html>

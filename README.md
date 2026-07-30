@@ -4,31 +4,76 @@ A plain static website — HTML, CSS and a little JavaScript. There is no build
 step, no framework and nothing to install. Open `index.html` in a browser and it
 works.
 
+## What changed in this branch
+
+The site was extended in July 2026: the group is now branded **RODEM**, research
+is organised around five themes that spell **FORGE**, and there are new Vision,
+Research, Join us and Outreach pages, plus an automated watcher that drafts news
+items for new papers.
+
+**Read [`IMPLEMENTATION.md`](IMPLEMENTATION.md) first** — it explains what moved,
+what is new, and the handful of rules worth not breaking (the order of the five
+letters, and the funding gate on PhD positions).
+
+Two quick orientation notes for anyone editing:
+
+* The **menu** is built from `NAV` in `assets/js/content.js`. Adding a tab is one
+  line there, not an edit to every page.
+* Publication **categories** live in `tools/update.py`, not `content.js`. The
+  daily job rewrites `content.js` from that file, so an edit made only in
+  `content.js` disappears within 24 hours.
+
 ## Files
 
 ```
-index.html            Home: intro, research themes, team, latest news, contact
-publications.html     Publications, grouped by topic, with citation metrics
-talks.html            Talks and seminars
-news.html             Full news list
+index.html            Home: hero, three doors, research teaser, team, news, contact
+vision.html           The Learning Collider — the group's argument, events, funding
+research.html         FORGE: the five things we build, letter by letter
+output.html           Publications (by letter) and talks, on one page
+join.html             Master's projects, PhD openings, fellowship routes
+outreach.html         "Teaching machines to be surprised" — for a general reader
+news.html             Full news list, including method spotlights
 cv.html               The PI's CV (not in the nav; linked from his profile card)
+publications.html     Redirect to output.html (kept so old links still work)
+talks.html            Redirect to output.html#talks
 assets/css/style.css  All styling (colours are set at the top)
-assets/js/content.js  <- EDIT THIS: team, news, talks, CV, publications, contact
+assets/js/content.js  <- EDIT THIS: nav, team, news, talks, positions, events, …
 assets/js/render.js   Turns content.js into the pages. No need to touch.
 tools/update.py       Refresh publications + metrics from INSPIRE (one command)
+tools/watch.py        Notice new papers and draft the entries for approval
+tools/freshness.py    Weekly audit of what has gone stale
+tools/check_positions.py  Refuses to advertise a position that does not exist
 tools/bump_version.py Force browsers to pick up changed CSS/JS
 images/team/          Member photos go here
+images/logo/          The mark, traced from a real ATLAS event
+images/marks/         Small section illustrations
+images/hero/          Event displays (see CREDIT.md)
+state/seen.json       What the watcher has already reported. Do not hand-edit.
 ```
 
 ## How to edit the site
 
-**Team members, news, talks, the CV, contact details**
+**The menu**
+→ edit `NAV` in `assets/js/content.js`. One line per tab; every page renders it.
+
+**Team members, news, talks, positions, events, funding, the CV, contact details**
 → edit `assets/js/content.js`. Everything is commented; copy an existing entry
 and change the values. Keep the commas and quotes as they are.
 
-**Intro paragraph and the four research cards**
-→ edit `index.html` directly. Look for the `<!-- RESEARCH -->` comment banner.
-These live in the HTML (not `content.js`) so that search engines index them.
+**The headline and the three doors**
+→ edit `index.html` directly. They live in the HTML, not `content.js`, so that
+search engines index them.
+
+**The five research themes**
+→ edit `RESEARCH` in `content.js` for the words on `research.html`, and
+`tools/update.py` for which papers land under which letter. Categories are
+*not* edited in `content.js`: the daily job rewrites that file from
+`update.py`, so an edit made only there disappears within 24 hours.
+
+**Master's projects and PhD openings**
+→ edit `POSITIONS` in `content.js`. A PhD entry needs a real funding source and
+a future deadline or it will not be displayed, and CI will fail the build. That
+is deliberate — see `IMPLEMENTATION.md`.
 
 **Colours and fonts**
 → edit the `:root` block at the top of `assets/css/style.css`. Change
