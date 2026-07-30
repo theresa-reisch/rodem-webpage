@@ -102,8 +102,12 @@ const LINK_LABELS = {
 };
 
 function memberHTML(m) {
+  // photoPosition tunes the circular crop when the face is not dead centre.
+  const pos = m.photoPosition
+    ? ` style="object-position: ${esc(m.photoPosition)}"`
+    : "";
   const avatar = m.photo
-    ? `<img class="avatar" src="${esc(m.photo)}" alt="${esc(m.name)}" loading="lazy">`
+    ? `<img class="avatar" src="${esc(m.photo)}" alt="${esc(m.name)}" loading="lazy"${pos}>`
     : `<div class="avatar" aria-hidden="true">${esc(initials(m.name))}</div>`;
 
   const links = Object.entries(m.links || {})
