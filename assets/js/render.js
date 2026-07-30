@@ -468,6 +468,29 @@ function renderResearch(target) {
   }).join("");
 }
 
+/* -------------------------------------------------------------- detector --- */
+/* The hardware half of the programme. One block, not a sixth letter of FORGE:
+   see the comment above DETECTOR in content.js. Silently renders nothing if
+   DETECTOR is absent or null, so removing it from content.js is enough. */
+function renderDetector(target) {
+  const host = el(target);
+  if (!host || typeof DETECTOR === "undefined" || !DETECTOR) return;
+
+  const funding = DETECTOR.funding
+    ? `<p class="letter-more">${esc(DETECTOR.funding)}</p>` : "";
+
+  host.innerHTML = `<section class="letter is-detector" id="${esc(DETECTOR.id || "detector")}">
+      ${DETECTOR.eyebrow ? `<p class="eyebrow">${esc(DETECTOR.eyebrow)}</p>` : ""}
+      <div class="letter-head">
+        <h2>${esc(DETECTOR.name)}</h2>
+      </div>
+      <div class="letter-body">
+        <p>${esc(DETECTOR.body)}</p>
+        ${funding}
+      </div>
+    </section>`;
+}
+
 /* ------------------------------------------------------------- positions --- */
 /* A PhD entry only ever reaches the page if it has a funding source and a
    deadline that has not passed. tools/check_positions.py enforces the same
@@ -592,6 +615,7 @@ document.addEventListener("DOMContentLoaded", function () {
   renderTalks("talks-root");
   renderCV("cv-root");
   renderResearch("research-root");
+  renderDetector("detector-root");
   renderPositions("positions-master", "Master");
   renderPositions("positions-phd", "PhD");
   renderPositions("positions-postdoc", "Postdoc");

@@ -1564,6 +1564,28 @@ const RESEARCH = [
 
 
 /* ---------------------------------------------------------------------------
+   6b. DETECTOR — the hardware frontier
+   ------------------------------------------------------------------------
+   FORGE describes the five things we build in software. It is not the whole
+   programme. The SNSF grant below names both halves in its own title — "at
+   the two upgrade frontiers: machine learning AND the ITk Pixel detector" —
+   so the research page says both too.
+
+   This is a single block rather than a sixth letter of FORGE, deliberately:
+   the acronym describes the methods work, and none of the papers in
+   PUBLICATIONS is ITk hardware, so a sixth category would link to an empty
+   list. Set to null to hide the section entirely.
+   ------------------------------------------------------------------------ */
+const DETECTOR = {
+  id: "itk",
+  eyebrow: "The other frontier",
+  name: "ATLAS Inner Tracker",
+  body: "Assembly, construction and quality control of the Inner Tracker Pixel Outer Barrel — a new, state-of-the-art hybridised pixel detector for ATLAS operations in Run 4 and beyond. The methods above are what we do with the data; this is where the data will come from.",
+  funding: "SNSF 200020_212127 — At the two upgrade frontiers: machine learning and the ITk Pixel detector",
+};
+
+
+/* ---------------------------------------------------------------------------
    7. POSITIONS — what a student or postdoc can actually apply for
    ------------------------------------------------------------------------
    RULE, enforced twice on purpose: a PhD entry is only shown when it has a
@@ -1605,6 +1627,7 @@ const EVENTS = [
     series: "Hammers & Nails", venue: "Munich, 10–16 January 2027",
     role: "Scientific organising committee", upcoming: true,
     body: "The next edition of the series that puts machine learning researchers and physicists in the same room for a week.",
+    url: "https://conferences.weizmann.ac.il/SRitp/January2027/",
   },
   {
     year: 2026, title: "ML opportunities for HEP in the era of agentic AI",
