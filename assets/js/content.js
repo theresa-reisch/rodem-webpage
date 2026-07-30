@@ -93,7 +93,7 @@ const TEAM = [
       {
         name: "Alexander Froch",
         role: "Postdoctoral Researcher",
-        photo: "",
+        photo: "images/picture_Froch.jpg",
         blurb: "Flavour Tagging in ATLAS",
         links: {},
       },
