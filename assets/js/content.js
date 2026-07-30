@@ -107,7 +107,7 @@ const TEAM = [
       {
         name: "Kinga Anna Wozniak",
         role: "Postdoctoral Researcher",
-        photo: "",
+        photo: "images/team/Kinga.jpg",
         blurb: "Optimal Detector Design for Future Experiments",
         links: {},
       },
