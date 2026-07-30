@@ -93,14 +93,14 @@ const TEAM = [
       {
         name: "Alexander Froch",
         role: "Postdoctoral Researcher",
-        photo: "images/picture_Froch.jpg",
+        photo: "images/team/picture_Froch.jpg",
         blurb: "Flavour Tagging in ATLAS",
         links: {},
       },
       {
         name: "Chris Scheulen",
         role: "Postdoctoral Researcher",
-        photo: "",
+        photo: "images/team/Chris.jpg",
         blurb: "Foundation Models and ATLAS Pixel Operation",
         links: {},
       },
@@ -126,7 +126,7 @@ const TEAM = [
       { name: "Jona Ackerschott",   role: "PhD Student", photo: "", blurb: "Anomaly Detection in Stellar Streams and Unfolding.", links: {} },
       { name: "Pradyun Hebbar",     role: "PhD Student", photo: "", blurb: "Foundation Models and Agentic AI.", links: {} },
       { name: "Andreas Hermansen",  role: "PhD Student", photo: "", blurb: "Co-supervised with Prof. Voloshynovskiy. Foundation Models and Event Reconstruction", links: {} },
-      { name: "Stephen Mulligan",   role: "PhD Student", photo: "", blurb: "Searches for New Physics and Optimal Detector Design.", links: {} },
+      { name: "Stephen Mulligan",   role: "PhD Student", photo: "images/team/Stephen.jpg", blurb: "Searches for New Physics and Optimal Detector Design.", links: {} },
       { name: "Ivan Oleksiyuk",     role: "PhD Student", photo: "images/team/Ivan.png", blurb: "Co-supervised with Prof. Voloshynovskiy. Searches for New Physics.", links: {} },
       { name: "Giovanni Ottaviano", role: "PhD Student", photo: "", blurb: "Co-supervised with Prof. Biau (Sorbonne University). Foundation Models and Agentic AI.", links: {} },
       { name: "Theresa Reisch",     role: "PhD Student", photo: "images/team/Theresa.png", blurb: "Searches for New Physics and Flavour Tagging in ATLAS.", links: {} },
@@ -153,6 +153,7 @@ const TEAM = [
       { name: "Debajyoti Sengupta", role: "PhD Student", photo: "images/team/Deb.png", left: 2024, blurb: "Now Postdoctoral Researcher at EPFL.", links: {} },
       { name: "Lukas Ehrke",        role: "PhD Student", photo: "images/team/Lukas.png", left: 2023, blurb: "", links: {} },
       { name: "Johnny Raine",      role: "Postdoctoral Researcher", photo: "images/team/Johnny.png", left: 2024, blurb: " ", links: {} },
+      { name: "Knut Zoch",      role: "Postdoctoral Researcher", photo: "images/team/Knut.png", left: 2023, blurb: "Now Postdoctoral Researcher at CERN.", links: {} },
     ],
   },
 ];
