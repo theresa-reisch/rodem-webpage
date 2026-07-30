@@ -12,6 +12,19 @@ function esc(s) {
     .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
 }
 
+/* Body text in content.js may use a few inline tags, and only these, for
+   particle notation: <i>b</i>-hadron, B<sub>c</sub>, fb<sup>-1</sup>.
+   Physics convention sets particle symbols in italic, and <i> rather than <em>
+   is the right tag: it marks a technical term, not spoken emphasis, so screen
+   readers do not add stress where none is meant.
+
+   Everything is escaped first and only these four tags are let back in, so a
+   stray "<script>" in content.js still cannot become markup. Use esc() for
+   anything that is not body copy. */
+function richText(s) {
+  return esc(s).replace(/&lt;(\/?)(i|em|sub|sup)&gt;/g, "<$1$2>");
+}
+
 /* Strip accents and case so "Schröer" and "Schroer" compare equal. */
 function fold(s) {
   return String(s).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
@@ -178,7 +191,7 @@ function renderNews(target, limit) {
       ${mark}
       <p class="date">${esc(n.date)}${spot ? ` &middot; Method spotlight` : ""}</p>
       <h3>${n.link ? `<a href="${esc(n.link)}">${esc(n.title)}</a>` : esc(n.title)}</h3>
-      <p>${esc(n.body)}</p>
+      <p>${richText(n.body)}</p>
     </li>`;
   }).join("");
 }
@@ -457,7 +470,7 @@ function renderResearch(target) {
           <h2>${esc(r.name)}</h2>
         </div>
         <div class="letter-body">
-          <p>${esc(r.body)}</p>
+          <p>${richText(r.body)}</p>
           ${examples ? `<ul class="letter-examples">${examples}</ul>` : ""}
           <p class="letter-more">
             <a href="output.html?cat=${esc(r.id)}">All ${esc(r.name.toLowerCase())} papers &rarr;</a>
@@ -485,7 +498,7 @@ function renderDetector(target) {
         <h2>${esc(DETECTOR.name)}</h2>
       </div>
       <div class="letter-body">
-        <p>${esc(DETECTOR.body)}</p>
+        <p>${richText(DETECTOR.body)}</p>
         ${funding}
       </div>
     </section>`;
@@ -514,7 +527,7 @@ function renderPositions(target, level) {
 
   host.innerHTML = items.map((p) => `<article class="position">
       <h3>${esc(p.title)}</h3>
-      <p>${esc(p.body)}</p>
+      <p>${richText(p.body)}</p>
       <dl class="position-meta">
         <dt>Supervisor</dt><dd>${esc(p.supervisor)}</dd>
         <dt>You should already have</dt><dd>${esc(p.prerequisites)}</dd>
@@ -539,7 +552,7 @@ function renderEvents(target) {
         <h3>${title}</h3>
         <p class="event-where">${[e.series, e.venue].filter(Boolean).map(esc).join(" &middot; ")}
            ${e.role ? `&middot; <em>${esc(e.role)}</em>` : ""}</p>
-        ${e.body ? `<p>${esc(e.body)}</p>` : ""}
+        ${e.body ? `<p>${richText(e.body)}</p>` : ""}
         ${speakers}
       </article>`;
   }).join("");

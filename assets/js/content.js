@@ -170,7 +170,7 @@ const NEWS = [
     kind: "spotlight",
     mark: "images/marks/curtain.svg",
     title: "Lifting the curtain: five years of CURTAINs",
-    body: "A bump hunt needs a background estimate, and a background estimate normally needs a simulation you trust. CURTAINs — Constructing Unobserved Regions by Transforming Adjacent Intervals — does without one: it learns to transport events from the sidebands of a mass spectrum into the signal region, so the background template comes from the data itself. What began in 2022 as one method is now a family. CURTAINs F4F replaced the original transformation with a maximum-likelihood construction; FETA and TRANSIT attacked the same problem through optimal transport and fast interpolation to a new mass; SkyCURTAINs took the machinery out of particle physics entirely and pointed it at Gaia data, searching for stellar streams in the Milky Way. Along the way we compared our methods against everyone else's in a community paper on the interplay of resonant anomaly detection techniques. Nine papers, one idea — and the point of a method family is that the next search does not start from zero.",
+    body: "A bump hunt needs a background estimate, and a background estimate normally needs a simulation you trust. CURTAINs, which stands for Constructing Unobserved Regions by Transforming Adjacent Intervals, does without one: it learns to transport events from the sidebands of a mass spectrum into the signal region, so the background template comes from the data itself. What began in 2022 as one method is now a family. CURTAINs F4F replaced the original transformation with a maximum-likelihood construction; FETA and TRANSIT attacked the same problem through optimal transport and fast interpolation to a new mass; SkyCURTAINs took the machinery out of particle physics entirely and pointed it at Gaia data, searching for stellar streams in the Milky Way. Along the way we compared our methods against everyone else's in a community paper on the interplay of resonant anomaly detection techniques. Nine papers from one idea, and the point of building a family of methods is that the next search does not start from zero.",
     link: "output.html?cat=e",
   },
   {
@@ -671,7 +671,7 @@ const PUB_CATEGORIES = [
   { id: "f", letter: "F", name: "Foundation models",
     sub: "Pre-train once on collisions, fine-tune everywhere" },
   { id: "o", letter: "O", name: "Optimisation",
-    sub: "Calibration, decorrelation, robustness — and the detector itself" },
+    sub: "Calibration, decorrelation, robustness, and the detector itself" },
   { id: "r", letter: "R", name: "Reconstruction",
     sub: "From detector signals to physics objects" },
   { id: "g", letter: "G", name: "Generation",
@@ -1516,7 +1516,7 @@ const PUBLICATIONS = [
 const RESEARCH = [
   {
     id: "f", letter: "F", name: "Foundation models",
-    body: "Every analysis at the LHC has historically started from scratch: label a training set, train a network, throw it away. That is a strange way to treat the largest dataset in the physical sciences. We pre-train on collisions themselves — masking parts of an event and asking a model to fill them in, the way language models learn from text — and then fine-tune the result for whatever the specific measurement needs. Fewer labels, better performance on small samples, and one representation that many analyses can share.",
+    body: "Analyses at the LHC have historically started from scratch: label a training set, train a network, throw it away. That is a strange way to treat the largest dataset in the physical sciences. Instead we pre-train on the collisions themselves, masking parts of an event and asking a model to fill them in, much as language models learn from text, and then fine-tune the result for whatever a specific measurement needs. The payoff is fewer labels, better performance on small samples, and one representation that many analyses can share.",
     examples: [
       "Masked particle modeling on sets — towards self-supervised foundation models for high energy physics",
       "Is tokenization needed for masked particle modelling?",
@@ -1534,7 +1534,7 @@ const RESEARCH = [
   },
   {
     id: "r", letter: "R", name: "Reconstruction",
-    body: "Turning detector signals into physics. Which quark started this jet — work that took transformers into ATLAS flavour tagging for the first time and ended up in Nature Communications. Where the neutrinos went, when there are two of them and the event is under-constrained. What the decay chain of a b-hadron actually looked like, treated as a graph rather than a list of numbers. How to find a charged particle's trajectory among a hundred thousand hits without the cost growing quadratically.",
+    body: "Turning detector signals into physics. Which quark started this jet, work that took transformers into ATLAS flavour tagging for the first time and ended up in Nature Communications. Where the neutrinos went, when there are two of them and the event is under-constrained. What the decay chain of a <i>b</i>-hadron actually looked like, treated as a graph rather than a list of numbers. How to find a charged particle's trajectory among a hundred thousand hits without the cost growing quadratically.",
     examples: [
       "Transforming jet flavour tagging at ATLAS",
       "Fast and improved neutrino reconstruction with conditional normalizing flows",
@@ -1543,7 +1543,7 @@ const RESEARCH = [
   },
   {
     id: "g", letter: "G", name: "Generation",
-    body: "Simulation is the LHC's computing bottleneck: a substantial fraction of the grid exists to make fake collisions, and the High-Luminosity era needs far more of them than anyone can afford. So we learn the simulator. Diffusion and flow-matching models that generate jets as point clouds, calorimeter showers, and eventually whole events — fast enough to matter, and checked hard enough that the speed is not bought with a subtly wrong distribution.",
+    body: "Simulation is the LHC's computing bottleneck: a substantial fraction of the grid exists to make fake collisions, and the High-Luminosity era needs far more of them than anyone can afford. So we learn the simulator. Diffusion and flow-matching models that generate jets as point clouds, calorimeter showers, and eventually whole events, fast enough to matter and checked hard enough that the speed is not bought with a subtly wrong distribution.",
     examples: [
       "PC-JeDi — diffusion for particle cloud generation in high energy physics",
       "EPiC-ly fast particle cloud generation with flow matching and diffusion",
@@ -1553,7 +1553,7 @@ const RESEARCH = [
   {
     id: "e", letter: "E", name: "Exploration",
     mark: "images/marks/bump.svg",
-    body: "The point of the other four. A conventional search asks the data whether one specific new particle is there; you have to know what you are looking for before you can look. We build searches that do not need the answer in advance — that learn what ordinary collisions look like and flag what does not fit, with the statistics done carefully enough that \"does not fit\" means something. This is where the CURTAINs family lives, and it is what took weakly supervised anomaly detection into an ATLAS Run 2 publication for the first time.",
+    body: "The point of the other four. A conventional search asks the data whether one specific new particle is there; you have to know what you are looking for before you can look. We build searches that do not need the answer in advance: they learn what ordinary collisions look like and flag whatever does not fit, with the statistics done carefully enough that \"does not fit\" means something. This is where the CURTAINs family lives, and it is what took weakly supervised anomaly detection into an ATLAS Run 2 publication for the first time.",
     examples: [
       "Weakly supervised anomaly detection for resonant new physics in the dijet final state with ATLAS",
       "CURTAINs for your sliding window — constructing unobserved regions by transforming adjacent intervals",
@@ -1580,8 +1580,8 @@ const DETECTOR = {
   id: "itk",
   eyebrow: "The other frontier",
   name: "ATLAS Inner Tracker",
-  body: "Assembly, construction and quality control of the Inner Tracker Pixel Outer Barrel — a new, state-of-the-art hybridised pixel detector for ATLAS operations in Run 4 and beyond. The methods above are what we do with the data; this is where the data will come from.",
-  funding: "SNSF 200020_212127 — At the two upgrade frontiers: machine learning and the ITk Pixel detector",
+  body: "Assembly, construction and quality control of the Inner Tracker Pixel Outer Barrel, a new, state-of-the-art hybridised pixel detector for ATLAS operations in Run 4 and beyond. Alongside the methods above, the group helps build the instrument that will record the data.",
+  funding: "Supported by SNSF grant 200020_212127, “At the two upgrade frontiers: machine learning and the ITk Pixel detector”.",
 };
 
 
@@ -1606,7 +1606,7 @@ const POSITIONS = [
     level: "Master",
     status: "open",
     title: "What has the field actually predicted? Building a theory prior for the dijet spectrum",
-    body: "Thousands of papers propose new particles that would show up as a bump in the dijet mass spectrum. Nobody has ever collected them. This project reads the literature at scale — an automated sweep of hep-ph on arXiv, with a language model extracting the claim from each paper: what particle, what mass range, what production cross-section, what final state — and turns it into a machine-readable catalogue. The result is a prior over what theorists have actually asked for, which you can then lay over what experiments have actually looked at. Expect the two maps to disagree, and expect the gaps to be interesting. Half literature archaeology, half tool-building; genuinely nobody knows what the answer looks like.",
+    body: "Thousands of papers propose new particles that would show up as a bump in the dijet mass spectrum, and nobody has ever collected them. This project reads that literature at scale: an automated sweep of hep-ph on arXiv, with a language model pulling the claim out of each paper (what particle, what mass range, what production cross-section, what final state) and turning it into a machine-readable catalogue. The result is a map of what theorists have actually asked for, which you can then lay over what experiments have actually looked at. Expect the two to disagree, and expect the gaps to be the interesting part. Half literature archaeology and half tool-building, and genuinely nobody knows yet what the answer looks like.",
     supervisor: "Tobias Golling",
     prerequisites: "Python. Enough curiosity about phenomenology to enjoy reading abstracts. No ATLAS experience, no prior NLP experience needed.",
     reviewed: "2026-07-29",
