@@ -134,6 +134,7 @@ const TEAM = [
       { name: "Matej Repik",        role: "PhD Student", photo: "images/team/Matej.jpg", blurb: "ATLAS ITk Upgrade Development.", links: {} },
       { name: "Vincent Riechers",   role: "PhD Student", photo: "", blurb: "Optimal Detector Design.", links: {} },
       { name: "Franck Rothen",      role: "PhD Student", photo: "", blurb: "Uncertainty Aware Classification.", links: {} },
+      { name: "Guillaume Quétant",      role: "PhD Student", photo: "images/team/Guillaume.jpg", blurb: "Co-supervised with Prof. Voloshynovskiy. Information Theory, Generative and Foundation Models.", links: {} },
     ],
   },
   {
