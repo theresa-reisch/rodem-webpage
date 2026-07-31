@@ -1601,6 +1601,8 @@ const DETECTOR = {
    status       "open" | "filled" | "draft"   (only "open" is displayed)
    funding      REQUIRED for PhD. A grant name, not a hope.
    deadline     REQUIRED for PhD. ISO date.
+   applyUrl     optional link to an application form, shown as "How to apply".
+   applyLabel   optional link text for applyUrl (default "Application form").
    reviewed     the date a human last confirmed this is still true.
    ------------------------------------------------------------------------ */
 const POSITIONS = [
@@ -1613,6 +1615,19 @@ const POSITIONS = [
     supervisor: "Tobias Golling",
     prerequisites: "Python. Enough curiosity about phenomenology to enjoy reading abstracts. No ATLAS experience, no prior NLP experience needed.",
     reviewed: "2026-07-29",
+  },
+  {
+    id: "phd-fundis-foundation-models",
+    level: "PhD",
+    status: "open",
+    title: "Foundation models for scientific discovery (FUNDIS)",
+    body: "FUNDIS is recruiting nine fully funded PhD students across the University of Geneva, working on foundation models, self-supervised learning, world models, explainable AI and bio-inspired AI, applied to astronomy, particle physics, climate science, digital humanities and global governance. The project in this group is the particle-physics one: pretraining on collision data and asking what a model learns about physics when nobody hands it labels. You would be one of eleven supervisors' worth of neighbours, which is the point — the methods are meant to travel between the domains, and co-supervision across two of them is normal here rather than exceptional.",
+    supervisor: "Tobias Golling",
+    prerequisites: "Python and a working knowledge of deep learning. A master's degree in physics, computer science, mathematics or a related field by the start date. No prior particle-physics experience needed.",
+    funding: "FUNDIS — AI Foundation Models for Scientific Discovery, Fondation pour l'Université de Genève.",
+    deadline: "2026-08-30",
+    applyUrl: "https://docs.google.com/forms/d/e/1FAIpQLSew6wMjdDxXbn4n0Y9cG56Sjw3M7OMGmmEl39hufqlhUDLH3Q/viewform",
+    reviewed: "2026-07-31",
   },
 ];
 
