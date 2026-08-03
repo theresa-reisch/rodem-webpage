@@ -185,8 +185,9 @@ const NEWS = [
   },
   {
     date: "July 2026",
-    title: "Hammers & Nails returns: Munich, 10–16 January 2027",
-    body: "The next edition of Hammers & Nails will be held in Munich from 10 to 16 January 2027. The series began at the Weizmann Institute in 2017 and is the closest thing the field has to a place where machine learning researchers and physicists argue in the same room for a week. Tobias Golling has been on the scientific organising committee since the first edition, and led the 2023 Swiss edition at Monte Verità.",
+    title: "Hammers & Nails returns: Schloss Ringberg, 10–16 January 2027",
+    body: "The next edition of Hammers & Nails will be held at Schloss Ringberg in Bavaria from 10 to 16 January 2027, a collaboration between the Weizmann Institute and the Max Planck Institute for Physics. The series began at Weizmann in 2017 and is the closest thing the field has to a place where machine learning researchers and physicists argue in the same room for a week. Tobias Golling has been on the scientific organising committee since the first edition, and led the 2023 Swiss edition at Monte Verità.",
+    link: "https://conferences.weizmann.ac.il/SRitp/January2027/",
   },
   {
     date: "July 2026",
@@ -1640,52 +1641,133 @@ const POSITIONS = [
 
 
 /* ---------------------------------------------------------------------------
-   8. EVENTS — workshops and conferences the group organises
+   8. EVENTS — workshops and conferences the group starts and runs
    ------------------------------------------------------------------------
    Peer recognition, stated as fact rather than as claim. Every entry here is
-   backed by a public page; keep it that way. `speakers` should be people a
-   reader would recognise, with affiliations spelled correctly.
+   backed by a public page; keep it that way — `url` should be the event's own
+   page (Indico wherever there is one), not a news story about it.
+
+   Rendered on the Output page, grouped by `series`. The groups come out in the
+   order the series first appear below, and entries stay in the order written,
+   so keep each series together and newest first.
+
+   Required : year, title, series, venue, role
+   Optional : dates     free text shown as the date line, e.g. "10–16 January 2027"
+              upcoming  true for events that have not happened yet
+              body      one or two sentences, no more
+              speakers  people a reader would recognise, affiliations spelled right
+              url       the event page
    ------------------------------------------------------------------------ */
 const EVENTS = [
+  /* --- Hammers & Nails: the ML-meets-physics week, Weizmann-founded in 2017.
+         Tobias Golling has been on the scientific committee of every edition
+         and led the Swiss one. ------------------------------------------- */
   {
-    year: 2027, title: "Hammers & Nails 2027",
-    series: "Hammers & Nails", venue: "Munich, 10–16 January 2027",
-    role: "Scientific organising committee", upcoming: true,
-    body: "The next edition of the series that puts machine learning researchers and physicists in the same room for a week.",
+    year: 2027, title: "Hammers & Nails 2027 — Machine Learning Meets Astro & Particle Physics",
+    series: "Hammers & Nails", dates: "10–16 January 2027",
+    venue: "Schloss Ringberg, Germany", role: "Scientific organising committee",
+    upcoming: true,
+    body: "A Weizmann–Max Planck collaboration, by invitation. Agentic AI, foundation models, AI-driven design, simulation-based inference, uncertainty quantification.",
     url: "https://conferences.weizmann.ac.il/SRitp/January2027/",
   },
   {
-    year: 2026, title: "ML opportunities for HEP in the era of agentic AI",
-    series: "G·IST", venue: "Villa Boninchi, Geneva", role: "Organiser",
-    body: "What changes about how physics gets done when the tools can write and test their own code.",
-  },
-  {
-    year: 2025, title: "Computing Challenges and AI Opportunities for Future Colliders",
-    series: "G·IST", venue: "Villa Boninchi, Geneva", role: "Organiser",
-    speakers: ["Tilman Plehn (Heidelberg)", "Sven Krippendorf (Cambridge)", "Thea Aarrestad (ETH Zurich)", "Sascha Caron (Nikhef / Radboud)"],
-    url: "https://www.unige.ch/math/GIST/events/past-events/computing-challenges-and-ai-opportunities-future-colliders",
-  },
-  {
-    year: 2024, title: "Challenges & opportunities in foundation models",
-    series: "G·IST", venue: "Villa Boninchi, Geneva", role: "Co-organiser",
-    body: "Opened by Yann LeCun.",
-    speakers: ["Yann LeCun (Meta AI / NYU)", "Dan Alistarh (ISTA)", "Taco Cohen (Meta)", "Lucas Beyer (OpenAI)", "Hervé Jégou (FAIR)", "Emmanuel Abbe (EPFL)"],
-    url: "https://www.unige.ch/math/GIST/events/past-events/liouville-quantum-gravity-continuum-discrete-1",
-  },
-  {
     year: 2023, title: "Hammers & Nails 2023 — Swiss Edition",
-    series: "Hammers & Nails", venue: "Congressi Stefano Franscini, Monte Verità, Ascona",
+    series: "Hammers & Nails", dates: "29 October – 3 November 2023",
+    venue: "Congressi Stefano Franscini, Monte Verità, Ascona",
     role: "Lead organiser", body: "59 participants, by invitation.",
     speakers: ["Michael Bronstein (Oxford)", "Kyle Cranmer (Wisconsin–Madison)", "Taco Cohen (Qualcomm AI)", "Shirley Ho (Flatiron Institute)", "Konstantin Novoselov (NUS, Nobel Laureate 2010)", "Jesse Thaler (MIT)", "Michael Elad (Technion)"],
     url: "https://indico.cern.ch/event/1202995/",
   },
   {
+    year: 2022, title: "Hammers & Nails 2022 — Machine Learning Meets Astro & Particle Physics",
+    series: "Hammers & Nails", dates: "3–11 August 2022",
+    venue: "Weizmann Institute of Science, Rehovot",
+    role: "Scientific organising committee",
+    url: "https://conferences.weizmann.ac.il/SRitp/Aug2022/",
+  },
+  {
+    year: 2019, title: "Hammers & Nails 2019 — Machine Learning Meets Astro & Particle Physics",
+    series: "Hammers & Nails", dates: "30 July – 8 August 2019",
+    venue: "Weizmann Institute of Science, Rehovot",
+    role: "Scientific organising committee",
+    url: "https://www.weizmann.ac.il/conferences/SRitp/Aug2019/",
+  },
+  {
+    year: 2017, title: "Hammers & Nails — Machine Learning & HEP",
+    series: "Hammers & Nails", dates: "19–28 July 2017",
+    venue: "Weizmann Institute of Science, Rehovot",
+    role: "Scientific committee", body: "The first edition, and the start of the series.",
+    url: "https://www.weizmann.ac.il/conferences/SRitp/Summer2017/hammers-and-nails-machine-learning-and-hep",
+  },
+
+  /* --- EuCAIFCon: the conference of EuCAIF, the European coalition for AI in
+         fundamental physics, of which Tobias Golling is a founding board
+         member. ------------------------------------------------------------ */
+  {
+    year: 2026, title: "EuCAIFCon 2026 — European AI for Fundamental Physics Conference",
+    series: "EuCAIFCon", dates: "24–28 August 2026",
+    venue: "Kirchhoff Institute for Physics, Heidelberg",
+    role: "EuCAIF founding board member; foundation-models working group",
+    upcoming: true,
+    body: "The third edition. Sessions are organised by AI method rather than by physics question, which is the point of the series.",
+    url: "https://indico.physi.uni-heidelberg.de/event/1277/",
+  },
+  {
+    year: 2025, title: "EuCAIFCon 2025 — European AI for Fundamental Physics Conference",
+    series: "EuCAIFCon", dates: "16–20 June 2025", venue: "Cagliari, Sardinia",
+    role: "Organising committee; foundation-models working group; panel on AI and fundamental physics",
+    url: "https://agenda.infn.it/event/43565/",
+  },
+  {
+    year: 2024, title: "EuCAIFCon 2024 — the first European AI for Fundamental Physics Conference",
+    series: "EuCAIFCon", dates: "30 April – 3 May 2024", venue: "Hotel CASA, Amsterdam",
+    role: "Organising committee; foundation-models working group; panel on AI infrastructure",
+    body: "Hosted by the University of Amsterdam, Nikhef and Radboud, and the first time particle, astroparticle, nuclear, gravitational-wave and accelerator physicists sat in one AI conference.",
+    url: "https://indico.nikhef.nl/event/4875/",
+  },
+
+  /* --- The Geneva weeks at the Villa Boninchi, run through G·IST, the
+         theoretical-sciences institute of the University of Geneva. -------- */
+  {
+    year: 2026, title: "ML opportunities for HEP in the era of agentic AI",
+    series: "G·IST · Villa Boninchi", dates: "May 2026",
+    venue: "Villa Boninchi, Geneva", role: "Organiser",
+    body: "What changes about how physics gets done when the tools can write and test their own code.",
+  },
+  {
+    year: 2025, title: "Computing Challenges and AI Opportunities for Future Colliders",
+    series: "G·IST · Villa Boninchi", dates: "20–24 October 2025",
+    venue: "Villa Boninchi, Geneva", role: "Organiser",
+    speakers: ["Tilman Plehn (Heidelberg)", "Sven Krippendorf (Cambridge)", "Thea Aarrestad (ETH Zurich)", "Sascha Caron (Nikhef / Radboud)"],
+    url: "https://www.unige.ch/math/GIST/events/past-events/computing-challenges-and-ai-opportunities-future-colliders",
+  },
+  {
+    year: 2024, title: "Challenges & opportunities in foundation models",
+    series: "G·IST · Villa Boninchi", dates: "14–25 October 2024",
+    venue: "Villa Boninchi, Geneva", role: "Co-organiser",
+    body: "Opened by Yann LeCun.",
+    speakers: ["Yann LeCun (Meta AI / NYU)", "Dan Alistarh (ISTA)", "Taco Cohen (Meta)", "Lucas Beyer (OpenAI)", "Hervé Jégou (FAIR)", "Emmanuel Abbe (EPFL)"],
+    url: "https://www.unige.ch/math/GIST/events/past-events/liouville-quantum-gravity-continuum-discrete-1",
+  },
+  {
     year: 2023, title: "Automating & Accelerating Scientific Discovery with AI",
-    series: "G·IST · UNIGE Institute of Advanced Study", venue: "Geneva",
+    series: "G·IST · Villa Boninchi", dates: "25 September – 6 October 2023",
+    venue: "Villa Boninchi, Geneva — inaugural UNIGE Institute of Advanced Study",
     role: "Co-director",
     body: "Included a public lecture by Konstantin Novoselov, the 2010 Nobel laureate in physics.",
     speakers: ["Konstantin Novoselov (NUS, Nobel Laureate 2010)", "Daniel Whiteson (UC Irvine)", "Anna Scaife (Manchester)", "David Shih (Rutgers)", "Michael Kagan (SLAC)", "Lukas Heinrich (TU Munich)"],
     url: "https://ias-ai.unige.ch/",
+  },
+
+  /* --- The Glühwein workshop: the small December meeting on machine learning
+         in high-energy physics. Heidelberg 2022, Vienna 2023, Karlsruhe 2024,
+         Aachen 2025 — and Geneva next. Add `url` here as soon as the Indico
+         page is up. -------------------------------------------------------- */
+  {
+    year: 2026, title: "Glühwein Workshop — Geneva edition",
+    series: "Glühwein Workshop", dates: "14–16 December 2026",
+    venue: "Geneva", role: "Host", upcoming: true,
+    body: "A small meeting on the latest in machine learning and how it is being applied to high-energy physics, held over three December days. Geneva takes it on after Heidelberg 2022, Vienna 2023, Karlsruhe 2024 and Aachen 2025.",
   },
 ];
 

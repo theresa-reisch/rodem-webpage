@@ -103,7 +103,7 @@ existing `renderNews()` pattern.
 | `NAV` | the menu | one line per tab |
 | `RESEARCH` | `research.html` | the five letters |
 | `POSITIONS` | `join.html` | see the funding rule below |
-| `EVENTS` | Vision → *Convening the field* | every entry is backed by a public page |
+| `EVENTS` | Output → *Workshops started and run* | grouped by `series`, in the order the series first appear; every entry is backed by a public page |
 | `FUNDING` | Vision → *Funded research* | no amounts, on purpose |
 
 News items can now carry `kind: "spotlight"` and a `mark:` image. A spotlight is

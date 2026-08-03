@@ -542,25 +542,46 @@ function renderPositions(target, level) {
     </article>`).join("");
 }
 
-/* ---------------------------------------------------------------- events --- */
-function renderEvents(target) {
+/* ------------------------------------------------------------- workshops --- */
+// EVENTS grouped by series, because a series read as one block says more than
+// the same entries scattered through a single list of years. Group order is the
+// order the series first appear in EVENTS, so the author decides it there.
+function renderWorkshops(target) {
   const host = el(target);
   if (!host || typeof EVENTS === "undefined") return;
 
-  host.innerHTML = EVENTS.map((e) => {
-    const speakers = (e.speakers || []).length
-      ? `<p class="event-speakers"><span>Among the speakers</span> ${e.speakers.map(esc).join(" &middot; ")}</p>` : "";
-    const title = e.url
-      ? `<a href="${esc(e.url)}">${esc(e.title)}</a>` : esc(e.title);
-    return `<article class="event${e.upcoming ? " is-upcoming" : ""}">
-        <p class="event-year">${esc(e.year)}${e.upcoming ? ` &middot; upcoming` : ""}</p>
-        <h3>${title}</h3>
-        <p class="event-where">${[e.series, e.venue].filter(Boolean).map(esc).join(" &middot; ")}
-           ${e.role ? `&middot; <em>${esc(e.role)}</em>` : ""}</p>
-        ${e.body ? `<p>${richText(e.body)}</p>` : ""}
-        ${speakers}
-      </article>`;
-  }).join("");
+  if (!EVENTS.length) {
+    host.innerHTML = `<p class="empty">No workshops listed yet.</p>`;
+    return;
+  }
+
+  const order = [];
+  const bySeries = new Map();
+  for (const e of EVENTS) {
+    const key = e.series || "Other";
+    if (!bySeries.has(key)) { bySeries.set(key, []); order.push(key); }
+    bySeries.get(key).push(e);
+  }
+
+  host.innerHTML = order.map((series) => `<section class="event-series">
+      <h3 class="event-series-title">${esc(series)}</h3>
+      ${bySeries.get(series).map(eventHTML).join("")}
+    </section>`).join("");
+}
+
+function eventHTML(e) {
+  const speakers = (e.speakers || []).length
+    ? `<p class="event-speakers"><span>Among the speakers</span> ${e.speakers.map(esc).join(" &middot; ")}</p>` : "";
+  const title = e.url
+    ? `<a href="${esc(e.url)}">${esc(e.title)}</a>` : esc(e.title);
+  return `<article class="event${e.upcoming ? " is-upcoming" : ""}">
+      <p class="event-year">${esc(e.dates || e.year)}${e.upcoming ? ` &middot; upcoming` : ""}</p>
+      <h4>${title}</h4>
+      <p class="event-where">${esc(e.venue || "")}
+         ${e.role ? `&middot; <em>${esc(e.role)}</em>` : ""}</p>
+      ${e.body ? `<p>${richText(e.body)}</p>` : ""}
+      ${speakers}
+    </article>`;
 }
 
 /* --------------------------------------------------------------- funding --- */
@@ -637,6 +658,6 @@ document.addEventListener("DOMContentLoaded", function () {
   renderPositions("positions-master", "Master");
   renderPositions("positions-phd", "PhD");
   renderPositions("positions-postdoc", "Postdoc");
-  renderEvents("events-root");
+  renderWorkshops("workshops-root");
   renderFunding("funding-root");
 });

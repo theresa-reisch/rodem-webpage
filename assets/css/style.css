@@ -426,14 +426,20 @@ figure.band figcaption {
 .empty { color: var(--muted); font-style: italic; }
 
 /* --------------------------------------------------------------- events -- */
+.event-series + .event-series { margin-top: 3rem; }
+.event-series-title {
+  font-size: 1.35rem; margin: 0 0 1rem;
+  padding-bottom: .5rem; border-bottom: 1px solid var(--rule);
+  max-width: var(--measure);
+}
 .event { padding-block: 1.5rem; border-top: 1px solid var(--rule); max-width: var(--measure); }
-.event:first-child { border-top: none; padding-top: 0; }
+.event:first-child, .event-series-title + .event { border-top: none; padding-top: 0; }
 .event-year {
   font-size: .78rem; letter-spacing: .1em; text-transform: uppercase;
   color: var(--muted); margin: 0 0 .3em;
 }
 .event.is-upcoming .event-year { color: var(--accent); }
-.event h3 { font-size: 1.12rem; margin: 0 0 .25em; }
+.event h3, .event h4 { font-size: 1.12rem; margin: 0 0 .25em; }
 .event-where { margin: 0 0 .5em; font-size: .92rem; color: var(--muted); }
 .event > p { margin: 0 0 .5em; color: var(--muted); }
 .event-speakers { font-size: .88rem; color: var(--muted); margin: 0; }
