@@ -1798,6 +1798,13 @@ const EVENTS = [
     body: "A small meeting on the latest in machine learning and how it is being applied to high-energy physics, held over three December days. Geneva takes it on after Heidelberg 2022, Vienna 2023, Karlsruhe 2024 and Aachen 2025.",
   },
   {
+    year: 2025, title: "Glühwein Workshop 2025",
+    series: "Glühwein Workshop", dates: "15–17 December 2025",
+    venue: "Erholungsgesellschaft, Aachen — RWTH Aachen University",
+    body: "Three days on detector simulation, foundation models, unfolding and anomaly detection.",
+    url: "https://indico.global/event/16087/",
+  },
+  {
     year: 2024, title: "Glühwein Workshop 2024",
     series: "Glühwein Workshop", dates: "16–18 December 2024",
     venue: "Karlsruhe Institute of Technology",
