@@ -19,5 +19,6 @@ photographs — not in this repository.
 Every photograph needs an `imageAlt:` line next to it saying what it shows, and
 anyone recognisable in one should be happy to be on a public page.
 
-The wide crop of the 2025 photograph is used as the group picture above the team
-grid on the home page; it lives in `images/team/group-boninchi-2025.jpg`.
+The group picture above the team grid on the home page follows the same rules and
+lives in `images/team/group.jpg`, cropped to 2:1 (1600×800) so it reads as a band
+rather than a photograph the reader has to scroll past.
