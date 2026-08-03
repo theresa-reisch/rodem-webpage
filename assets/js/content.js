@@ -133,7 +133,7 @@ const TEAM = [
     members: [
       { name: "Jona Ackerschott",   role: "PhD Student", photo: "", blurb: "Anomaly Detection in Stellar Streams and Unfolding.", links: {} },
       { name: "Pradyun Hebbar",     role: "PhD Student", photo: "images/team/Pradyun.jpg", blurb: "Foundation Models and Agentic AI.", links: {} },
-      { name: "Andreas Hermansen",  role: "PhD Student", photo: "", blurb: "AIPHY fellow. Co-supervised with Prof. Voloshynovskiy. Foundation Models and Event Reconstruction.", links: {} },
+      { name: "Andreas Hermansen",  role: "PhD Student", photo: "images/team/Andreas.png", blurb: "AIPHY fellow. Co-supervised with Prof. Voloshynovskiy. Foundation Models and Event Reconstruction.", links: {} },
       { name: "Stephen Mulligan",   role: "PhD Student", photo: "images/team/Stephen.jpg", blurb: "Searches for New Physics and Optimal Detector Design.", links: {} },
       { name: "Ivan Oleksiyuk",     role: "PhD Student", photo: "images/team/Ivan.png", blurb: "Co-supervised with Prof. Voloshynovskiy. Searches for New Physics.", links: {} },
       { name: "Giovanni Ottaviano", role: "PhD Student", photo: "images/team/Giovanni.jpg", blurb: "AIPHY fellow. Co-supervised with Prof. Biau (Sorbonne University). Foundation Models and Agentic AI.", links: {} },
@@ -168,20 +168,20 @@ const TEAM = [
       { name: "Johnny Raine",      role: "Postdoctoral Researcher", photo: "images/team/Johnny.png", left: 2024, blurb: " ", links: {} },
       { name: "Knut Zoch",      role: "Postdoctoral Researcher", photo: "images/team/Knut.png", left: 2023, blurb: "Now Postdoctoral Researcher at CERN.", links: {} },
 
-      // From the DPNC former-members list. Roles and years as recorded there:
-      // https://www.unige.ch/dpnc/en/groups/tobias-golling/members/former-members/
-      { name: "Manuel Guth",             role: "Postdoctoral Researcher", photo: "", left: 2023, blurb: "Feodor Lynen Research Fellow.", links: {} },
-      { name: "Matthias Schlaffer",      role: "Postdoctoral Researcher", photo: "", left: 2022, blurb: "Feodor Lynen Research Fellow.", links: {} },
-      { name: "Sabrina Amrouche",        role: "PhD Student",             photo: "", left: 2021, blurb: "", links: {} },
-      { name: "Dalila Salamani",         role: "PhD Student",             photo: "", left: 2021, blurb: "", links: {} },
+      // From the DPNC former-members list. Roles, years and portraits as recorded
+      // there: https://www.unige.ch/dpnc/en/groups/tobias-golling/members/former-members/
+      { name: "Manuel Guth",             role: "Postdoctoral Researcher", photo: "images/team/alum-guth.jpg", left: 2023, blurb: "Feodor Lynen Research Fellow.", links: {} },
+      { name: "Matthias Schlaffer",      role: "Postdoctoral Researcher", photo: "images/team/alum-schlaffer.jpg", left: 2022, blurb: "Feodor Lynen Research Fellow.", links: {} },
+      { name: "Sabrina Amrouche",        role: "PhD Student",             photo: "images/team/alum-amrouche.jpg", left: 2021, blurb: "", links: {} },
+      { name: "Dalila Salamani",         role: "PhD Student",             photo: "images/team/alum-salamani.jpg", left: 2021, blurb: "", links: {} },
       { name: "Takuya Nobe",             role: "Postdoctoral Researcher", photo: "", left: 2021, blurb: "JSPS Fellow.", links: {} },
-      { name: "Sebastian Pina Otey",     role: "Postdoctoral Researcher", photo: "", left: 2021, blurb: "", links: {} },
+      { name: "Sebastian Pina Otey",     role: "Postdoctoral Researcher", photo: "images/team/alum-pinaotey.jpg", left: 2021, blurb: "", links: {} },
       { name: "Dimitrios Proios",        role: "Master Student",          photo: "", left: 2021, blurb: "", links: {} },
       { name: "Moritz Kiehn",            role: "Postdoctoral Researcher", photo: "", left: 2020, blurb: "", links: {} },
       { name: "Oliver Majersky",         role: "PhD Student",             photo: "", left: 2020, blurb: "Cotutelle with Comenius University, Bratislava.", links: {} },
       { name: "Luiza Ciucu",             role: "Master Student",          photo: "", left: 2020, blurb: "", links: {} },
-      { name: "Ece Akilli",              role: "PhD Student",             photo: "", left: 2019, blurb: "", links: {} },
-      { name: "Marie Christine Lanfermann", role: "PhD Student",          photo: "", left: 2019, blurb: "", links: {} },
+      { name: "Ece Akilli",              role: "PhD Student",             photo: "images/team/alum-akilli.jpg", left: 2019, blurb: "", links: {} },
+      { name: "Marie Christine Lanfermann", role: "PhD Student",          photo: "images/team/alum-lanfermann.jpg", left: 2019, blurb: "", links: {} },
       { name: "Andrea Coccaro",          role: "Maître Assistant",        photo: "", left: 2017, blurb: "", links: {} },
       { name: "Olaf Nackenhorst",        role: "Postdoctoral Researcher", photo: "", left: 2017, blurb: "Feodor Lynen Research Fellow.", links: {} },
       { name: "Luis Ruiz",               role: "Postdoctoral Researcher", photo: "", left: 2017, blurb: "", links: {} },
@@ -1882,10 +1882,12 @@ const FUNDING = [
   { years: "2025–2028", name: "CHEF", funder: "SERI and UNIGE", role: "Co-applicant" },
   { years: "2024–2028", name: "AIPHY — Challenging AI with Challenges from Physics", funder: "HORIZON MSCA Doctoral Network", role: "Co-applicant",
     url: "https://www.sites.uni-heidelberg.de/en/aiphy",
+    logo: "images/funding/aiphy.png",
     summary: "Nine doctoral candidates at five 4EU+ universities, supervised by nine principal investigators and coordinated from Heidelberg, working on inverse problems, systematic uncertainties and explainable AI for LHC data. Geneva hosts one of the network weeks." },
   { years: "2022–2026", name: "At the two upgrade frontiers: machine learning and the ITk Pixel detector", funder: "SNSF 200020_212127", role: "Principal investigator" },
   { years: "2020–2024", name: "RODEM — Robust Deep Density Models for High-Energy Particle Physics and Solar Flare Analysis", funder: "SNSF Sinergia CRSII5_193716", role: "Co-applicant", note: "the group's namesake",
     url: "https://rodem.ch/",
+    logo: "images/funding/rodem.png",
     summary: "A Sinergia project shared with computer science and solar astronomy, on robust density models for rare events — from LHC collisions to solar flares. It funded the first generation of students and postdocs here, and gave the group its name." },
   { years: "2018–2022", name: "Exploiting LHC data with machine learning, and preparing for the HL-LHC", funder: "SNSF 200020_181984", role: "Principal investigator" },
 ];

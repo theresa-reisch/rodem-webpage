@@ -622,12 +622,16 @@ function renderFunding(target) {
   host.innerHTML = `<ul class="funding-list">${FUNDING.map((f) => {
     // A grant with a public page links from its name, as events do.
     const name = f.url ? `<a href="${esc(f.url)}">${esc(f.name)}</a>` : esc(f.name);
-    return `<li>
+    // A project with its own logo shows it at the end of the row. The alt text is
+    // the short name — everything before the em dash in "AIPHY — Challenging...".
+    const short = f.name.split(" — ")[0];
+    return `<li${f.logo ? ` class="has-logo"` : ""}>
       <span class="funding-years">${esc(f.years)}</span>
       <span class="funding-what"><strong>${name}</strong>
         <span class="funding-who">${esc(f.funder)} &middot; ${esc(f.role)}${f.note ? " &middot; " + esc(f.note) : ""}</span>
         ${f.summary ? `<span class="funding-summary">${richText(f.summary)}</span>` : ""}
       </span>
+      ${f.logo ? `<img class="funding-logo" src="${esc(f.logo)}" alt="${esc(short)} logo" loading="lazy">` : ""}
     </li>`;
   }).join("")}</ul>`;
 }
