@@ -145,6 +145,27 @@ const TEAM = [
     ],
   },
   {
+    group: "Alumni",
+    // Sorted by "left" (year of departure), most recent first, instead of by name.
+    sort: "left",
+    members: [
+      // "left" is the year they finished/left. It is displayed automatically
+      // next to the role — don't repeat it in the blurb. Use the blurb for
+      // where they are now. Anyone without a "left" year is listed last.
+      { name: "Malte Algren",       role: "PhD Student", photo: "images/team/Malte.png", left: 2026, blurb: "", links: {} },
+      { name: "Tomke Schröer",      role: "PhD Student", photo: "images/team/Tomke.png", left: 2026, blurb: "", links: {} },
+      { name: "Alexandra Kolev",      role: "Master Student", photo: "", left: 2025, blurb: " ", links: {} },
+      { name: "Lucrezia Boccardo",      role: "Visiting PhD Student", photo: "", left: 2025, blurb: "PhD Student in Genoa.", links: {} },
+      { name: "Yusong Tian",      role: "Postdoctoral Researcher", photo: "", left: 2025, blurb: " ", links: {} },
+      { name: "Samuel Klein",       role: "PhD Student", photo: "images/team/Sam.png", left: 2025, blurb: "Now Postdoctoral Researcher at SLAC.", links: {} },
+      { name: "Matthew Leigh",      role: "PhD Student", photo: "images/team/Matt.png", left: 2025, blurb: "Now ML-Researcher at Meta.", links: {} },
+      { name: "Debajyoti Sengupta", role: "PhD Student", photo: "images/team/Deb.png", left: 2024, blurb: "Now Postdoctoral Researcher at EPFL.", links: {} },
+      { name: "Lukas Ehrke",        role: "PhD Student", photo: "images/team/Lukas.png", left: 2023, blurb: "", links: {} },
+      { name: "Johnny Raine",      role: "Postdoctoral Researcher", photo: "images/team/Johnny.png", left: 2024, blurb: " ", links: {} },
+      { name: "Knut Zoch",      role: "Postdoctoral Researcher", photo: "images/team/Knut.png", left: 2023, blurb: "Now Postdoctoral Researcher at CERN.", links: {} },
+    ],
+  },
+  {
     // The principal investigators of the two networks the group belongs to:
     // AIPHY (the current MSCA doctoral network) and RODEM (the Sinergia
     // project the group is named after). Tobias Golling is a PI of both and is
@@ -172,27 +193,6 @@ const TEAM = [
       { name: "Sascha Caron",      role: "Radboud University and Nikhef",  photo: "images/team/collab-caron.jpg",    blurb: "Co-author on large physics models, and a speaker at the Villa Boninchi week.", links: {} },
       { name: "Jean-François Arguin", role: "Université de Montréal",      photo: "images/team/collab-arguin.jpg",   blurb: "Co-author on the group's anomalous jet tagging work.", links: {} },
       { name: "Dan Guest",         role: "Humboldt University of Berlin",  photo: "",                                blurb: "Machine learning for flavour tagging in ATLAS.", links: {} },
-    ],
-  },
-  {
-    group: "Alumni",
-    // Sorted by "left" (year of departure), most recent first, instead of by name.
-    sort: "left",
-    members: [
-      // "left" is the year they finished/left. It is displayed automatically
-      // next to the role — don't repeat it in the blurb. Use the blurb for
-      // where they are now. Anyone without a "left" year is listed last.
-      { name: "Malte Algren",       role: "PhD Student", photo: "images/team/Malte.png", left: 2026, blurb: "", links: {} },
-      { name: "Tomke Schröer",      role: "PhD Student", photo: "images/team/Tomke.png", left: 2026, blurb: "", links: {} },
-      { name: "Alexandra Kolev",      role: "Master Student", photo: "", left: 2025, blurb: " ", links: {} },
-      { name: "Lucrezia Boccardo",      role: "Visiting PhD Student", photo: "", left: 2025, blurb: "PhD Student in Genoa.", links: {} },
-      { name: "Yusong Tian",      role: "Postdoctoral Researcher", photo: "", left: 2025, blurb: " ", links: {} },
-      { name: "Samuel Klein",       role: "PhD Student", photo: "images/team/Sam.png", left: 2025, blurb: "Now Postdoctoral Researcher at SLAC.", links: {} },
-      { name: "Matthew Leigh",      role: "PhD Student", photo: "images/team/Matt.png", left: 2025, blurb: "Now ML-Researcher at Meta.", links: {} },
-      { name: "Debajyoti Sengupta", role: "PhD Student", photo: "images/team/Deb.png", left: 2024, blurb: "Now Postdoctoral Researcher at EPFL.", links: {} },
-      { name: "Lukas Ehrke",        role: "PhD Student", photo: "images/team/Lukas.png", left: 2023, blurb: "", links: {} },
-      { name: "Johnny Raine",      role: "Postdoctoral Researcher", photo: "images/team/Johnny.png", left: 2024, blurb: " ", links: {} },
-      { name: "Knut Zoch",      role: "Postdoctoral Researcher", photo: "images/team/Knut.png", left: 2023, blurb: "Now Postdoctoral Researcher at CERN.", links: {} },
     ],
   },
 ];
