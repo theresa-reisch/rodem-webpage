@@ -133,15 +133,45 @@ const TEAM = [
     members: [
       { name: "Jona Ackerschott",   role: "PhD Student", photo: "", blurb: "Anomaly Detection in Stellar Streams and Unfolding.", links: {} },
       { name: "Pradyun Hebbar",     role: "PhD Student", photo: "images/team/Pradyun.jpg", blurb: "Foundation Models and Agentic AI.", links: {} },
-      { name: "Andreas Hermansen",  role: "PhD Student", photo: "", blurb: "Co-supervised with Prof. Voloshynovskiy. Foundation Models and Event Reconstruction.", links: {} },
+      { name: "Andreas Hermansen",  role: "PhD Student", photo: "", blurb: "AIPHY fellow. Co-supervised with Prof. Voloshynovskiy. Foundation Models and Event Reconstruction.", links: {} },
       { name: "Stephen Mulligan",   role: "PhD Student", photo: "images/team/Stephen.jpg", blurb: "Searches for New Physics and Optimal Detector Design.", links: {} },
       { name: "Ivan Oleksiyuk",     role: "PhD Student", photo: "images/team/Ivan.png", blurb: "Co-supervised with Prof. Voloshynovskiy. Searches for New Physics.", links: {} },
-      { name: "Giovanni Ottaviano", role: "PhD Student", photo: "images/team/Giovanni.jpg", blurb: "Co-supervised with Prof. Biau (Sorbonne University). Foundation Models and Agentic AI.", links: {} },
-      { name: "Theresa Reisch",     role: "PhD Student", photo: "images/team/Theresa.png", blurb: "Searches for New Physics and Flavour Tagging in ATLAS.", links: {} },
+      { name: "Giovanni Ottaviano", role: "PhD Student", photo: "images/team/Giovanni.jpg", blurb: "AIPHY fellow. Co-supervised with Prof. Biau (Sorbonne University). Foundation Models and Agentic AI.", links: {} },
+      { name: "Theresa Reisch",     role: "PhD Student", photo: "images/team/Theresa.png", blurb: "AIPHY fellow. Searches for New Physics and Flavour Tagging in ATLAS.", links: {} },
       { name: "Matej Repik",        role: "PhD Student", photo: "images/team/Matej.jpg", blurb: "ATLAS ITk Upgrade Development.", links: {} },
       { name: "Vincent Riechers",   role: "PhD Student", photo: "", blurb: "Optimal Detector Design.", links: {} },
       { name: "Franck Rothen",      role: "PhD Student", photo: "", blurb: "Uncertainty Aware Classification.", links: {} },
       { name: "Guillaume Quétant",      role: "PhD Student", photo: "images/team/Guillaume.jpg", blurb: "Co-supervised with Prof. Voloshynovskiy. Information Theory, Generative and Foundation Models.", links: {} },
+    ],
+  },
+  {
+    // The principal investigators of the two networks the group belongs to:
+    // AIPHY (the current MSCA doctoral network) and RODEM (the Sinergia
+    // project the group is named after). Tobias Golling is a PI of both and is
+    // listed at the top of this page instead of here.
+    // Portraits are taken from the networks' own pages and the PIs' own sites.
+    group: "Collaborators",
+    members: [
+      // AIPHY principal investigators.
+      { name: "Anja Butter",       role: "Sorbonne University and CNRS",   photo: "images/team/collab-butter.jpg",   blurb: "AIPHY principal investigator.", links: {} },
+      { name: "Gérard Biau",       role: "Sorbonne University",            photo: "images/team/collab-biau.jpg",     blurb: "AIPHY principal investigator. Co-supervises Giovanni Ottaviano.", links: {} },
+      { name: "Stefano Carrazza",  role: "University of Milan",            photo: "images/team/collab-carrazza.jpg", blurb: "AIPHY principal investigator.", links: {} },
+      { name: "Jürgen Hesser",     role: "Heidelberg University",          photo: "images/team/collab-hesser.jpg",   blurb: "AIPHY principal investigator.", links: {} },
+      { name: "Troels Petersen",   role: "University of Copenhagen",       photo: "images/team/collab-petersen.jpg", blurb: "AIPHY principal investigator.", links: {} },
+      { name: "Vincenzo Piuri",    role: "University of Milan",            photo: "images/team/collab-piuri.jpg",    blurb: "AIPHY principal investigator.", links: {} },
+      { name: "Tilman Plehn",      role: "Heidelberg University",          photo: "images/team/collab-plehn.jpg",    blurb: "AIPHY principal investigator, in the group that coordinates the network.", links: {} },
+
+      // RODEM principal investigators. Voloshynovskiy is a PI of both.
+      { name: "Svyatoslav Voloshynovskiy", role: "University of Geneva",   photo: "images/team/collab-voloshynovskiy.jpg", blurb: "AIPHY and RODEM principal investigator, Computer Vision and Multimedia Laboratory. Co-supervises several of the group's PhD students.", links: {} },
+      { name: "François Fleuret",  role: "University of Geneva",           photo: "images/team/collab-fleuret.jpg",  blurb: "RODEM principal investigator, Department of Computer Science.", links: {} },
+      { name: "André Csillaghy",   role: "FHNW",                           photo: "images/team/collab-csillaghy.jpg", blurb: "RODEM principal investigator, Institute for Data Science. Solar flare analysis.", links: {} },
+
+      // Long-standing collaborators outside the two networks.
+      { name: "Michael Kagan",     role: "SLAC National Accelerator Laboratory", photo: "images/team/collab-kagan.jpg", blurb: "Co-author on the group's masked particle modelling papers.", links: {} },
+      { name: "Lukas Heinrich",    role: "Technical University of Munich", photo: "images/team/collab-heinrich.jpg", blurb: "Co-author on the group's masked particle modelling papers.", links: {} },
+      { name: "Sascha Caron",      role: "Radboud University and Nikhef",  photo: "images/team/collab-caron.jpg",    blurb: "Co-author on large physics models, and a speaker at the Villa Boninchi week.", links: {} },
+      { name: "Jean-François Arguin", role: "Université de Montréal",      photo: "images/team/collab-arguin.jpg",   blurb: "Co-author on the group's anomalous jet tagging work.", links: {} },
+      { name: "Dan Guest",         role: "Humboldt University of Berlin",  photo: "",                                blurb: "Machine learning for flavour tagging in ATLAS.", links: {} },
     ],
   },
   {
@@ -1827,8 +1857,12 @@ const FUNDING = [
   { years: "2027–2030", name: "AI Foundation Models for Scientific Discovery (FUNDIS)", funder: "Fondation pour l'Université de Genève", role: "Co-applicant" },
   { years: "2025–2029", name: "Machine Learning and Quantum Computing for Future Colliders", funder: "COST Action CA24146", role: "Co-applicant" },
   { years: "2025–2028", name: "CHEF", funder: "SERI and UNIGE", role: "Co-applicant" },
-  { years: "2024–2028", name: "AIPHY — Challenging AI with Challenges from Physics", funder: "HORIZON MSCA Doctoral Network", role: "Co-applicant" },
+  { years: "2024–2028", name: "AIPHY — Challenging AI with Challenges from Physics", funder: "HORIZON MSCA Doctoral Network", role: "Co-applicant",
+    url: "https://www.sites.uni-heidelberg.de/en/aiphy",
+    summary: "Nine doctoral candidates at five 4EU+ universities, supervised by nine principal investigators and coordinated from Heidelberg, working on inverse problems, systematic uncertainties and explainable AI for LHC data. Geneva hosts one of the network weeks." },
   { years: "2022–2026", name: "At the two upgrade frontiers: machine learning and the ITk Pixel detector", funder: "SNSF 200020_212127", role: "Principal investigator" },
-  { years: "2020–2024", name: "RODEM — Robust Deep Density Models for High-Energy Particle Physics and Solar Flare Analysis", funder: "SNSF Sinergia CRSII5_193716", role: "Co-applicant", note: "the group's namesake" },
+  { years: "2020–2024", name: "RODEM — Robust Deep Density Models for High-Energy Particle Physics and Solar Flare Analysis", funder: "SNSF Sinergia CRSII5_193716", role: "Co-applicant", note: "the group's namesake",
+    url: "https://rodem.ch/",
+    summary: "A Sinergia project shared with computer science and solar astronomy, on robust density models for rare events — from LHC collisions to solar flares. It funded the first generation of students and postdocs here, and gave the group its name." },
   { years: "2018–2022", name: "Exploiting LHC data with machine learning, and preparing for the HL-LHC", funder: "SNSF 200020_181984", role: "Principal investigator" },
 ];

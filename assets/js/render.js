@@ -598,12 +598,17 @@ function renderFunding(target) {
   const host = el(target);
   if (!host || typeof FUNDING === "undefined") return;
 
-  host.innerHTML = `<ul class="funding-list">${FUNDING.map((f) => `<li>
+  host.innerHTML = `<ul class="funding-list">${FUNDING.map((f) => {
+    // A grant with a public page links from its name, as events do.
+    const name = f.url ? `<a href="${esc(f.url)}">${esc(f.name)}</a>` : esc(f.name);
+    return `<li>
       <span class="funding-years">${esc(f.years)}</span>
-      <span class="funding-what"><strong>${esc(f.name)}</strong>
+      <span class="funding-what"><strong>${name}</strong>
         <span class="funding-who">${esc(f.funder)} &middot; ${esc(f.role)}${f.note ? " &middot; " + esc(f.note) : ""}</span>
+        ${f.summary ? `<span class="funding-summary">${richText(f.summary)}</span>` : ""}
       </span>
-    </li>`).join("")}</ul>`;
+    </li>`;
+  }).join("")}</ul>`;
 }
 
 /* ------------------------------------------------- shared header / footer --- */

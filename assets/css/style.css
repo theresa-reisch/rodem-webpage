@@ -458,6 +458,7 @@ figure.band figcaption {
 .funding-list li:first-child { border-top: none; }
 .funding-years { color: var(--muted); font-variant-numeric: tabular-nums; }
 .funding-who { display: block; color: var(--muted); font-size: .88rem; }
+.funding-summary { display: block; margin-top: .35rem; font-size: .9rem; }
 @media (max-width: 560px) { .funding-list li { grid-template-columns: 1fr; gap: .15rem; } }
 
 /* ------------------------------------------------------------- outreach -- */
