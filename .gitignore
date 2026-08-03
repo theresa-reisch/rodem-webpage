@@ -23,6 +23,7 @@ rodem-webpage-updated.zip
 # images/events/README.md for how they are made.
 /images/Boninchi_*
 /images/team/Boninchi_*
+/images/team/*_original.*
 
 # macOS
 .DS_Store

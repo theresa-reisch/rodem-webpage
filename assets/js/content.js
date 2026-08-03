@@ -132,7 +132,7 @@ const TEAM = [
     group: "PhD Students",
     members: [
       { name: "Jona Ackerschott",   role: "PhD Student", photo: "", blurb: "Anomaly Detection in Stellar Streams and Unfolding.", links: {} },
-      { name: "Pradyun Hebbar",     role: "PhD Student", photo: "", blurb: "Foundation Models and Agentic AI.", links: {} },
+      { name: "Pradyun Hebbar",     role: "PhD Student", photo: "images/team/Pradyun.jpg", blurb: "Foundation Models and Agentic AI.", links: {} },
       { name: "Andreas Hermansen",  role: "PhD Student", photo: "", blurb: "Co-supervised with Prof. Voloshynovskiy. Foundation Models and Event Reconstruction.", links: {} },
       { name: "Stephen Mulligan",   role: "PhD Student", photo: "images/team/Stephen.jpg", blurb: "Searches for New Physics and Optimal Detector Design.", links: {} },
       { name: "Ivan Oleksiyuk",     role: "PhD Student", photo: "images/team/Ivan.png", blurb: "Co-supervised with Prof. Voloshynovskiy. Searches for New Physics.", links: {} },
@@ -1767,6 +1767,18 @@ const EVENTS = [
     image: "images/events/boninchi-2023.jpg",
     imageAlt: "The participants on the lawn by the lake, the Jura behind them and a small white dog in the foreground.",
     url: "https://ias-ai.unige.ch/",
+  },
+
+  /* --- AIPHY, the MSCA doctoral network the group is part of, meeting in
+         Geneva. ------------------------------------------------------------ */
+  {
+    year: 2026, title: "AIPHY network week in Geneva",
+    series: "AIPHY doctoral network", dates: "16–20 February 2026",
+    venue: "Villa Boninchi, Geneva", role: "Host",
+    body: "A week for the doctoral students of AIPHY — Challenging AI with Challenges from Physics, a HORIZON MSCA doctoral network coordinated from Heidelberg — and their supervisors.",
+    image: "images/events/aiphy-2026.jpg",
+    imageAlt: "The network standing by the lake in front of the Villa on a grey February day.",
+    url: "https://www.sites.uni-heidelberg.de/en/aiphy",
   },
 
   /* --- The Glühwein workshop: the small December meeting on machine learning
