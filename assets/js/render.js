@@ -169,11 +169,32 @@ function renderTeam(target) {
   // Skip any group that has no members yet, so empty headings never show.
   host.innerHTML = TEAM
     .filter((g) => g.members && g.members.length)
-    .map((g) => `<section class="team-group">
-        <h3>${esc(g.group)}</h3>
-        <div class="grid-team">${sortMembers(g).map(memberHTML).join("")}</div>
-      </section>`)
+    .map(teamGroupHTML)
     .join("");
+}
+
+/* A group may set  showSince: <year>  to show only the people who left in that
+   year or later, and keep the rest behind a disclosure link. The alumni list
+   grows every year and would otherwise dwarf the people who are here now.
+   Everything stays in the HTML, so it is still found by search and by
+   ctrl-F — it is folded away, not loaded on demand. */
+function teamGroupHTML(g) {
+  const sorted = sortMembers(g);
+  const recent = g.showSince ? sorted.filter((m) => m.left >= g.showSince) : sorted;
+  const earlier = g.showSince ? sorted.filter((m) => !(m.left >= g.showSince)) : [];
+
+  const more = earlier.length
+    ? `<details class="team-more">
+        <summary>${esc(g.moreLabel || "Earlier members")} (${earlier.length})</summary>
+        <div class="grid-team">${earlier.map(memberHTML).join("")}</div>
+      </details>`
+    : "";
+
+  return `<section class="team-group">
+      <h3>${esc(g.group)}</h3>
+      ${recent.length ? `<div class="grid-team">${recent.map(memberHTML).join("")}</div>` : ""}
+      ${more}
+    </section>`;
 }
 
 /* ------------------------------------------------------------------ news --- */

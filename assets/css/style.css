@@ -154,6 +154,16 @@ img.avatar { display: block; } /* photos are replaced elements, not flex boxes *
 .member .blurb { font-size: .85rem; color: var(--muted); margin: 0 0 .5em; line-height: 1.5; }
 .member .links { display: flex; gap: .7rem; justify-content: center; font-size: .8rem; }
 
+/* The fold that hides the older half of a group. The summary is styled as a
+   link because that is what it behaves like. */
+.team-more { margin-top: 1.8rem; }
+.team-more > summary {
+  cursor: pointer; width: fit-content;
+  font-family: var(--sans); font-size: .85rem; color: var(--accent);
+}
+.team-more > summary:hover { text-decoration: underline; }
+.team-more[open] > summary { margin-bottom: 1.6rem; }
+
 /* ----------------------------------------------------------------- news --- */
 
 .news-list { list-style: none; margin: 0; padding: 0; }

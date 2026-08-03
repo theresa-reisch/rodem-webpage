@@ -148,6 +148,10 @@ const TEAM = [
     group: "Alumni",
     // Sorted by "left" (year of departure), most recent first, instead of by name.
     sort: "left",
+    // Only the last two years are shown; everyone who left before then is
+    // folded away behind the link below. Move showSince on as the years pass.
+    showSince: 2024,
+    moreLabel: "Earlier alumni",
     members: [
       // "left" is the year they finished/left. It is displayed automatically
       // next to the role — don't repeat it in the blurb. Use the blurb for
@@ -163,6 +167,25 @@ const TEAM = [
       { name: "Lukas Ehrke",        role: "PhD Student", photo: "images/team/Lukas.png", left: 2023, blurb: "", links: {} },
       { name: "Johnny Raine",      role: "Postdoctoral Researcher", photo: "images/team/Johnny.png", left: 2024, blurb: " ", links: {} },
       { name: "Knut Zoch",      role: "Postdoctoral Researcher", photo: "images/team/Knut.png", left: 2023, blurb: "Now Postdoctoral Researcher at CERN.", links: {} },
+
+      // From the DPNC former-members list. Roles and years as recorded there:
+      // https://www.unige.ch/dpnc/en/groups/tobias-golling/members/former-members/
+      { name: "Manuel Guth",             role: "Postdoctoral Researcher", photo: "", left: 2023, blurb: "Feodor Lynen Research Fellow.", links: {} },
+      { name: "Matthias Schlaffer",      role: "Postdoctoral Researcher", photo: "", left: 2022, blurb: "Feodor Lynen Research Fellow.", links: {} },
+      { name: "Sabrina Amrouche",        role: "PhD Student",             photo: "", left: 2021, blurb: "", links: {} },
+      { name: "Dalila Salamani",         role: "PhD Student",             photo: "", left: 2021, blurb: "", links: {} },
+      { name: "Takuya Nobe",             role: "Postdoctoral Researcher", photo: "", left: 2021, blurb: "JSPS Fellow.", links: {} },
+      { name: "Sebastian Pina Otey",     role: "Postdoctoral Researcher", photo: "", left: 2021, blurb: "", links: {} },
+      { name: "Dimitrios Proios",        role: "Master Student",          photo: "", left: 2021, blurb: "", links: {} },
+      { name: "Moritz Kiehn",            role: "Postdoctoral Researcher", photo: "", left: 2020, blurb: "", links: {} },
+      { name: "Oliver Majersky",         role: "PhD Student",             photo: "", left: 2020, blurb: "Cotutelle with Comenius University, Bratislava.", links: {} },
+      { name: "Luiza Ciucu",             role: "Master Student",          photo: "", left: 2020, blurb: "", links: {} },
+      { name: "Ece Akilli",              role: "PhD Student",             photo: "", left: 2019, blurb: "", links: {} },
+      { name: "Marie Christine Lanfermann", role: "PhD Student",          photo: "", left: 2019, blurb: "", links: {} },
+      { name: "Andrea Coccaro",          role: "Maître Assistant",        photo: "", left: 2017, blurb: "", links: {} },
+      { name: "Olaf Nackenhorst",        role: "Postdoctoral Researcher", photo: "", left: 2017, blurb: "Feodor Lynen Research Fellow.", links: {} },
+      { name: "Luis Ruiz",               role: "Postdoctoral Researcher", photo: "", left: 2017, blurb: "", links: {} },
+      { name: "Federica Pasquali",       role: "Master Student",          photo: "", left: 2017, blurb: "", links: {} },
     ],
   },
   {
