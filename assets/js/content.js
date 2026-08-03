@@ -119,6 +119,13 @@ const TEAM = [
         blurb: "Part of the Swiss Government Excellence Scholarship. Decoding LHC exotics via amplitude analysis and deep learning.",
         links: {},
       },
+      {
+        name: "Gwen Garden",
+        role: "Postdoctoral Researcher",
+        photo: "",
+        blurb: "ATLAS ITk Upgrade Development.",
+        links: {},
+      },
     ],
   },
   {
