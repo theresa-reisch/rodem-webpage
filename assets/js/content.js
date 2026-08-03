@@ -186,6 +186,10 @@ const TEAM = [
       { name: "Olaf Nackenhorst",        role: "Postdoctoral Researcher", photo: "", left: 2017, blurb: "Feodor Lynen Research Fellow.", links: {} },
       { name: "Luis Ruiz",               role: "Postdoctoral Researcher", photo: "", left: 2017, blurb: "", links: {} },
       { name: "Federica Pasquali",       role: "Master Student",          photo: "", left: 2017, blurb: "", links: {} },
+
+      // From before Geneva. He is also listed under Collaborators, because he
+      // still is one.
+      { name: "Dan Guest",               role: "PhD Student",             photo: "", left: 2016, blurb: "PhD at Yale, before the group moved to Geneva. Now at Humboldt University of Berlin.", links: {} },
     ],
   },
   {
@@ -207,15 +211,24 @@ const TEAM = [
 
       // RODEM principal investigators. Voloshynovskiy is a PI of both.
       { name: "Svyatoslav Voloshynovskiy", role: "University of Geneva",   photo: "images/team/collab-voloshynovskiy.jpg", blurb: "AIPHY and RODEM principal investigator, Computer Vision and Multimedia Laboratory. Co-supervises several of the group's PhD students.", links: {} },
-      { name: "François Fleuret",  role: "University of Geneva",           photo: "images/team/collab-fleuret.jpg",  blurb: "RODEM principal investigator, Department of Computer Science.", links: {} },
+      { name: "François Fleuret",  role: "University of Geneva",           photo: "images/team/collab-fleuret.jpg",  blurb: "RODEM principal investigator, Department of Computer Science. Co-supervises one of the group's PhD students.", links: {} },
       { name: "André Csillaghy",   role: "FHNW",                           photo: "images/team/collab-csillaghy.jpg", blurb: "RODEM principal investigator, Institute for Data Science. Solar flare analysis.", links: {} },
 
-      // Long-standing collaborators outside the two networks.
+      // Long-standing collaborators outside the two networks. The work each one
+      // is named for is the FORGE strand it belongs to on the research page.
       { name: "Michael Kagan",     role: "SLAC National Accelerator Laboratory", photo: "images/team/collab-kagan.jpg", blurb: "Co-author on the group's masked particle modelling papers.", links: {} },
       { name: "Lukas Heinrich",    role: "Technical University of Munich", photo: "images/team/collab-heinrich.jpg", blurb: "Co-author on the group's masked particle modelling papers.", links: {} },
+      { name: "François Charton",  role: "Meta AI (FAIR)",                 photo: "",                                blurb: "Co-author on the group's masked particle modelling papers.", links: {} },
+      { name: "Margarita Osadchy", role: "University of Haifa",            photo: "",                                blurb: "Co-author on the group's masked particle modelling papers.", links: {} },
       { name: "Sascha Caron",      role: "Radboud University and Nikhef",  photo: "images/team/collab-caron.jpg",    blurb: "Co-author on large physics models, and a speaker at the Villa Boninchi week.", links: {} },
-      { name: "Jean-François Arguin", role: "Université de Montréal",      photo: "images/team/collab-arguin.jpg",   blurb: "Co-author on the group's anomalous jet tagging work.", links: {} },
-      { name: "Dan Guest",         role: "Humboldt University of Berlin",  photo: "",                                blurb: "Machine learning for flavour tagging in ATLAS.", links: {} },
+      { name: "Jean-François Arguin", role: "Université de Montréal",      photo: "images/team/collab-arguin.jpg",   blurb: "Co-author on the group's anomalous jet tagging work and on BumpNet. Co-supervises Ethan Meszaros on the scalable discovery of new narrow resonances.", links: {} },
+      { name: "Daniel Whiteson",   role: "University of California, Irvine", photo: "",                              blurb: "Spoke at the 2023 Villa Boninchi week. Co-author on the scalable discovery of new narrow resonances.", links: {} },
+      { name: "Francesco Armando Di Bello", role: "University of Pisa",    photo: "",                                blurb: "Co-author on the group's optimisation work.", links: {} },
+      { name: "Chris Pollard",     role: "University of Warwick",          photo: "",                                blurb: "Co-author on the group's optimisation work.", links: {} },
+      { name: "Jan Kieseler",      role: "Karlsruhe Institute of Technology", photo: "",                             blurb: "Co-author on end-to-end optimal detector design.", links: {} },
+      { name: "Gaia Grosso",       role: "MIT and IAIFI",                  photo: "",                                blurb: "Co-author on the group's exploration work.", links: {} },
+      { name: "Ben Nachman",       role: "Lawrence Berkeley National Laboratory", photo: "",                         blurb: "Co-author on the group's exploration work.", links: {} },
+      { name: "Dan Guest",         role: "Humboldt University of Berlin",  photo: "",                                blurb: "Machine learning for flavour tagging in ATLAS. A former PhD student of the group, and at the 2023 Villa Boninchi week.", links: {} },
     ],
   },
 ];
@@ -1826,6 +1839,15 @@ const EVENTS = [
     image: "images/events/boninchi-2023.jpg",
     imageAlt: "The participants on the lawn by the lake, the Jura behind them and a small white dog in the foreground.",
     url: "https://ias-ai.unige.ch/",
+  },
+
+  /* --- An ATLAS working meeting at the Villa, outside the G·IST series. --- */
+  {
+    year: 2023, title: "ATLAS FTag ML Workshop",
+    series: "ATLAS flavour tagging", dates: "20 November 2023",
+    venue: "Villa Boninchi, Geneva", role: "Organiser",
+    body: "A day with the ATLAS flavour-tagging group on the machine learning behind it.",
+    url: "https://indico.cern.ch/event/1341246/",
   },
 
   /* --- AIPHY, the MSCA doctoral network the group is part of, meeting in
