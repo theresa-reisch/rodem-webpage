@@ -18,5 +18,11 @@ CV_long.docx
 rodem-site-update.patch
 rodem-webpage-updated.zip
 
+# Photograph originals straight off a phone, 4–6 MB each. The web-sized copies
+# in images/events/ and images/team/ are what the site serves; see
+# images/events/README.md for how they are made.
+/images/Boninchi_*
+/images/team/Boninchi_*
+
 # macOS
 .DS_Store

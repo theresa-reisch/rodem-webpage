@@ -444,6 +444,10 @@ figure.band figcaption {
 .event > p { margin: 0 0 .5em; color: var(--muted); }
 .event-speakers { font-size: .88rem; color: var(--muted); margin: 0; }
 .event-speakers span { color: var(--accent); }
+.event-photo { margin-top: 1rem; }
+
+/* The group photograph above the team grid on the home page. */
+.team-photo { margin-bottom: 2.5rem; }
 
 /* -------------------------------------------------------------- funding -- */
 .funding-list { list-style: none; margin: 0; padding: 0; max-width: var(--measure); }

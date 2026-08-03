@@ -1657,6 +1657,8 @@ const POSITIONS = [
               body      one or two sentences, no more
               speakers  people a reader would recognise, affiliations spelled right
               url       the event page
+              image     a group photograph, web-sized — see images/events/README.md
+              imageAlt  what the photograph shows, for anyone who cannot see it
    ------------------------------------------------------------------------ */
 const EVENTS = [
   /* --- Hammers & Nails: the ML-meets-physics week, Weizmann-founded in 2017.
@@ -1733,6 +1735,8 @@ const EVENTS = [
     series: "G·IST · Villa Boninchi", dates: "May 2026",
     venue: "Villa Boninchi, Geneva", role: "Organiser",
     body: "What changes about how physics gets done when the tools can write and test their own code.",
+    image: "images/events/boninchi-2026.jpg",
+    imageAlt: "Participants around a long lunch table on the terrace of the Villa Boninchi in the sun.",
   },
   {
     year: 2025, title: "Computing Challenges and AI Opportunities for Future Colliders",
@@ -1740,6 +1744,8 @@ const EVENTS = [
     venue: "Villa Boninchi, Geneva", role: "Organiser",
     speakers: ["Tilman Plehn (Heidelberg)", "Sven Krippendorf (Cambridge)", "Thea Aarrestad (ETH Zurich)", "Sascha Caron (Nikhef / Radboud)"],
     url: "https://www.unige.ch/math/GIST/events/past-events/computing-challenges-and-ai-opportunities-future-colliders",
+    image: "images/events/boninchi-2025.jpg",
+    imageAlt: "The participants standing on the lawn above the lake in October, the far shore behind them.",
   },
   {
     year: 2024, title: "Challenges & opportunities in foundation models",
@@ -1748,6 +1754,8 @@ const EVENTS = [
     body: "Opened by Yann LeCun.",
     speakers: ["Yann LeCun (Meta AI / NYU)", "Dan Alistarh (ISTA)", "Taco Cohen (Meta)", "Lucas Beyer (OpenAI)", "Hervé Jégou (FAIR)", "Emmanuel Abbe (EPFL)"],
     url: "https://www.unige.ch/math/GIST/events/past-events/liouville-quantum-gravity-continuum-discrete-1",
+    image: "images/events/boninchi-2024.jpg",
+    imageAlt: "The participants on the lawn in front of the Villa Boninchi on a clear October morning.",
   },
   {
     year: 2023, title: "Automating & Accelerating Scientific Discovery with AI",
@@ -1756,6 +1764,8 @@ const EVENTS = [
     role: "Co-director",
     body: "Included a public lecture by Konstantin Novoselov, the 2010 Nobel laureate in physics.",
     speakers: ["Konstantin Novoselov (NUS, Nobel Laureate 2010)", "Daniel Whiteson (UC Irvine)", "Anna Scaife (Manchester)", "David Shih (Rutgers)", "Michael Kagan (SLAC)", "Lukas Heinrich (TU Munich)"],
+    image: "images/events/boninchi-2023.jpg",
+    imageAlt: "The participants on the lawn by the lake, the Jura behind them and a small white dog in the foreground.",
     url: "https://ias-ai.unige.ch/",
   },
 

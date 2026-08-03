@@ -574,6 +574,13 @@ function eventHTML(e) {
     ? `<p class="event-speakers"><span>Among the speakers</span> ${e.speakers.map(esc).join(" &middot; ")}</p>` : "";
   const title = e.url
     ? `<a href="${esc(e.url)}">${esc(e.title)}</a>` : esc(e.title);
+  // The group photograph, where there is one, goes last: it is the reward for
+  // reading the entry, not the entry itself.
+  const photo = e.image
+    ? `<figure class="band event-photo">
+        <img src="${esc(e.image)}" alt="${esc(e.imageAlt || "")}" loading="lazy">
+       </figure>` : "";
+
   return `<article class="event${e.upcoming ? " is-upcoming" : ""}">
       <p class="event-year">${esc(e.dates || e.year)}${e.upcoming ? ` &middot; upcoming` : ""}</p>
       <h4>${title}</h4>
@@ -581,6 +588,7 @@ function eventHTML(e) {
          ${e.role ? `&middot; <em>${esc(e.role)}</em>` : ""}</p>
       ${e.body ? `<p>${richText(e.body)}</p>` : ""}
       ${speakers}
+      ${photo}
     </article>`;
 }
 
