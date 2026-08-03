@@ -21,7 +21,9 @@ rodem-webpage-updated.zip
 # Photograph originals straight off a phone, 4–6 MB each. The web-sized copies
 # in images/events/ and images/team/ are what the site serves; see
 # images/events/README.md for how they are made.
-/images/Boninchi_*
+/images/*.jpg
+/images/*.jpeg
+/images/*.png
 /images/team/Boninchi_*
 /images/team/Group_picture.*
 /images/team/*_original.*

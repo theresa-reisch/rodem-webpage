@@ -1641,8 +1641,12 @@ const POSITIONS = [
 
 
 /* ---------------------------------------------------------------------------
-   8. EVENTS — workshops and conferences the group starts and runs
+   8. EVENTS — the workshop series Tobias Golling starts, steers or hosts
    ------------------------------------------------------------------------
+   `role` is always his role, since the Output page says so once at the top of
+   the section rather than repeating his name on every entry. An event nobody
+   here convenes does not belong in this list, however good it was.
+
    Peer recognition, stated as fact rather than as claim. Every entry here is
    backed by a public page; keep it that way — `url` should be the event's own
    page (Indico wherever there is one), not a news story about it.
@@ -1659,6 +1663,8 @@ const POSITIONS = [
               url       the event page
               image     a group photograph, web-sized — see images/events/README.md
               imageAlt  what the photograph shows, for anyone who cannot see it
+              imageCredit  required when the photograph is someone else's; shown
+                       under it as a caption
    ------------------------------------------------------------------------ */
 const EVENTS = [
   /* --- Hammers & Nails: the ML-meets-physics week, Weizmann-founded in 2017.
@@ -1788,8 +1794,18 @@ const EVENTS = [
   {
     year: 2026, title: "Glühwein Workshop — Geneva edition",
     series: "Glühwein Workshop", dates: "14–16 December 2026",
-    venue: "Geneva", role: "Host", upcoming: true,
+    venue: "Geneva", role: "Initiator and host", upcoming: true,
     body: "A small meeting on the latest in machine learning and how it is being applied to high-energy physics, held over three December days. Geneva takes it on after Heidelberg 2022, Vienna 2023, Karlsruhe 2024 and Aachen 2025.",
+  },
+  {
+    year: 2024, title: "Glühwein Workshop 2024",
+    series: "Glühwein Workshop", dates: "16–18 December 2024",
+    venue: "Karlsruhe Institute of Technology",
+    body: "Kinga Anna Woźniak spoke on ML-enhanced optimal detector design with mutual information.",
+    image: "images/events/gluehwein-2024.jpg",
+    imageAlt: "The participants in a courtyard at dusk, seen from a balcony above, around a fire bowl and under fairy lights.",
+    imageCredit: "Photograph from the Glühwein Workshop 2024 organisers, KIT.",
+    url: "https://indico.kit.edu/event/4744/",
   },
 ];
 

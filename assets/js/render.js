@@ -579,6 +579,7 @@ function eventHTML(e) {
   const photo = e.image
     ? `<figure class="band event-photo">
         <img src="${esc(e.image)}" alt="${esc(e.imageAlt || "")}" loading="lazy">
+        ${e.imageCredit ? `<figcaption>${esc(e.imageCredit)}</figcaption>` : ""}
        </figure>` : "";
 
   return `<article class="event${e.upcoming ? " is-upcoming" : ""}">
