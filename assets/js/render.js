@@ -544,6 +544,14 @@ function renderDetector(target) {
   const funding = DETECTOR.funding
     ? `<p class="letter-more">${esc(DETECTOR.funding)}</p>` : "";
 
+  // The photographs sit outside .letter-body: that column is held to the
+  // reading measure, and the pictures are worth the full width of the section.
+  const photos = (DETECTOR.photos || []).length
+    ? `<div class="figure-pair">${DETECTOR.photos.map((p) => `<figure class="band">
+        <img src="${esc(p.src)}" alt="${esc(p.alt || "")}" loading="lazy">
+        ${p.caption ? `<figcaption>${esc(p.caption)}</figcaption>` : ""}
+       </figure>`).join("")}</div>` : "";
+
   host.innerHTML = `<section class="letter is-detector" id="${esc(DETECTOR.id || "detector")}">
       ${DETECTOR.eyebrow ? `<p class="eyebrow">${esc(DETECTOR.eyebrow)}</p>` : ""}
       <div class="letter-head">
@@ -553,6 +561,7 @@ function renderDetector(target) {
         <p>${richText(DETECTOR.body)}</p>
         ${funding}
       </div>
+      ${photos}
     </section>`;
 }
 

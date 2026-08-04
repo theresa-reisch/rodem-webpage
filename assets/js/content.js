@@ -1676,6 +1676,10 @@ const RESEARCH = [
    the acronym describes the methods work, and none of the papers in
    PUBLICATIONS is ITk hardware, so a sixth category would link to an empty
    list. Set to null to hide the section entirely.
+
+   photos: optional, shown side by side under the text. This is the one part
+   of the programme that looks like something, so it is worth showing. Web
+   sized like the workshop pictures — see images/events/README.md.
    ------------------------------------------------------------------------ */
 const DETECTOR = {
   id: "itk",
@@ -1683,6 +1687,18 @@ const DETECTOR = {
   name: "ATLAS Inner Tracker",
   body: "Assembly, construction and quality control of the Inner Tracker Pixel Outer Barrel, a new, state-of-the-art hybridised pixel detector for ATLAS operations in Run 4 and beyond. Alongside the methods above, the group helps build the instrument that will record the data.",
   funding: "Supported by SNSF grant 200020_212127, “At the two upgrade frontiers: machine learning and the ITk Pixel detector”.",
+  photos: [
+    {
+      src: "images/detector/itk-loaded-cell-qc.jpg",
+      alt: "A researcher in clean-room clothing testing a loaded cell on the probe station, with the power supplies and readout above the bench.",
+      caption: "Electrical quality control on a loaded cell in the Geneva clean room.",
+    },
+    {
+      src: "images/detector/itk-l2-ihr-integration.jpg",
+      alt: "Three people in clean-room gowns leaning over a bench to work on a pre-production layer-2 inclined half-ring.",
+      caption: "Integrating a pre-production layer-2 inclined half-ring.",
+    },
+  ],
 };
 
 

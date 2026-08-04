@@ -372,6 +372,12 @@ figure.band figcaption {
   grid-template-columns: minmax(0, 1fr) minmax(0, 320px);
 }
 @media (max-width: 760px) { .figure-split { grid-template-columns: 1fr; } }
+/* Two photographs of equal weight, side by side; stacked on a narrow screen. */
+.figure-pair {
+  display: grid; gap: 1.2rem; margin-top: 1.4rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (max-width: 760px) { .figure-pair { grid-template-columns: 1fr; } }
 
 /* ------------------------------------------------- FORGE research letters - */
 .forge-strip {
