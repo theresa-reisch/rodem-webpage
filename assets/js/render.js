@@ -34,7 +34,10 @@ function fold(s) {
    surname -> set of first initials. Built once, from TEAM, so the author
    highlighting in the publication list follows the team list automatically:
    add someone to TEAM and their papers bold themselves.
-   Alumni are included — they were group members when the work was done. */
+   Alumni are included — they were group members when the work was done.
+   Collaborators are not: the bold marks the group's own authors, and outside
+   co-authors would swamp it. One of them can still be bolded on a single
+   paper by wrapping the name in *asterisks* in AUTHORS. */
 let _teamIndex = null;
 function teamIndex() {
   if (_teamIndex) return _teamIndex;
@@ -42,6 +45,7 @@ function teamIndex() {
   if (typeof TEAM === "undefined") return _teamIndex;
 
   for (const group of TEAM) {
+    if (group.group === "Collaborators") continue;
     for (const m of group.members || []) {
       const parts = String(m.name).trim().split(/\s+/);
       if (parts.length < 2) continue;
