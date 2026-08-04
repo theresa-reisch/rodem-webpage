@@ -739,6 +739,29 @@ const TALKS = [
 
 
 /* ---------------------------------------------------------------------------
+   3c. SEMINARS THE GROUP HOSTS
+   ------------------------------------------------------------------------
+   The other direction from TALKS: people the group invites to Geneva, rather
+   than talks its own members give elsewhere. Grouped by year automatically,
+   newest first.
+
+   Required : year, date, title, speaker
+   Optional : affiliation   shown after the speaker
+
+   Deliberately no links. The series lives in the department's Indico
+   (partphys-indico.unige.ch/category/19/), where several of the events are
+   restricted, so a link would send most readers to a login page.
+   ------------------------------------------------------------------------ */
+const SEMINARS = [
+  {
+    year: 2026, date: "16 March 2026",
+    title: "Centaur Science: Adventures in AI+Physics",
+    speaker: "Jesse Thaler", affiliation: "MIT and IAIFI",
+  },
+];
+
+
+/* ---------------------------------------------------------------------------
    4. PUBLICATION CATEGORIES
    ------------------------------------------------------------------------
    Papers are grouped on the page by research theme, in the order listed here.

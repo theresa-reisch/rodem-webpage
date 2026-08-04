@@ -443,6 +443,29 @@ function wireTalks(host) {
   });
 }
 
+/* -------------------------------------------------------------- seminars --- */
+// The seminars the group hosts, grouped by year like the talks. No links and no
+// filters: the series is small, and its Indico entries are partly restricted.
+function renderSeminars(target) {
+  const host = el(target);
+  if (!host || typeof SEMINARS === "undefined") return;
+
+  if (!SEMINARS.length) { host.innerHTML = `<p class="empty">No seminars listed yet.</p>`; return; }
+
+  const years = [...new Set(SEMINARS.map((s) => s.year))].sort((a, b) => b - a);
+  host.innerHTML = years.map((y) => {
+    const items = SEMINARS.filter((s) => s.year === y).map((s) => `<li>
+        <p class="talk-meta">${esc(s.date || "")}</p>
+        <p class="title">${esc(s.title)}</p>
+        <p class="authors">${esc(s.speaker)}${s.affiliation ? ` <span class="journal">${esc(s.affiliation)}</span>` : ""}</p>
+      </li>`).join("");
+    return `<section class="pub-cat" data-year="${esc(y)}">
+        <h2 class="pub-cat-title">${esc(y)}</h2>
+        <ul class="pub-list talk-list">${items}</ul>
+      </section>`;
+  }).join("");
+}
+
 /* -------------------------------------------------------------------- cv --- */
 
 function renderCV(target) {
@@ -691,6 +714,7 @@ document.addEventListener("DOMContentLoaded", function () {
   renderNews("news-root", el("news-root") && el("news-root").dataset.limit);
   renderPublications("publications-root");
   renderTalks("talks-root");
+  renderSeminars("seminars-root");
   renderCV("cv-root");
   renderResearch("research-root");
   renderDetector("detector-root");
