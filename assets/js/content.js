@@ -189,7 +189,7 @@ const TEAM = [
 
       // From before Geneva. He is also listed under Collaborators, because he
       // still is one.
-      { name: "Dan Guest",               role: "PhD Student",             photo: "", left: 2016, blurb: "PhD at Yale, before the group moved to Geneva. Now at Humboldt University of Berlin.", links: {} },
+      { name: "Dan Guest",               role: "PhD Student",             photo: "images/team/collab-guest.jpg", left: 2016, blurb: "PhD at Yale, before the group moved to Geneva. Now at Humboldt University of Berlin.", links: {} },
     ],
   },
   {
@@ -200,35 +200,36 @@ const TEAM = [
     // Portraits are taken from the networks' own pages and the PIs' own sites.
     group: "Collaborators",
     members: [
-      // AIPHY principal investigators.
-      { name: "Anja Butter",       role: "Sorbonne University and CNRS",   photo: "images/team/collab-butter.jpg",   blurb: "AIPHY principal investigator.", links: {} },
-      { name: "Gérard Biau",       role: "Sorbonne University",            photo: "images/team/collab-biau.jpg",     blurb: "AIPHY principal investigator. Co-supervises Giovanni Ottaviano.", links: {} },
-      { name: "Stefano Carrazza",  role: "University of Milan",            photo: "images/team/collab-carrazza.jpg", blurb: "AIPHY principal investigator.", links: {} },
-      { name: "Jürgen Hesser",     role: "Heidelberg University",          photo: "images/team/collab-hesser.jpg",   blurb: "AIPHY principal investigator.", links: {} },
-      { name: "Troels Petersen",   role: "University of Copenhagen",       photo: "images/team/collab-petersen.jpg", blurb: "AIPHY principal investigator.", links: {} },
-      { name: "Vincenzo Piuri",    role: "University of Milan",            photo: "images/team/collab-piuri.jpg",    blurb: "AIPHY principal investigator.", links: {} },
-      { name: "Tilman Plehn",      role: "Heidelberg University",          photo: "images/team/collab-plehn.jpg",    blurb: "AIPHY principal investigator, in the group that coordinates the network.", links: {} },
+      // AIPHY principal investigators. The whole network met at the Villa
+      // Boninchi in February 2026, which is why they all carry that line.
+      { name: "Anja Butter",       role: "Sorbonne University and CNRS",   photo: "images/team/collab-butter.jpg",   blurb: "AIPHY principal investigator. At the network week at the Villa Boninchi in Geneva.", links: {} },
+      { name: "Gérard Biau",       role: "Sorbonne University",            photo: "images/team/collab-biau.jpg",     blurb: "AIPHY principal investigator. Co-supervises Giovanni Ottaviano. At the network week at the Villa Boninchi in Geneva.", links: {} },
+      { name: "Stefano Carrazza",  role: "University of Milan",            photo: "images/team/collab-carrazza.jpg", blurb: "AIPHY principal investigator. At the network week at the Villa Boninchi in Geneva.", links: {} },
+      { name: "Jürgen Hesser",     role: "Heidelberg University",          photo: "images/team/collab-hesser.jpg",   blurb: "AIPHY principal investigator. At the network week at the Villa Boninchi in Geneva.", links: {} },
+      { name: "Troels Petersen",   role: "University of Copenhagen",       photo: "images/team/collab-petersen.jpg", blurb: "AIPHY principal investigator. At the network week at the Villa Boninchi in Geneva.", links: {} },
+      { name: "Vincenzo Piuri",    role: "University of Milan",            photo: "images/team/collab-piuri.jpg",    blurb: "AIPHY principal investigator. At the network week at the Villa Boninchi in Geneva.", links: {} },
+      { name: "Tilman Plehn",      role: "Heidelberg University",          photo: "images/team/collab-plehn.jpg",    blurb: "AIPHY principal investigator, in the group that coordinates the network. Spoke at the 2025 Villa Boninchi week.", links: {} },
 
       // RODEM principal investigators. Voloshynovskiy is a PI of both.
-      { name: "Svyatoslav Voloshynovskiy", role: "University of Geneva",   photo: "images/team/collab-voloshynovskiy.jpg", blurb: "AIPHY and RODEM principal investigator, Computer Vision and Multimedia Laboratory. Co-supervises several of the group's PhD students.", links: {} },
+      { name: "Svyatoslav Voloshynovskiy", role: "University of Geneva",   photo: "images/team/collab-voloshynovskiy.jpg", blurb: "AIPHY and RODEM principal investigator, Computer Vision and Multimedia Laboratory. Co-supervises several of the group's PhD students. At the AIPHY network week at the Villa Boninchi.", links: {} },
       { name: "François Fleuret",  role: "University of Geneva",           photo: "images/team/collab-fleuret.jpg",  blurb: "RODEM principal investigator, Department of Computer Science. Co-supervises one of the group's PhD students.", links: {} },
       { name: "André Csillaghy",   role: "FHNW",                           photo: "images/team/collab-csillaghy.jpg", blurb: "RODEM principal investigator, Institute for Data Science. Solar flare analysis.", links: {} },
 
       // Long-standing collaborators outside the two networks. The work each one
       // is named for is the FORGE strand it belongs to on the research page.
-      { name: "Michael Kagan",     role: "SLAC National Accelerator Laboratory", photo: "images/team/collab-kagan.jpg", blurb: "Co-author on the group's masked particle modelling papers.", links: {} },
-      { name: "Lukas Heinrich",    role: "Technical University of Munich", photo: "images/team/collab-heinrich.jpg", blurb: "Co-author on the group's masked particle modelling papers.", links: {} },
-      { name: "François Charton",  role: "Axiom Math",                     photo: "images/team/collab-charton.jpg",                                blurb: "Co-author on the group's masked particle modelling papers.", links: {} },
+      { name: "Michael Kagan",     role: "SLAC National Accelerator Laboratory", photo: "images/team/collab-kagan.jpg", blurb: "Co-author on the group's masked particle modelling papers. Spoke at the 2023 Villa Boninchi week.", links: {} },
+      { name: "Lukas Heinrich",    role: "Technical University of Munich", photo: "images/team/collab-heinrich.jpg", blurb: "Co-author on the group's masked particle modelling papers. Spoke at the 2023 Villa Boninchi week.", links: {} },
+      { name: "François Charton",  role: "Axiom Math",                     photo: "images/team/collab-charton.jpg",                                blurb: "Co-author on the group's masked particle modelling papers, and at the Villa Boninchi in Geneva.", links: {} },
       { name: "Margarita Osadchy", role: "University of Haifa",            photo: "images/team/collab-osadchy.jpg",                                blurb: "Co-author on the group's masked particle modelling papers.", links: {} },
       { name: "Sascha Caron",      role: "Radboud University and Nikhef",  photo: "",                                blurb: "Co-author on large physics models, and a speaker at the Villa Boninchi week.", links: {} },
       { name: "Jean-François Arguin", role: "Université de Montréal",      photo: "images/team/collab-arguin.jpg",   blurb: "Co-author on the group's anomalous jet tagging work and on BumpNet. Co-supervises Ethan Meszaros on the scalable discovery of new narrow resonances.", links: {} },
-      { name: "Daniel Whiteson",   role: "University of California, Irvine", photo: "images/team/collab-whiteson.jpg",                              blurb: "Spoke at the 2023 Villa Boninchi week. Co-author on the scalable discovery of new narrow resonances.", links: {} },
+      { name: "Daniel Whiteson",   role: "University of California, Irvine", photo: "images/team/collab-whiteson.jpg",                              blurb: "Spoke at the 2023 Villa Boninchi week. An ongoing collaboration, with a shared doctoral student, on the scalable discovery of new narrow resonances at the LHC.", links: {} },
       { name: "Francesco Armando Di Bello", role: "University of Pisa",    photo: "",                                blurb: "Co-author on the group's optimisation work.", links: {} },
       { name: "Chris Pollard",     role: "University of Warwick",          photo: "",                                blurb: "Co-author on the group's optimisation work.", links: {} },
-      { name: "Jan Kieseler",      role: "Karlsruhe Institute of Technology", photo: "images/team/collab-kieseler.jpg",                             blurb: "Co-author on end-to-end optimal detector design.", links: {} },
-      { name: "Gaia Grosso",       role: "MIT and IAIFI",                  photo: "images/team/collab-grosso.jpg",                                blurb: "Co-author on the group's exploration work.", links: {} },
+      { name: "Jan Kieseler",      role: "Karlsruhe Institute of Technology", photo: "images/team/collab-kieseler.jpg",                             blurb: "Co-author on end-to-end optimal detector design, and at the Villa Boninchi in Geneva.", links: {} },
+      { name: "Gaia Grosso",       role: "MIT and IAIFI",                  photo: "images/team/collab-grosso.jpg",                                blurb: "Co-author on the group's exploration work, and at the Villa Boninchi in Geneva.", links: {} },
       { name: "Ben Nachman",       role: "Lawrence Berkeley National Laboratory", photo: "images/team/collab-nachman.jpg",                         blurb: "Co-author on the group's exploration work.", links: {} },
-      { name: "Dan Guest",         role: "Humboldt University of Berlin",  photo: "",                                blurb: "Machine learning for flavour tagging in ATLAS. A former PhD student of the group, and at the 2023 Villa Boninchi week.", links: {} },
+      { name: "Dan Guest",         role: "Humboldt University of Berlin",  photo: "images/team/collab-guest.jpg", blurb: "Machine learning for flavour tagging in ATLAS. A former PhD student of the group, and at the 2023 Villa Boninchi week.", links: {} },
     ],
   },
 ];
