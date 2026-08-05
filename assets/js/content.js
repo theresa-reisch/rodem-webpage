@@ -414,7 +414,7 @@ const CV = {
     {
       title: "Service and leadership",
       rows: [
-        { period: "since July 2025", what: "Vice-President of the Physics Section", where: "Université de Genève" },
+        { period: "since 2025", what: "Vice-President of the Physics Section", where: "Université de Genève" },
         { period: "since 2025", what: "President of the Conseil de Section", where: "Université de Genève" },
         { period: "since 2025", what: "Swiss National Contact for ATLAS" },
         { period: "since 2025", what: "Council Board member", where: "CHART" },
