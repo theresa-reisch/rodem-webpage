@@ -68,6 +68,7 @@ SELECT = [
  # ---- O: optimisation — calibration, decorrelation, robustness, design ------
  ("Mind the Gap",                                   "o"),   # OT maps for inference, not pre-training
  ("End-to-end optimal detector design",             "o"),
+ ("Codesign of Scientific Experiments",             "o"),   # hardware and analysis optimised together
  ("Enhancing generalization in high-energy",        "o"),
  ("Decorrelation using optimal transport",          "o"),
  ("Decorrelation with conditional normalizing",     "o"),
@@ -109,6 +110,24 @@ ATLAS_IDS = {
  2923234: "o",     # continuous calibration of flavour tagging via optimal transport
  2605177: "r",     # ATLAS flavour-tagging algorithms, Run 2
  2880274: "e",     # weakly supervised anomaly detection, dijet final state
+}
+
+# ---- journal references INSPIRE has not caught up with ---------------------
+# INSPIRE sometimes leaves a record marked as a preprint months after the
+# journal has published it, which would show the paper here as a preprint too.
+# An entry below fills that gap, keyed by INSPIRE record id. It applies *only*
+# while INSPIRE itself still has neither publication_info nor a DOI, so each
+# one falls away by itself on the day INSPIRE catches up.
+# The keys are INSPIRE's own, so each entry stands in for the publication_info
+# block the record is missing.
+PUBLISHED = {
+ 2830443: {                                  # Is Tokenization Needed for MPM?
+   "journal_title": "Mach.Learn.Sci.Tech.",
+   "journal_volume": "6",
+   "artid": "025075",
+   "year": 2025,
+   "doi": "10.1088/2632-2153/addb98",
+ },
 }
 
 def fetch(rid):
@@ -174,9 +193,11 @@ def authors_str(m):
         names = names[:10] + ["et al."]
     return ", ".join(names)
 
-def journal_str(m):
+def journal_str(m, fix=None):
     pi = (m.get('publication_info') or [{}])[0]
     jt = pi.get('journal_title')
+    if not jt and fix:
+        pi, jt = fix, fix["journal_title"]
     if not jt:
         ap = m.get('arxiv_eprints')
         return "arXiv:%s (preprint)" % ap[0]['value'] if ap else ""
@@ -187,8 +208,10 @@ def journal_str(m):
     if pi.get('year'): s += " (%s)" % pi['year']
     return s
 
-def bibtex(m, key):
-    pi = (m.get('publication_info') or [{}])[0]
+def bibtex(m, key, fix=None):
+    pi = (m.get('publication_info') or [{}])[0] or {}
+    if not pi.get('journal_title') and fix:
+        pi = fix
     title = m['titles'][0]['title'].replace("{","").replace("}","")
     collab = collaboration(m)
     auth = ("{%s}" % collab) if collab else \
@@ -202,7 +225,8 @@ def bibtex(m, key):
     if yr: lines.append("  year    = {%s}," % yr)
     ap = m.get('arxiv_eprints')
     if ap: lines.append("  eprint  = {%s}," % ap[0]['value'])
-    if m.get('dois'): lines.append("  doi     = {%s}," % m['dois'][0]['value'])
+    doi = m['dois'][0]['value'] if m.get('dois') else (fix or {}).get('doi')
+    if doi: lines.append("  doi     = {%s}," % doi)
     lines.append("}")
     return "\n".join(lines)
 
@@ -210,19 +234,23 @@ def entry(m, cat, rid):
     ap = m.get('arxiv_eprints')
     cites = m.get('citation_count', 0)
     key = (m.get('texkeys') or ["inspire%d" % rid])[0]
+    # Stands in only while INSPIRE has nothing of its own to say — see PUBLISHED.
+    fix = PUBLISHED.get(rid) if not (m.get('publication_info') or m.get('dois')) else None
     e = {
       "category": cat,
-      "year": int((((m.get('publication_info') or [{}])[0].get('year')) or m.get('earliest_date','0')[:4])),
+      "year": int((((m.get('publication_info') or [{}])[0].get('year'))
+                   or (fix or {}).get('year') or m.get('earliest_date','0')[:4])),
       "title": delatex(m["titles"][0]["title"]),
       "authors": authors_str(m),
-      "journal": journal_str(m),
+      "journal": journal_str(m, fix),
       "citations": cites,
       "inspire": "https://inspirehep.net/literature/%d" % rid,
-      "bibtex": bibtex(m, key),
+      "bibtex": bibtex(m, key, fix),
     }
     if cites >= 50: e["star"] = True
     if ap: e["arxiv"] = "https://arxiv.org/abs/%s" % ap[0]['value']
-    if m.get('dois'): e["doi"] = "https://doi.org/%s" % m['dois'][0]['value']
+    doi = m['dois'][0]['value'] if m.get('dois') else (fix or {}).get('doi')
+    if doi: e["doi"] = "https://doi.org/%s" % doi
     return e
 
 # ---- assemble --------------------------------------------------------------
