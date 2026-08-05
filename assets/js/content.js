@@ -414,6 +414,7 @@ const CV = {
     {
       title: "Service and leadership",
       rows: [
+        { period: "since July 2025", what: "Vice-President of the Physics Section", where: "Université de Genève" },
         { period: "since 2025", what: "President of the Conseil de Section", where: "Université de Genève" },
         { period: "since 2025", what: "Swiss National Contact for ATLAS" },
         { period: "since 2025", what: "Council Board member", where: "CHART" },
@@ -1927,6 +1928,97 @@ const EVENTS = [
     imageCredit: "Photograph from the Glühwein Workshop 2024 organisers, KIT.",
     url: "https://indico.kit.edu/event/4744/",
   },
+];
+
+
+/* ---------------------------------------------------------------------------
+   8b. OUTREACH — the public-engagement record
+   ------------------------------------------------------------------------
+   Shown at the foot of the Outreach page, under the plain-language explainer.
+   Laid out like the CV: a period on the left, the activity on the right.
+
+   Required : period  free text, so "2016, 2017 and 2018" and "2009-2014" are
+                      both fine — keep the list itself newest first, since
+                      nothing here is sorted for you
+              what    the activity, one line
+   Optional : where   the venue, the outlet, or where to find it
+              links   [{ label, url }] — a row of small buttons. Several
+                      entries below are waiting for their URL; add one and it
+                      shows up on the page, no other change needed.
+
+   Source: the outreach section of CV_long.docx.
+   ------------------------------------------------------------------------ */
+const OUTREACH = [
+  { period: "2025", what: "Public lecture on AI and high-energy physics",
+    where: "Cycle de conférences du CPPM « Mystères au cœur de l'Univers et de la matière », Marseille",
+    links: [{ label: "Series", url: "https://indico.in2p3.fr/category/263/" }] },
+  { period: "2025", what: "Organiser, International Masterclasses", where: "University of Geneva" },
+
+  { period: "2024", what: "Radio commentary on the Nobel Prize in Physics to Hopfield and Hinton, for their pioneering work on AI",
+    where: "Echo der Zeit, 8 October, in German. Radio SRF 1 at 18:20 and SRF 2 at 19:00; the commentary starts around minute 22",
+    links: [{ label: "Listen", url: "https://www.srf.ch/audio/echo-der-zeit/deutschland-ein-neuer-generalsekretaer-fuer-die-spd?id=4d8fe455-9f9c-4a31-9474-21322787a3fc" }] },
+  { period: "2024", what: "Organiser of the conference \"A City on Mars\", with an invited talk by Zachary Weinersmith" },
+  { period: "2024", what: "Podcast: Learning from Data #36, on physics and artificial intelligence",
+    where: "Learning from Data, in French",
+    links: [
+      { label: "SoundCloud", url: "https://soundcloud.com/user-842727938/36-physique-et-intelligence-artificielle" },
+      { label: "Apple Podcasts", url: "https://podcasts.apple.com/ch/podcast/learning-from-data/id1543359792?l=fr" },
+      { label: "Spotify", url: "https://open.spotify.com/show/7MYk8pa3JqcvuQoxR8qHeb" },
+    ] },
+  { period: "2024", what: "Organiser, International Masterclasses", where: "University of Geneva" },
+  { period: "2024", what: "Canadian television documentary on anomaly detection at the LHC",
+    where: "Découverte, Radio-Canada; the segment starts around minute 33",
+    links: [{ label: "Watch", url: "https://ici.radio-canada.ca/tele/decouverte/site/episodes/857349/scientifique-origami-intelligence-artificielle-neolithique-lion" }] },
+
+  { period: "2023", what: "Public screening of the film \"Her\" and podium discussion on AI",
+    where: "CineGlobe Film Festival, CERN" },
+  { period: "2023", what: "RTS interview on the muon g−2 anomaly",
+    links: [{ label: "Article", url: "https://www.rts.ch/info/sciences-tech/14241166-letrange-comportement-dune-particule-subatomique-pourrait-bouleverser-la-physique.html" }] },
+  { period: "2023", what: "Organiser, International Masterclasses", where: "University of Geneva" },
+
+  { period: "2022", what: "Data Science Seminar on graph neural networks", where: "University of Geneva" },
+  { period: "2022", what: "OPEN DOORS: Physics makes its show! « L'Intelligence artificielle au service de la science — à la recherche de la particule inconnue »",
+    where: "Inauguration of the Ancienne École de Médecine, University of Geneva, 1 October",
+    links: [{ label: "Event", url: "https://www.unige.ch/cite/evenements/inauguration-AEM" }] },
+  { period: "2022", what: "Data Science Day \"Promises of AI\": plenary talk and panel on the rise of generative modelling and anomaly detection in science",
+    where: "University of Geneva",
+    links: [{ label: "Programme", url: "https://datascience.unige.ch/en/research/uniges-data-science-days/uniges-data-science-days-3" }] },
+  { period: "2022", what: "Consultant on AI", where: "UNIGE Data Science Competence Center" },
+  { period: "2022", what: "Video capsule on machine learning and physics",
+    where: "for the interdisciplinary competences in data science" },
+
+  { period: "2021 and 2022", what: "Programme Boussole for collégiens de 4ème année: machine learning and physics" },
+
+  { period: "2021", what: "Video linked from the page for students considering a master's in physics",
+    where: "University of Geneva",
+    links: [{ label: "Video", url: "https://www.youtube.com/watch?v=AwhcTDkUMAM" }] },
+
+  { period: "2019", what: "Keynote on machine learning in high-energy physics", where: "RSA Jahresklausur, St. Gilgen" },
+
+  { period: "2018", what: "CERN2Market hackathon", where: "CERN IdeaSquare",
+    links: [{ label: "Event", url: "https://indico.cern.ch/event/731333/" }] },
+
+  { period: "2017", what: "\"Inside CERN\", a celebration of Swiss–Israeli scientific cooperation: a « tête-à-tête » on exotic physics with Erez Etzion",
+    where: "Embassy of Switzerland in Israel, at the opening of Andri Pol's photography exhibit. Jaffa Art Salon, 6 April",
+    links: [{ label: "Programme", url: "https://www.academy.ac.il/SystemFiles/23207.pdf" }] },
+
+  { period: "2016, 2017 and 2018", what: "Organiser, International Masterclasses", where: "University of Geneva" },
+
+  { period: "2016", what: "Organiser of the two-day Nuit de la Science", where: "Geneva" },
+  { period: "2016", what: "Contribution to the MOOC « Physique des particules — une introduction »" },
+
+  { period: "2013", what: "Contribution to \"Particle Fever\" (documentary)" },
+
+  { period: "2012", what: "Day-long October recess field trip to Brookhaven National Laboratory with 20 Yale students" },
+
+  { period: "2010", what: "Film on the Standard Model of particle physics, with artistic animations",
+    where: "more than 950,000 views on YouTube",
+    links: [{ label: "Video", url: "https://www.youtube.com/watch?v=V0KjXsGRvoA" }] },
+
+  { period: "2009–2014", what: "Summer research at CERN for more than 20 Yale undergraduates",
+    where: "two months each, funded by Yale-endowed fellowships, and long-term research in the group afterwards. Several, many of them starting after their freshman year, came back for a second and third summer" },
+
+  { period: "2009", what: "Part of an artistic study of ATLAS physicists, exhibited in Bergen, Norway" },
 ];
 
 

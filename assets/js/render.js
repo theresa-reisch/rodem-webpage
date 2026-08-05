@@ -672,6 +672,28 @@ function renderFunding(target) {
   }).join("")}</ul>`;
 }
 
+/* -------------------------------------------------------------- outreach --- */
+// The public-engagement record at the foot of the Outreach page. Same two-column
+// layout as the CV, so it reuses those styles; entries appear in the order
+// written, which OUTREACH keeps newest first.
+function renderOutreach(target) {
+  const host = el(target);
+  if (!host || typeof OUTREACH === "undefined") return;
+
+  host.innerHTML = OUTREACH.map((o) => {
+    const links = (o.links || [])
+      .map((l) => `<a class="tag" href="${esc(l.url)}">${esc(l.label)}</a>`).join("");
+    return `<div class="cv-row">
+        <div class="cv-period">${esc(o.period || "")}</div>
+        <div class="cv-what">
+          <span class="cv-title">${esc(o.what || "")}</span>
+          ${o.where ? `<span class="cv-where">${esc(o.where)}</span>` : ""}
+          ${links ? `<span class="tags">${links}</span>` : ""}
+        </div>
+      </div>`;
+  }).join("");
+}
+
 /* ------------------------------------------------- shared header / footer --- */
 
 function renderChrome() {
@@ -735,5 +757,6 @@ document.addEventListener("DOMContentLoaded", function () {
   renderPositions("positions-phd", "PhD");
   renderPositions("positions-postdoc", "Postdoc");
   renderWorkshops("workshops-root");
+  renderOutreach("outreach-root");
   renderFunding("funding-root");
 });

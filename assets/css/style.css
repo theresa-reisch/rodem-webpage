@@ -261,6 +261,9 @@ img.avatar { display: block; } /* photos are replaced elements, not flex boxes *
 .cv-title { display: block; font-weight: 600; }
 .cv-where { display: block; color: var(--muted); font-size: .92rem; }
 
+/* The outreach list borrows the CV row, and some of its entries carry links. */
+.cv-what .tags { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .4rem; }
+
 @media (max-width: 34rem) {
   .cv-row { grid-template-columns: 1fr; }   /* stack the year above the entry */
 }
