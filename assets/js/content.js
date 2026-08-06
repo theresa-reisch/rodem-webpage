@@ -2011,7 +2011,9 @@ const OUTREACH = [
   { period: "2024", what: "Radio commentary on the Nobel Prize in Physics to Hopfield and Hinton, for their pioneering work on AI",
     where: "Echo der Zeit, 8 October, in German. Radio SRF 1 at 18:20 and SRF 2 at 19:00; the commentary starts around minute 22",
     links: [{ label: "Listen", url: "https://www.srf.ch/audio/echo-der-zeit/deutschland-ein-neuer-generalsekretaer-fuer-die-spd?id=4d8fe455-9f9c-4a31-9474-21322787a3fc" }] },
-  { period: "2024", what: "Organiser of the conference \"A City on Mars\", with an invited talk by Zachary Weinersmith" },
+  { period: "2024", what: "Organiser of the conference \"A City on Mars\", with an invited talk by Zachary Weinersmith",
+    where: "Auditoire A100, Sciences II, University of Geneva, 4 September",
+    links: [{ label: "Announcement", url: "https://www.unige.ch/sciences/physique/actualites/conference-une-ville-sur-mars" }] },
   { period: "2024", what: "Podcast: Learning from Data #36, on physics and artificial intelligence",
     where: "Learning from Data, in French",
     links: [
