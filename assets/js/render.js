@@ -448,8 +448,10 @@ function wireTalks(host) {
 }
 
 /* -------------------------------------------------------------- seminars --- */
-// The seminars the group hosts, grouped by year like the talks. No links and no
-// filters: the series is small, and its Indico entries are partly restricted.
+// The seminars the group hosts, grouped by year like the talks. No filters: the
+// series is small. An entry links out only when it has a public page — most of
+// the series lives in a restricted Indico, and a link to a login screen is worse
+// than no link at all.
 function renderSeminars(target) {
   const host = el(target);
   if (!host || typeof SEMINARS === "undefined") return;
@@ -458,11 +460,18 @@ function renderSeminars(target) {
 
   const years = [...new Set(SEMINARS.map((s) => s.year))].sort((a, b) => b - a);
   host.innerHTML = years.map((y) => {
-    const items = SEMINARS.filter((s) => s.year === y).map((s) => `<li>
+    const items = SEMINARS.filter((s) => s.year === y).map((s) => {
+      const links = [
+        s.paper && `<a class="tag" href="${esc(s.paper)}">Paper</a>`,
+        s.link  && `<a class="tag" href="${esc(s.link)}">Event</a>`,
+      ].filter(Boolean).join("");
+      return `<li>
         <p class="talk-meta">${esc(s.date || "")}</p>
         <p class="title">${esc(s.title)}</p>
         <p class="authors">${esc(s.speaker)}${s.affiliation ? ` <span class="journal">${esc(s.affiliation)}</span>` : ""}</p>
-      </li>`).join("");
+        ${links ? `<div class="tags">${links}</div>` : ""}
+      </li>`;
+    }).join("");
     return `<section class="pub-cat" data-year="${esc(y)}">
         <h2 class="pub-cat-title">${esc(y)}</h2>
         <ul class="pub-list talk-list">${items}</ul>

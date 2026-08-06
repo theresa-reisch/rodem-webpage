@@ -748,16 +748,50 @@ const TALKS = [
 
    Required : year, date, title, speaker
    Optional : affiliation   shown after the speaker
+              link          adds an "Event" tag pointing at the event page
+              paper         adds a "Paper" tag, for a talk with an arXiv entry
 
-   Deliberately no links. The series lives in the department's Indico
-   (partphys-indico.unige.ch/category/19/), where several of the events are
-   restricted, so a link would send most readers to a login page.
+   Set "link" only when the page is readable without an account. Much of the
+   series lives in the department's Indico (partphys-indico.unige.ch), where
+   many events are restricted; linking those would send most readers to a login
+   screen, so those entries stay plain text and are reproduced here in full.
+   The university's public agenda (agenda.unige.ch) is often a linkable
+   alternative for the same event — prefer it when one exists.
    ------------------------------------------------------------------------ */
 const SEMINARS = [
   {
     year: 2026, date: "16 March 2026",
     title: "Centaur Science: Adventures in AI+Physics",
     speaker: "Jesse Thaler", affiliation: "MIT and IAIFI",
+    link: "https://agenda.unige.ch/events/view/45410",
+  },
+  {
+    year: 2026, date: "22 January 2026",
+    title: "Simulation-Based Inference",
+    speaker: "Chris Pollard", affiliation: "University of Warwick",
+  },
+  {
+    year: 2025, date: "15 December 2025",
+    title: "Building the Theory-Experiment BSM Bridge",
+    speaker: "Tim Cohen", affiliation: "University of Oregon",
+  },
+  {
+    year: 2024, date: "18 June 2024",
+    title: "An exploration of full-event unfolding with latent variational diffusion",
+    speaker: "Kevin Greif", affiliation: "UC Irvine",
+    paper: "https://arxiv.org/abs/2404.14332",
+  },
+  {
+    year: 2023, date: "4 July 2023",
+    title: "Goodness of fit by Neyman-Pearson testing " +
+           "(anomaly detection, systematic uncertainties and DQM applications)",
+    speaker: "Gaia Grosso", affiliation: "MIT and IAIFI",
+  },
+  {
+    year: 2023, date: "8 June 2023",
+    title: "Diffusion Generative Models in High Energy Physics",
+    speaker: "Vinicius Mikuni", affiliation: "Berkeley Lab",
+    paper: "https://arxiv.org/abs/2304.01266",
   },
 ];
 
