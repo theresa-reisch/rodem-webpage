@@ -131,7 +131,7 @@ const TEAM = [
   {
     group: "PhD Students",
     members: [
-      { name: "Jona Ackerschott",   role: "PhD Student", photo: "", blurb: "Anomaly Detection in Stellar Streams and Unfolding.", links: {} },
+      { name: "Jona Ackerschott",   role: "PhD Student", photo: "images/team/Jona.jpg", blurb: "Anomaly Detection for Stellar Streams and Unfolding.", links: {} },
       { name: "Pradyun Hebbar",     role: "PhD Student", photo: "images/team/Pradyun.jpg", blurb: "Foundation Models and Agentic AI.", links: {} },
       { name: "Andreas Hermansen",  role: "PhD Student", photo: "images/team/Andreas.png", blurb: "AIPHY fellow. Co-supervised with Prof. Voloshynovskiy. Foundation Models and Event Reconstruction.", links: {} },
       { name: "Stephen Mulligan",   role: "PhD Student", photo: "images/team/Stephen.jpg", blurb: "Searches for New Physics and Optimal Detector Design.", links: {} },
