@@ -1770,6 +1770,9 @@ const DETECTOR = {
    status       "open" | "filled" | "draft"   (only "open" is displayed)
    funding      REQUIRED for PhD. A grant name, not a hope.
    deadline     REQUIRED for PhD. ISO date.
+   projectUrl   optional link to the wider project or programme the position
+                belongs to, shown as "Project".
+   projectLabel optional link text for projectUrl (default: the URL itself).
    applyUrl     optional link to an application form, shown as "How to apply".
    applyLabel   optional link text for applyUrl (default "Application form").
    reviewed     the date a human last confirmed this is still true.
@@ -1795,6 +1798,8 @@ const POSITIONS = [
     prerequisites: "Python and a working knowledge of deep learning. A master's degree in physics, computer science, mathematics or a related field by the start date. No prior particle-physics experience needed.",
     funding: "FUNDIS — AI Foundation Models for Scientific Discovery, Fondation pour l'Université de Genève.",
     deadline: "2026-08-30",
+    projectUrl: "https://fundis-unige.github.io/",
+    projectLabel: "FUNDIS programme site",
     applyUrl: "https://docs.google.com/forms/d/e/1FAIpQLSew6wMjdDxXbn4n0Y9cG56Sjw3M7OMGmmEl39hufqlhUDLH3Q/viewform",
     reviewed: "2026-07-31",
   },
@@ -2085,7 +2090,8 @@ const OUTREACH = [
    anyone who needs the figures can ask.
    ------------------------------------------------------------------------ */
 const FUNDING = [
-  { years: "2027–2030", name: "AI Foundation Models for Scientific Discovery (FUNDIS)", funder: "Fondation pour l'Université de Genève", role: "Co-applicant" },
+  { years: "2027–2030", name: "AI Foundation Models for Scientific Discovery (FUNDIS)", funder: "Fondation pour l'Université de Genève", role: "Co-applicant",
+    url: "https://fundis-unige.github.io/" },
   { years: "2025–2029", name: "Machine Learning and Quantum Computing for Future Colliders", funder: "COST Action CA24146", role: "Co-applicant" },
   { years: "2025–2028", name: "CHEF", funder: "SERI and UNIGE", role: "Co-applicant" },
   { years: "2024–2028", name: "AIPHY — Challenging AI with Challenges from Physics", funder: "HORIZON MSCA Doctoral Network", role: "Co-applicant",

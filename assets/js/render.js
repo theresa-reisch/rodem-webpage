@@ -602,6 +602,7 @@ function renderPositions(target, level) {
         <dt>Supervisor</dt><dd>${esc(p.supervisor)}</dd>
         <dt>You should already have</dt><dd>${esc(p.prerequisites)}</dd>
         ${p.funding  ? `<dt>Funded by</dt><dd>${esc(p.funding)}</dd>` : ""}
+        ${p.projectUrl ? `<dt>Project</dt><dd><a href="${esc(p.projectUrl)}">${esc(p.projectLabel || p.projectUrl)}</a></dd>` : ""}
         ${p.deadline ? `<dt>Apply by</dt><dd>${esc(p.deadline)}</dd>` : ""}
         ${p.applyUrl ? `<dt>How to apply</dt><dd><a href="${esc(p.applyUrl)}">${esc(p.applyLabel || "Application form")}</a></dd>` : ""}
       </dl>
