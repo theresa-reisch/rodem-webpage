@@ -130,6 +130,36 @@ PUBLISHED = {
  },
 }
 
+# ---- papers INSPIRE does not have at all -----------------------------------
+# Everything above is looked up on INSPIRE, which cannot work for a paper that
+# has no INSPIRE record and no arXiv preprint — accepted straight at a journal.
+# An entry here is written out verbatim alongside the fetched ones, so it
+# survives this script rewriting the PUBLICATIONS block.
+# Use the same keys entry() produces. Delete an entry once INSPIRE has the
+# record and add its title fragment to SELECT instead, which then keeps the
+# citation count and the BibTeX key up to date by itself.
+EXTRAS = [
+ {
+   "category": "other",   # no id in PUB_CATEGORIES: renders under "Other"
+   "year": 2026,
+   "title": "Systematic study of fully heavy-flavored tetraquarks Q₁Q₂Q̄₁Q̄₂ "
+            "(Q₁,₂ ∈ {b,c}): Mass spectra, threshold analysis, and "
+            "confrontation with LHC data",
+   "authors": "A. A. Atangana Likéné, F. Rothen, D. Nga Ongodo, "
+              "G. H. Ben-Bolie, T. Golling",
+   "journal": "Phys.Rev.D (accepted 2026)",
+   "citations": 0,
+   "doi": "https://doi.org/10.1103/y15p-jk18",
+   "bibtex": """@article{AtanganaLikene:2026tetra,
+  title   = {{Systematic study of fully heavy-flavored tetraquarks $Q_1 Q_2 \\bar{Q}_1 \\bar{Q}_2$ ($Q_{1,2} \\in \\{b,c\\}$): Mass spectra, threshold analysis, and confrontation with LHC data}},
+  author  = {Atangana Lik\\'en\\'e, A. A. and Rothen, F. and Nga Ongodo, D. and Ben-Bolie, G. H. and Golling, Tobias},
+  journal = {Phys. Rev. D},
+  year    = {2026},
+  doi     = {10.1103/y15p-jk18},
+}""",
+ },
+]
+
 def fetch(rid):
     url = ("https://inspirehep.net/api/literature/%d?fields=titles,authors,"
            "publication_info,arxiv_eprints,dois,earliest_date,citation_count,texkeys,collaborations" % rid)
@@ -268,6 +298,8 @@ for frag, cat in SELECT:
 
 for rid, cat in ATLAS_IDS.items():
     entries.append(entry(fetch(rid), cat, rid))
+
+entries += EXTRAS
 
 entries.sort(key=lambda e: -e["year"])
 print("total entries:", len(entries))
