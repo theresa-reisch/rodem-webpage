@@ -139,7 +139,7 @@ const TEAM = [
       { name: "Giovanni Ottaviano", role: "PhD Student", photo: "images/team/Giovanni.jpg", blurb: "AIPHY fellow. Co-supervised with Prof. Biau (Sorbonne University). Foundation Models and Agentic AI.", links: {} },
       { name: "Theresa Reisch",     role: "PhD Student", photo: "images/team/Theresa.png", blurb: "AIPHY fellow. Searches for New Physics and Flavour Tagging in ATLAS.", links: {} },
       { name: "Matej Repik",        role: "PhD Student", photo: "images/team/Matej.jpg", blurb: "ATLAS ITk Upgrade Development.", links: {} },
-      { name: "Vincent Riechers",   role: "PhD Student", photo: "", blurb: "Optimal Detector Design.", links: {} },
+      { name: "Vincent Riechers",   role: "PhD Student", photo: "images/team/Vincent.jpg", blurb: "Optimal Detector Design.", links: {} },
       { name: "Franck Rothen",      role: "PhD Student", photo: "", blurb: "Uncertainty Aware Classification.", links: {} },
       { name: "Guillaume Quétant",      role: "PhD Student", photo: "images/team/Guillaume.jpg", blurb: "Co-supervised with Prof. Voloshynovskiy. Information Theory, Generative and Foundation Models.", links: {} },
     ],
