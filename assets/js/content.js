@@ -847,7 +847,7 @@ const METRICS = {
       link: "https://inspirehep.net/literature?sort=mostrecent&size=25&page=1&q=find%20a%20tobias%20golling",
       stats: [
         { label: "Papers",    value: 1638 },
-        { label: "Citations", value: 245508 },
+        { label: "Citations", value: 245488 },
         { label: "h-index",   value: 219 },
       ],
     },
@@ -915,7 +915,7 @@ const PUBLICATIONS = [
     title: "Transforming jet flavour tagging at ATLAS",
     authors: "ATLAS Collaboration",
     journal: "Nature Commun. 17, 541 (2026)",
-    citations: 112,
+    citations: 113,
     star: true,
     arxiv: "https://arxiv.org/abs/2505.19689",
     doi: "https://doi.org/10.1038/s41467-025-65059-6",
