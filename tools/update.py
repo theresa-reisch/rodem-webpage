@@ -131,6 +131,16 @@ PUBLISHED = {
  },
 }
 
+# ---- preprints under review ------------------------------------------------
+# A paper INSPIRE still lists as a preprint may already be with a journal.
+# An entry here names that journal, so the paper reads "(submitted to ...)"
+# instead of "(preprint)", keyed by INSPIRE record id. Like PUBLISHED it
+# applies only while INSPIRE has neither publication_info nor a DOI, so it
+# falls away by itself once the paper is accepted.
+SUBMITTED = {
+ 3191164: "Phys. Rev. D",    # Pairton: Iterative Reconstruction of Short-Lived Particles
+}
+
 # ---- papers INSPIRE does not have at all -----------------------------------
 # Everything above is looked up on INSPIRE, which cannot work for a paper that
 # has no INSPIRE record and no arXiv preprint — accepted straight at a journal.
@@ -224,14 +234,15 @@ def authors_str(m):
         names = names[:10] + ["et al."]
     return ", ".join(names)
 
-def journal_str(m, fix=None):
+def journal_str(m, fix=None, sub=None):
     pi = (m.get('publication_info') or [{}])[0]
     jt = pi.get('journal_title')
     if not jt and fix:
         pi, jt = fix, fix["journal_title"]
     if not jt:
         ap = m.get('arxiv_eprints')
-        return "arXiv:%s (preprint)" % ap[0]['value'] if ap else ""
+        state = "submitted to %s" % sub if sub else "preprint"
+        return "arXiv:%s (%s)" % (ap[0]['value'], state) if ap else ""
     s = jt
     if pi.get('journal_volume'): s += " %s" % pi['journal_volume']
     pg = pi.get('artid') or pi.get('page_start')
@@ -267,13 +278,14 @@ def entry(m, cat, rid):
     key = (m.get('texkeys') or ["inspire%d" % rid])[0]
     # Stands in only while INSPIRE has nothing of its own to say — see PUBLISHED.
     fix = PUBLISHED.get(rid) if not (m.get('publication_info') or m.get('dois')) else None
+    sub = SUBMITTED.get(rid) if not (m.get('publication_info') or m.get('dois')) else None
     e = {
       "category": cat,
       "year": int((((m.get('publication_info') or [{}])[0].get('year'))
                    or (fix or {}).get('year') or m.get('earliest_date','0')[:4])),
       "title": delatex(m["titles"][0]["title"]),
       "authors": authors_str(m),
-      "journal": journal_str(m, fix),
+      "journal": journal_str(m, fix, sub),
       "citations": cites,
       "inspire": "https://inspirehep.net/literature/%d" % rid,
       "bibtex": bibtex(m, key, fix),

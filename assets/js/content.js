@@ -894,7 +894,7 @@ const PUBLICATIONS = [
     year: 2026,
     title: "Pairton: Iterative Reconstruction of Short-Lived Particles",
     authors: "A. Hermansen, C. Scheulen, T. Golling",
-    journal: "arXiv:2608.14278 (preprint)",
+    journal: "arXiv:2608.14278 (submitted to Phys. Rev. D)",
     citations: 0,
     arxiv: "https://arxiv.org/abs/2608.14278",
     inspire: "https://inspirehep.net/literature/3191164",
