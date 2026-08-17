@@ -74,6 +74,7 @@ SELECT = [
  ("Decorrelation with conditional normalizing",     "o"),
  ("Flow Away your Differences",                     "o"),
  # ---- R: reconstruction ----------------------------------------------------
+ ("Pairton",                                        "r"),
  ("Fast and improved neutrino reconstruction",      "r"),
  (r"\nu$-flows",                                    "r"),
  ("Topological reconstruction of particle physics", "r"),
