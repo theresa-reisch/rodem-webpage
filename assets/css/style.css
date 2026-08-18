@@ -12,17 +12,24 @@
   --rule:      #e3e1db;
   --accent:    #8c1d33;
   --accent-sm: #a63b50;
+  --on-accent: #fdfdfc;   /* text drawn on top of an accent-coloured fill */
 
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
   --sans:  -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+
+  color-scheme: light;
 
   --measure: 68ch;
   --wide: 1080px;
   --pad: clamp(1.25rem, 5vw, 3rem);
 }
 
+/* Dark palette. It applies in two cases: the visitor's system is set to dark
+   and they have not chosen otherwise, or they picked dark with the header
+   button (which writes data-theme on <html>). Change a colour in both blocks. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
     --bg:        #16161a;
     --bg-soft:   #1e1e23;
     --text:      #ececea;
@@ -30,7 +37,19 @@
     --rule:      #32323a;
     --accent:    #e8879b;
     --accent-sm: #f0a8b8;
+    --on-accent: #16161a;
   }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg:        #16161a;
+  --bg-soft:   #1e1e23;
+  --text:      #ececea;
+  --muted:     #a3a29c;
+  --rule:      #32323a;
+  --accent:    #e8879b;
+  --accent-sm: #f0a8b8;
+  --on-accent: #16161a;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -56,6 +75,12 @@ a:hover { color: var(--accent-sm); }
 img { max-width: 100%; display: block; }
 
 .wrap { max-width: var(--wide); margin: 0 auto; padding-inline: var(--pad); }
+
+/* Visible only to screen readers. */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
 
 /* Visible only to screen readers, until focused (skip link). */
 .skip {
@@ -186,8 +211,7 @@ img.avatar { display: block; } /* photos are replaced elements, not flex boxes *
   border: 1px solid var(--rule); border-radius: 999px; padding: .35rem .95rem;
 }
 .chip:hover { color: var(--text); border-color: var(--muted); }
-.chip.is-active { background: var(--accent); border-color: var(--accent); color: #fff; }
-@media (prefers-color-scheme: dark) { .chip.is-active { color: #16161a; } }
+.chip.is-active { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
 
 /* category sections */
 .pub-cat + .pub-cat { margin-top: 3rem; }
@@ -269,8 +293,7 @@ img.avatar { display: block; } /* photos are replaced elements, not flex boxes *
 }
 
 .tag-btn { font-family: inherit; cursor: pointer; background: transparent; }
-.tag-btn.is-active { background: var(--accent); border-color: var(--accent); color: #fff; }
-@media (prefers-color-scheme: dark) { .tag-btn.is-active { color: #16161a; } }
+.tag-btn.is-active { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
 
 .bibtex {
   margin: .8rem 0 0; padding: .9rem 1rem; overflow-x: auto;
@@ -334,13 +357,38 @@ img.avatar { display: block; } /* photos are replaced elements, not flex boxes *
   text-transform: uppercase; color: var(--muted); font-weight: 500;
 }
 
+/* --------------------------------------------------------- theme toggle -- */
+#theme-toggle {
+  background: none; border: 1px solid var(--rule); border-radius: 6px;
+  color: var(--muted); font: inherit; font-size: 1rem; line-height: 1;
+  padding: .35rem .6rem; cursor: pointer;
+}
+#theme-toggle:hover { color: var(--text); border-color: var(--accent); }
+#theme-toggle .theme-icon-dark { display: none; }
+/* Show the icon for the mode the button switches *to*. */
+:root[data-theme="dark"] #theme-toggle .theme-icon-dark { display: inline; }
+:root[data-theme="dark"] #theme-toggle .theme-icon-light { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) #theme-toggle .theme-icon-dark { display: inline; }
+  :root:not([data-theme="light"]) #theme-toggle .theme-icon-light { display: none; }
+}
+
+/* The header is a flex row; set the order explicitly so the button can sit at
+   the far right on wide screens and next to the Menu button on narrow ones,
+   whatever its position in the HTML. */
+.site-header .brand { order: 1; }
+.site-header .site-nav { order: 2; }
+#theme-toggle { order: 3; }
+
 /* -------------------------------------------------- nav on small screens -- */
 #nav-toggle {
   display: none; background: none; border: 1px solid var(--rule); border-radius: 6px;
   color: var(--text); font: inherit; font-size: .85rem; padding: .3rem .65rem; cursor: pointer;
 }
 @media (max-width: 860px) {
-  #nav-toggle { display: block; }
+  #nav-toggle { display: block; order: 3; }
+  #theme-toggle { order: 2; margin-left: auto; }
+  .site-header .site-nav { order: 4; }
   .site-header .site-nav {
     display: none; width: 100%; flex-direction: column; gap: 0;
     padding-block: .5rem; border-top: 1px solid var(--rule); margin-top: .6rem;

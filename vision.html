@@ -8,6 +8,15 @@
 <link rel="canonical" href="https://dpnc.unige.ch/golling/vision.html">
 <link rel="icon" href="images/logo/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/css/style.css?v=103">
+<!-- Apply the saved light/dark choice before the page paints, so a visitor
+     who picked dark never sees a white flash. The button that writes this
+     choice lives in the header; the rest of the behaviour is in render.js. -->
+<script>
+  try {
+    var t = localStorage.getItem("rodem-theme");
+    if (t === "dark" || t === "light") document.documentElement.dataset.theme = t;
+  } catch (e) {}
+</script>
 </head>
 <body>
 
@@ -26,6 +35,10 @@
         <span class="brand-sub" data-site-sub>Golling Group</span>
       </span>
     </a>
+    <button id="theme-toggle" type="button" aria-pressed="false" title="Switch to dark mode">
+      <span class="theme-icon-light" aria-hidden="true">&#9789;</span><span class="theme-icon-dark" aria-hidden="true">&#9788;</span>
+      <span class="sr-only">Switch colour theme</span>
+    </button>
     <button id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Main"></nav>
   </div>

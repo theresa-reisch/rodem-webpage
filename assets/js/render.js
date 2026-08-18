@@ -735,6 +735,32 @@ function renderChrome() {
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
     });
   }
+  // Light/dark button. The stylesheet already follows the visitor's system
+  // setting; this only records an explicit override, kept in localStorage so
+  // it survives page changes. The matching pre-paint script is in each page's
+  // <head>, which is why the choice does not flash on load.
+  const theme = el("theme-toggle");
+  if (theme) {
+    const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
+    const isDark = () => (document.documentElement.dataset.theme
+      ? document.documentElement.dataset.theme === "dark"
+      : systemDark.matches);
+    const label = () => {
+      const dark = isDark();
+      theme.setAttribute("aria-pressed", dark ? "true" : "false");
+      theme.title = dark ? "Switch to light mode" : "Switch to dark mode";
+    };
+    label();
+    theme.addEventListener("click", function () {
+      const next = isDark() ? "light" : "dark";
+      document.documentElement.dataset.theme = next;
+      try { localStorage.setItem("rodem-theme", next); } catch (e) {}
+      label();
+    });
+    // If the visitor never chose, follow the system when it changes.
+    systemDark.addEventListener("change", label);
+  }
+
   document.querySelectorAll("[data-site-email]").forEach((n) => {
     n.textContent = SITE.email;
     n.setAttribute("href", "mailto:" + SITE.email);

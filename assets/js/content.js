@@ -92,9 +92,9 @@ const TEAM = [
     members: [
       {
         name: "Alexander Froch",
-        role: "Postdoctoral Researcher",
+        role: "Feodor-Lynen Research Fellow",
         photo: "images/team/picture_Froch.jpg",
-        blurb: "Flavour Tagging in ATLAS.",
+        blurb: "Flavour Tagging in ATLAS and FCC-ee. Development of Run 4 b-Jet Triggers.",
         links: {},
       },
       {
@@ -137,7 +137,7 @@ const TEAM = [
       { name: "Stephen Mulligan",   role: "PhD Student", photo: "images/team/Stephen.jpg", blurb: "Searches for New Physics and Optimal Detector Design.", links: {} },
       { name: "Ivan Oleksiyuk",     role: "PhD Student", photo: "images/team/Ivan.png", blurb: "Co-supervised with Prof. Voloshynovskiy. Searches for New Physics.", links: {} },
       { name: "Giovanni Ottaviano", role: "PhD Student", photo: "images/team/Giovanni.jpg", blurb: "AIPHY fellow. Co-supervised with Prof. Biau (Sorbonne University). Foundation Models and Agentic AI.", links: {} },
-      { name: "Theresa Reisch",     role: "PhD Student", photo: "images/team/Theresa.png", blurb: "AIPHY fellow. Searches for New Physics and Flavour Tagging in ATLAS.", links: {} },
+      { name: "Theresa Reisch",     role: "PhD Student", photo: "images/team/Theresa.png", blurb: "AIPHY fellow. Searches for New Physics, Flavour Tagging in ATLAS and Development of Run 4 b-Jet Triggers.", links: {} },
       { name: "Matej Repik",        role: "PhD Student", photo: "images/team/Matej.jpg", blurb: "ATLAS ITk Upgrade Development.", links: {} },
       { name: "Vincent Riechers",   role: "PhD Student", photo: "images/team/Vincent.jpg", blurb: "Optimal Detector Design and high-level Reconstruction at the FCC.", links: {} },
       { name: "Franck Rothen",      role: "PhD Student", photo: "", blurb: "Uncertainty Aware Classification.", links: {} },
