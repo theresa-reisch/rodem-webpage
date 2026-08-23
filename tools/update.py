@@ -89,6 +89,7 @@ SELECT = [
  ("Turbo-Sim",                                      "g"),
  ("Deep Generative Models for Fast Shower",         "g"),
  # ---- E: exploration -------------------------------------------------------
+ ("Search Budget of the BSM Resonance",             "e"),
  ("Strong CWoLa",                                   "e"),
  ("TRANSIT your events",                            "e"),
  ("Robust resonant anomaly detection with NPLM",    "e"),
