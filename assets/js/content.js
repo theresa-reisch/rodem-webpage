@@ -243,6 +243,20 @@ const TEAM = [
    ------------------------------------------------------------------------ */
 const NEWS = [
   {
+    date: "August 2026",
+    title: "Glühwein Workshop 2026 comes to Geneva: CERN, 14–16 December",
+    body: "The Glühwein Workshop is at CERN this year, in the Salle Marie " +
+          "Sklodowska-Curie, from 14 to 16 December 2026. Three days on the " +
+          "latest in machine learning and how it is being applied to " +
+          "high-energy physics, in the December series that ran in Heidelberg " +
+          "in 2022, Vienna in 2023, Karlsruhe in 2024 and Aachen in 2025. " +
+          "Alexander Froch, Theresa Reisch and Tobias Golling are organising " +
+          "the Geneva edition. Abstract submission opens on 1 October and " +
+          "closes on 4 December; the agenda, registration and connection " +
+          "details are on Indico.",
+    link: "https://indico.cern.ch/event/1717867/",
+  },
+  {
     date: "July 2026",
     kind: "spotlight",
     mark: "images/marks/curtain.svg",
@@ -2010,13 +2024,14 @@ const EVENTS = [
 
   /* --- The Glühwein workshop: the small December meeting on machine learning
          in high-energy physics. Heidelberg 2022, Vienna 2023, Karlsruhe 2024,
-         Aachen 2025 — and Geneva next. Add `url` here as soon as the Indico
-         page is up. -------------------------------------------------------- */
+         Aachen 2025 — and Geneva next. ------------------------------------- */
   {
     year: 2026, title: "Glühwein Workshop — Geneva edition",
     series: "Glühwein Workshop", dates: "14–16 December 2026",
-    venue: "Geneva", role: "Initiator and host", upcoming: true,
+    venue: "Salle Marie Sklodowska-Curie, CERN, Geneva",
+    role: "Initiator and host", upcoming: true,
     body: "A small meeting on the latest in machine learning and how it is being applied to high-energy physics, held over three December days. Geneva takes it on after Heidelberg 2022, Vienna 2023, Karlsruhe 2024 and Aachen 2025.",
+    url: "https://indico.cern.ch/event/1717867/",
   },
   {
     year: 2025, title: "Glühwein Workshop 2025",
