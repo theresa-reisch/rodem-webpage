@@ -104,6 +104,8 @@ SELECT = [
  ("CURTAINs for your sliding window",               "e"),
  ("Variational autoencoders for anomalous jet",     "e"),
  ("Morphing one dataset into another",              "e"),
+ # ---- no id in PUB_CATEGORIES: renders under "Other" -----------------------
+ ("heavy-flavored tetraquarks",                     "other"),
 ]
 
 # ---- ATLAS papers the user asked for, by INSPIRE record id -----------------
@@ -150,27 +152,7 @@ SUBMITTED = {
 # Use the same keys entry() produces. Delete an entry once INSPIRE has the
 # record and add its title fragment to SELECT instead, which then keeps the
 # citation count and the BibTeX key up to date by itself.
-EXTRAS = [
- {
-   "category": "other",   # no id in PUB_CATEGORIES: renders under "Other"
-   "year": 2026,
-   "title": "Systematic study of fully heavy-flavored tetraquarks Q₁Q₂Q̄₁Q̄₂ "
-            "(Q₁,₂ ∈ {b,c}): Mass spectra, threshold analysis, and "
-            "confrontation with LHC data",
-   "authors": "A. A. Atangana Likéné, F. Rothen, D. Nga Ongodo, "
-              "G. H. Ben-Bolie, T. Golling",
-   "journal": "Phys.Rev.D (accepted 2026)",
-   "citations": 0,
-   "doi": "https://doi.org/10.1103/y15p-jk18",
-   "bibtex": """@article{AtanganaLikene:2026tetra,
-  title   = {{Systematic study of fully heavy-flavored tetraquarks $Q_1 Q_2 \\bar{Q}_1 \\bar{Q}_2$ ($Q_{1,2} \\in \\{b,c\\}$): Mass spectra, threshold analysis, and confrontation with LHC data}},
-  author  = {Atangana Lik\\'en\\'e, A. A. and Rothen, F. and Nga Ongodo, D. and Ben-Bolie, G. H. and Golling, Tobias},
-  journal = {Phys. Rev. D},
-  year    = {2026},
-  doi     = {10.1103/y15p-jk18},
-}""",
- },
-]
+EXTRAS = []
 
 def fetch(rid):
     url = ("https://inspirehep.net/api/literature/%d?fields=titles,authors,"
@@ -180,7 +162,7 @@ def fetch(rid):
 
 GREEK = {"nu":"ν","mu":"μ","tau":"τ","pi":"π","gamma":"γ","alpha":"α","beta":"β",
          "eta":"η","phi":"φ","psi":"ψ","Upsilon":"Υ","Lambda":"Λ","sigma":"σ",
-         "ell":"ℓ","to":"→","times":"×","pm":"±","infty":"∞"}
+         "ell":"ℓ","to":"→","times":"×","pm":"±","infty":"∞","in":"∈"}
 
 def demathml(s):
     """Some journal-supplied titles arrive as MathML; flatten them to text."""
@@ -196,15 +178,21 @@ def delatex(s):
     s = s.replace("\\sqrt{s}", "√s").replace("\\sqrt s", "√s")
     s = re.sub(r"\\text(rm|it|bf)?\{([^}]*)\}", r"\2", s)
     s = re.sub(r"\\mathrm\{([^}]*)\}", r"\1", s)
-    s = re.sub(r"\\bar\{([^}]*)\}", r"\1̄", s)
+    # A brace the author wrote to keep, as in {b,c}, survives the strip below.
+    s = s.replace("\\{", "\x01").replace("\\}", "\x02")
+    s = s.replace("\\(", "").replace("\\)", "")
+    s = re.sub(r"\\(bar|overline)\{([^}]*)\}", r"\2̄", s)
     s = re.sub(r"\\bar\s*(\w)", r"\1̄", s)
     for k, v in GREEK.items():
         s = re.sub(r"\\%s\b" % k, v, s)
     s = re.sub(r"\^\{?\+\}?", "⁺", s)
     s = re.sub(r"\^\{?-\}?", "⁻", s)
+    sub = str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")
+    s = re.sub(r"_\{([0-9](?:\s*,\s*[0-9])*)\}", lambda m: m.group(1).translate(sub), s)
     s = re.sub(r"_\{?([0-9])\}?", lambda m: "₀₁₂₃₄₅₆₇₈₉"[int(m.group(1))], s)
     s = s.replace("~", " ").replace("\\,", " ").replace("\\;", " ")
     s = s.replace("$", "").replace("{", "").replace("}", "").replace("\\", "")
+    s = re.sub(r"\x01\s*(.*?)\s*\x02", r"{\1}", s)
     return re.sub(r"\s+", " ", s).strip()
 
 def short_author(full):
@@ -251,11 +239,26 @@ def journal_str(m, fix=None, sub=None):
     if pi.get('year'): s += " (%s)" % pi['year']
     return s
 
+def bibtex_title(m):
+    """A journal-supplied title can arrive as MathML or \\(...\\) markup, neither
+    of which belongs in a .bib file; the arXiv copy of the same record is the
+    authors' own LaTeX, so prefer it in that case and leave its braces alone.
+    An ordinary title keeps INSPIRE's wording, minus the braces it wraps around
+    words whose capitalisation it wants preserved — the {{...}} does that here."""
+    titles = m['titles']
+    primary = titles[0]['title']
+    if "<math" in primary or "\\(" in primary:
+        arxiv = next((x['title'] for x in titles if x.get('source') == 'arXiv'), None)
+        if arxiv:
+            return arxiv
+        return demathml(primary)
+    return primary.replace("{", "").replace("}", "")
+
 def bibtex(m, key, fix=None):
     pi = (m.get('publication_info') or [{}])[0] or {}
     if not pi.get('journal_title') and fix:
         pi = fix
-    title = m['titles'][0]['title'].replace("{","").replace("}","")
+    title = bibtex_title(m)
     collab = collaboration(m)
     auth = ("{%s}" % collab) if collab else \
            " and ".join(a['full_name'] for a in m.get('authors', [])[:10])
