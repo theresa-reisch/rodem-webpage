@@ -24,6 +24,8 @@ rodem-webpage-updated.zip
 /images/*.jpg
 /images/*.jpeg
 /images/*.png
+/images/EuCAIF/IMG_*.jpg
+/images/EuCAIF/AIPHY.jpg
 /images/team/Boninchi_*
 /images/team/Group_picture.*
 /images/team/*_original.*

@@ -207,7 +207,11 @@ function renderNews(target, limit) {
   const host = el(target);
   if (!host || typeof NEWS === "undefined") return;
 
+  // A limit means this is the teaser on the home page, which links on to
+  // news.html. It stays a teaser: the entry and photo blocks below are for the
+  // full list only, or one busy item would swamp the other two.
   const items = limit ? NEWS.slice(0, limit) : NEWS;
+  const full = !limit;
   if (!items.length) { host.innerHTML = `<p class="empty">No news yet.</p>`; return; }
 
   // A "spotlight" item is a longer piece about a whole line of work rather
@@ -221,8 +225,39 @@ function renderNews(target, limit) {
       <p class="date">${esc(n.date)}${spot ? ` &middot; Method spotlight` : ""}</p>
       <h3>${n.link ? `<a href="${esc(n.link)}">${esc(n.title)}</a>` : esc(n.title)}</h3>
       <p>${richText(n.body)}</p>
+      ${full ? newsEntriesHTML(n.entries) : ""}
+      ${full ? newsPhotosHTML(n.photos) : ""}
     </li>`;
   }).join("");
+}
+
+/* An item that covers several contributions at once — a conference where four
+   people spoke — carries one block per contribution instead of packing them
+   into the body. Each gets its own heading and its own links, which the body
+   text cannot have: richText() deliberately allows no anchors. */
+function newsEntriesHTML(entries) {
+  if (!entries || !entries.length) return "";
+  return `<ul class="news-entries">${entries.map((e) => {
+    const links = (e.links || []).map((l) =>
+      `<a class="tag" href="${esc(l.url)}">${esc(l.label)}</a>`).join("");
+    return `<li>
+      <h4>${esc(e.title)}</h4>
+      <p class="news-entry-who">${esc(e.who)}</p>
+      <p>${richText(e.body)}</p>
+      ${links ? `<p class="news-entry-links">${links}</p>` : ""}
+    </li>`;
+  }).join("")}</ul>`;
+}
+
+/* Photographs belonging to a news item, in a row that wraps. Same shape for
+   every picture, so the row reads as a strip rather than a ragged collage —
+   see images/EuCAIF/README.md for how the files are sized. */
+function newsPhotosHTML(photos) {
+  if (!photos || !photos.length) return "";
+  return `<div class="news-photos">${photos.map((p) => `<figure class="band">
+      <img src="${esc(p.src)}" alt="${esc(p.alt || "")}" loading="lazy">
+      ${p.credit ? `<figcaption>${esc(p.credit)}</figcaption>` : ""}
+    </figure>`).join("")}</div>`;
 }
 
 /* ---------------------------------------------------------- publications --- */

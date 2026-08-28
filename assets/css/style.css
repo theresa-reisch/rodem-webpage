@@ -481,6 +481,34 @@ figure.band figcaption {
 .news-mark { position: absolute; top: 1.4rem; right: 1.4rem; width: 62px; opacity: .55; }
 @media (max-width: 620px) { .news-mark { display: none; } }
 
+/* ------------------------------------------- news entries and photographs - */
+/* One block per contribution inside a news item that covers several at once.
+   The rule down the left ties them to the item above without making each look
+   like a news item of its own. */
+.news-entries { list-style: none; margin: 1.2rem 0 0; padding: 0; }
+.news-entries > li {
+  border-left: 2px solid var(--rule); padding: 0 0 0 1.1rem;
+  margin-top: 1.2rem; max-width: var(--measure);
+}
+.news-entries h4 { font-size: 1rem; margin: 0 0 .15em; }
+.news-entry-who {
+  font-size: .82rem; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--accent); margin: 0 0 .5em;
+}
+.news-list .news-entry-links {
+  display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .6rem;
+}
+
+/* A strip of photographs under a news item. Three across on a wide screen,
+   two on a tablet, one on a phone — the pictures are all 4:3, so the rows stay
+   even however many wrap. */
+.news-photos {
+  display: grid; gap: 1rem; margin-top: 1.6rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+@media (max-width: 900px) { .news-photos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .news-photos { grid-template-columns: 1fr; } }
+
 /* ------------------------------------------------------------ positions -- */
 .position { padding-block: 1.6rem; border-top: 1px solid var(--rule); max-width: var(--measure); }
 .position:first-child { border-top: none; padding-top: .4rem; }

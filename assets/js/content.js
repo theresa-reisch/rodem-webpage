@@ -240,8 +240,103 @@ const TEAM = [
    ------------------------------------------------------------------------
    Newest first. date is free text — "March 2026" or "2026-03-14" both fine.
    link is optional; delete the line if there's nothing to link to.
+
+   Two optional blocks, for an item that covers several things at once:
+     entries  one { who, title, body, links: [{ label, url }] } per contribution.
+              Use it when the body text would otherwise have to carry a list of
+              links — body copy cannot hold them.
+     photos   [{ src, alt }], shown as a strip under the item. alt is required;
+              see images/EuCAIF/README.md for how the files are sized.
    ------------------------------------------------------------------------ */
 const NEWS = [
+  {
+    date: "August 2026",
+    title: "Four talks at EuCAIFCon 2026 in Heidelberg",
+    body: "The group was at the third European AI for Fundamental Physics " +
+          "Conference at the Kirchhoff Institute for Physics in Heidelberg, " +
+          "24\u201328 August 2026, with four talks and a week of good " +
+          "discussions with the people working on the same problems elsewhere.",
+    link: "https://indico.physi.uni-heidelberg.de/event/1277/",
+    entries: [
+      {
+        who: "Alexander Froch",
+        title: "Multi-task, multi-modal transformers for jet flavour tagging in ATLAS",
+        body: "GN3 is the newest transformer-based jet flavour tagger in ATLAS. " +
+              "It reads several input modalities at once \u2014 charged-particle " +
+              "tracks, neutral flow objects and soft leptons \u2014 and is trained " +
+              "on several tasks at once, adding track-origin classification, jet " +
+              "p<sub>T</sub> regression and quark-charge prediction alongside the " +
+              "flavour label. It outperforms every previous ATLAS tagger, and the " +
+              "leap in c-tagging is spectacular: that gain feeds straight into " +
+              "flagship measurements such as HH\u2009\u2192\u2009<i>bb\u0304</i>\u03c4\u03c4 " +
+              "and VH(H\u2009\u2192\u2009<i>cc\u0304</i>).",
+        links: [
+          { label: "Talk", url: "https://indico.physi.uni-heidelberg.de/event/1277/contributions/4148/" },
+        ],
+      },
+      {
+        who: "Andreas Hermansen",
+        title: "Pairton: iterative reconstruction of short-lived particles",
+        body: "Pairton borrows the machinery behind large language models for " +
+              "event reconstruction. It casts a decay as a masked prediction " +
+              "problem on a graph and fills in the edges of the decay adjacency " +
+              "matrix one step at a time, so the model learns the conditional " +
+              "distributions of a factorised decay rather than a set of " +
+              "independent marginals. On fully hadronic <i>tt\u0304</i> decays it " +
+              "sets the state of the art, and the same framework extends to other " +
+              "topologies. Submitted to Physical Review D.",
+        links: [
+          { label: "arXiv:2608.14278", url: "https://arxiv.org/abs/2608.14278" },
+          { label: "Talk", url: "https://indico.physi.uni-heidelberg.de/event/1277/contributions/4247/" },
+        ],
+      },
+      {
+        who: "Theresa Reisch",
+        title: "Searching everything, everywhere, all at once",
+        body: "A strategy for a scaled-up, automated resonance search at the LHC. " +
+              "The paper prices the look-elsewhere effect for the whole ATLAS " +
+              "resonance programme: the published searches come to about " +
+              "7.9\u2009\u00d7\u200910\u00b3 looks across 104 spectra, so a 5\u03c3 " +
+              "global discovery today costs a local significance of 6.55\u03c3, while " +
+              "a full " +
+              "combinatorial scan of 3.6\u2009\u00d7\u200910\u2075 looks would cost " +
+              "7.11\u03c3 \u2014 46 times the searches for 0.56\u03c3 more " +
+              "threshold. " +
+              "Breadth is cheap. The talk added the rest of the machinery: " +
+              "Gaussian Process Regression as a robust, data-driven background " +
+              "estimate across smoothly falling spectra, and two-stage unblinding " +
+              "as a safeguard where the trials factor cannot be counted.",
+        links: [
+          { label: "arXiv:2608.19764", url: "https://arxiv.org/abs/2608.19764" },
+          { label: "Talk", url: "https://indico.physi.uni-heidelberg.de/event/1277/contributions/4141/" },
+        ],
+      },
+      {
+        who: "Giovanni Ottaviano",
+        title: "Toward domain-invariant tokenization for jet foundation models",
+        body: "A foundation model trained by next-token prediction is only as good " +
+              "as its tokenizer, and for continuous jet data nobody has established " +
+              "what a good one looks like. Giovanni put k-means, product-quantised " +
+              "and neural autoencoder tokenizers through the same tests on four jet " +
+              "datasets \u2014 RODEM, JetClass, JetSet and Aspen \u2014 scoring them on " +
+              "codebook utilisation, perplexity and reconstruction error, and found " +
+              "that a tokenizer trained on one dataset degrades on the next. " +
+              "Building the tokens from jet-radius-normalised features instead of " +
+              "detector-specific kinematics recovers much of that generalisation.",
+        links: [
+          { label: "Talk", url: "https://indico.physi.uni-heidelberg.de/event/1277/contributions/4221/" },
+        ],
+      },
+    ],
+    photos: [
+      { src: "images/EuCAIF/reisch-talk.jpg",
+        alt: "Theresa Reisch standing beside the blackboard in a Heidelberg lecture room, her closing slide \"Doing It All At Once\" projected behind her." },
+      { src: "images/EuCAIF/reisch-questions.jpg",
+        alt: "Theresa Reisch answering a question from the audience after her talk." },
+      { src: "images/EuCAIF/ottaviano-talk.jpg",
+        alt: "Giovanni Ottaviano presenting a slide on evaluating the discrete bottleneck, with codebook-usage histograms projected behind him." },
+    ],
+  },
   {
     date: "August 2026",
     title: "Glühwein Workshop 2026 comes to Geneva: CERN, 14–16 December",
@@ -477,6 +572,46 @@ const TALK_KINDS = ["Invited", "Conference", "Seminar", "Lecture", "Poster"];
 // The entries for Tobias Golling come from the "Selected invitations" section
 // of his CV and go back to 2019; the full CV lists earlier ones too.
 const TALKS = [
+  {
+    year: 2026,
+    date: "August 2026",
+    kind: "Conference",
+    title: "Multi-task, multi-modal transformers for jet flavour tagging in ATLAS",
+    speaker: "Alexander Froch",
+    event: "EuCAIFCon 2026",
+    location: "Heidelberg, Germany",
+    link: "https://indico.physi.uni-heidelberg.de/event/1277/contributions/4148/",
+  },
+  {
+    year: 2026,
+    date: "August 2026",
+    kind: "Conference",
+    title: "Pairton: iterative reconstruction of short-lived particles",
+    speaker: "Andreas Hermansen",
+    event: "EuCAIFCon 2026",
+    location: "Heidelberg, Germany",
+    link: "https://indico.physi.uni-heidelberg.de/event/1277/contributions/4247/",
+  },
+  {
+    year: 2026,
+    date: "August 2026",
+    kind: "Conference",
+    title: "Searching everything, everywhere, all at once",
+    speaker: "Theresa Reisch",
+    event: "EuCAIFCon 2026",
+    location: "Heidelberg, Germany",
+    link: "https://indico.physi.uni-heidelberg.de/event/1277/contributions/4141/",
+  },
+  {
+    year: 2026,
+    date: "August 2026",
+    kind: "Conference",
+    title: "Toward domain-invariant tokenization for jet foundation models",
+    speaker: "Giovanni Ottaviano",
+    event: "EuCAIFCon 2026",
+    location: "Heidelberg, Germany",
+    link: "https://indico.physi.uni-heidelberg.de/event/1277/contributions/4221/",
+  },
   {
     year: 2026,
     date: "7 July 2026",
