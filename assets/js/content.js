@@ -1952,10 +1952,19 @@ const DETECTOR = {
    is published without one. Do not remove either check — the point is that
    this page never advertises a position that does not exist.
 
+   The deadline half of that rule can be waived, once, per position, by setting
+   openUntilFilled — see below. The funding half cannot be waived at all.
+
    level        "Master" | "PhD" | "Postdoc"
    status       "open" | "filled" | "draft"   (only "open" is displayed)
    funding      REQUIRED for PhD. A grant name, not a hope.
    deadline     REQUIRED for PhD. ISO date.
+   openUntilFilled
+                the advert stays up after the deadline, because applications
+                are still being read. Without it, the position drops off the
+                page by itself the day after the deadline and CI fails until
+                somebody sets status to "filled". Set it only when late
+                applications really are still considered — the page says so.
    projectUrl   optional link to the wider project or programme the position
                 belongs to, shown as "Project".
    projectLabel optional link text for projectUrl (default: the URL itself).
@@ -1984,10 +1993,11 @@ const POSITIONS = [
     prerequisites: "Python and a working knowledge of deep learning. A master's degree in physics, computer science, mathematics or a related field by the start date. No prior particle-physics experience needed.",
     funding: "FUNDIS — AI Foundation Models for Scientific Discovery, Fondation pour l'Université de Genève.",
     deadline: "2026-08-30",
+    openUntilFilled: true,
     projectUrl: "https://fundis-unige.github.io/",
     projectLabel: "FUNDIS programme site",
     applyUrl: "https://docs.google.com/forms/d/e/1FAIpQLSew6wMjdDxXbn4n0Y9cG56Sjw3M7OMGmmEl39hufqlhUDLH3Q/viewform",
-    reviewed: "2026-07-31",
+    reviewed: "2026-08-28",
   },
 ];
 

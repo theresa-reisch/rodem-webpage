@@ -52,7 +52,13 @@ def audit():
             if not p.get("funding"):
                 items.append("PhD position published with no funding source: %s" % where)
             if p.get("deadline") and p["deadline"] < TODAY.isoformat():
-                items.append("PhD deadline has passed — flip status to \"filled\": %s" % where)
+                # An openUntilFilled position is meant to outlive its deadline, so
+                # this is a reminder rather than a fault — but it still gets asked
+                # about weekly, because "still open" is a claim that goes stale.
+                items.append(("PhD advert is past its deadline and kept open on purpose "
+                              "— are applications still being read? %s"
+                              if p.get("openUntilFilled") else
+                              "PhD deadline has passed — flip status to \"filled\": %s") % where)
         age = _age_days(p.get("reviewed"))
         if p.get("status") == "open" and age is not None and age > TOPIC_MAX_DAYS:
             items.append("Position not reviewed for %d days, is it still true? %s" % (age, where))

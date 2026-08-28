@@ -46,8 +46,9 @@ def main():
                 if not str(p.get("deadline", "")).strip():
                     problems.append("%s: an open %s position needs a deadline."
                                     % (where, p["level"]))
-                elif p["deadline"] < TODAY:
-                    problems.append("%s: the deadline (%s) has passed — set status to \"filled\"."
+                elif p["deadline"] < TODAY and not p.get("openUntilFilled"):
+                    problems.append("%s: the deadline (%s) has passed — set status to \"filled\", "
+                                    "or set openUntilFilled if applications are still being read."
                                     % (where, p["deadline"]))
             if not str(p.get("supervisor", "")).strip():
                 problems.append("%s: an open position needs a named supervisor to write to." % where)
