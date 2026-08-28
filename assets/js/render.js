@@ -241,8 +241,7 @@ function newsEntriesHTML(entries) {
     const links = (e.links || []).map((l) =>
       `<a class="tag" href="${esc(l.url)}">${esc(l.label)}</a>`).join("");
     return `<li>
-      <h4>${esc(e.title)}</h4>
-      <p class="news-entry-who">${esc(e.who)}</p>
+      <h4>${esc(e.who)}</h4>
       <p>${richText(e.body)}</p>
       ${links ? `<p class="news-entry-links">${links}</p>` : ""}
     </li>`;

@@ -242,7 +242,7 @@ const TEAM = [
    link is optional; delete the line if there's nothing to link to.
 
    Two optional blocks, for an item that covers several things at once:
-     entries  one { who, title, body, links: [{ label, url }] } per contribution.
+     entries  one { who, body, links: [{ label, url }] } per contribution.
               Use it when the body text would otherwise have to carry a list of
               links — body copy cannot hold them.
      photos   [{ src, alt }], shown as a strip under the item. alt is required;
@@ -260,31 +260,22 @@ const NEWS = [
     entries: [
       {
         who: "Alexander Froch",
-        title: "Multi-task, multi-modal transformers for jet flavour tagging in ATLAS",
-        body: "GN3 is the newest transformer-based jet flavour tagger in ATLAS. " +
-              "It reads several input modalities at once \u2014 charged-particle " +
-              "tracks, neutral flow objects and soft leptons \u2014 and is trained " +
-              "on several tasks at once, adding track-origin classification, jet " +
-              "p<sub>T</sub> regression and quark-charge prediction alongside the " +
-              "flavour label. It outperforms every previous ATLAS tagger, and the " +
-              "leap in c-tagging is spectacular: that gain feeds straight into " +
-              "flagship measurements such as HH\u2009\u2192\u2009<i>bb\u0304</i>\u03c4\u03c4 " +
-              "and VH(H\u2009\u2192\u2009<i>cc\u0304</i>).",
+        body: "Alexander presented GN3EPCLV01, the newest transformer-based jet " +
+              "flavour tagger in ATLAS, which learns from several input " +
+              "modalities and tackles multiple tasks at once. It outperforms " +
+              "every previous ATLAS tagger, with a spectacular leap in c-tagging " +
+              "that directly sharpens flagship measurements like " +
+              "HH\u2192bb\u03c4\u03c4 and VH(H\u2192cc).",
         links: [
           { label: "Talk", url: "https://indico.physi.uni-heidelberg.de/event/1277/contributions/4148/" },
         ],
       },
       {
         who: "Andreas Hermansen",
-        title: "Pairton: iterative reconstruction of short-lived particles",
-        body: "Pairton borrows the machinery behind large language models for " +
-              "event reconstruction. It casts a decay as a masked prediction " +
-              "problem on a graph and fills in the edges of the decay adjacency " +
-              "matrix one step at a time, so the model learns the conditional " +
-              "distributions of a factorised decay rather than a set of " +
-              "independent marginals. On fully hadronic <i>tt\u0304</i> decays it " +
-              "sets the state of the art, and the same framework extends to other " +
-              "topologies. Submitted to Physical Review D.",
+        body: "Andreas presented his work on \u201cIterative reconstruction of " +
+              "short-lived particles\u201d, which uses modern ideas of Large " +
+              "Language Models to improve event reconstruction in High Energy " +
+              "Physics.",
         links: [
           { label: "arXiv:2608.14278", url: "https://arxiv.org/abs/2608.14278" },
           { label: "Talk", url: "https://indico.physi.uni-heidelberg.de/event/1277/contributions/4247/" },
@@ -292,20 +283,10 @@ const NEWS = [
       },
       {
         who: "Theresa Reisch",
-        title: "Searching everything, everywhere, all at once",
-        body: "A strategy for a scaled-up, automated resonance search at the LHC. " +
-              "The paper prices the look-elsewhere effect for the whole ATLAS " +
-              "resonance programme: the published searches come to about " +
-              "7.9\u2009\u00d7\u200910\u00b3 looks across 104 spectra, so a 5\u03c3 " +
-              "global discovery today costs a local significance of 6.55\u03c3, while " +
-              "a full " +
-              "combinatorial scan of 3.6\u2009\u00d7\u200910\u2075 looks would cost " +
-              "7.11\u03c3 \u2014 46 times the searches for 0.56\u03c3 more " +
-              "threshold. " +
-              "Breadth is cheap. The talk added the rest of the machinery: " +
-              "Gaussian Process Regression as a robust, data-driven background " +
-              "estimate across smoothly falling spectra, and two-stage unblinding " +
-              "as a safeguard where the trials factor cannot be counted.",
+        body: "Theresa talked about Searching Everything, Everywhere, All at " +
+              "Once, a strategy for a scaled up, automated resonance search at " +
+              "the LHC, including statistical estimations and robust data-driven " +
+              "methods.",
         links: [
           { label: "arXiv:2608.19764", url: "https://arxiv.org/abs/2608.19764" },
           { label: "Talk", url: "https://indico.physi.uni-heidelberg.de/event/1277/contributions/4141/" },
@@ -313,16 +294,12 @@ const NEWS = [
       },
       {
         who: "Giovanni Ottaviano",
-        title: "Toward domain-invariant tokenization for jet foundation models",
-        body: "A foundation model trained by next-token prediction is only as good " +
-              "as its tokenizer, and for continuous jet data nobody has established " +
-              "what a good one looks like. Giovanni put k-means, product-quantised " +
-              "and neural autoencoder tokenizers through the same tests on four jet " +
-              "datasets \u2014 RODEM, JetClass, JetSet and Aspen \u2014 scoring them on " +
-              "codebook utilisation, perplexity and reconstruction error, and found " +
-              "that a tokenizer trained on one dataset degrades on the next. " +
-              "Building the tokens from jet-radius-normalised features instead of " +
-              "detector-specific kinematics recovers much of that generalisation.",
+        body: "Giovanni presented \u201cToward domain-invariant tokenization for " +
+              "jet foundation models\u201d. A foundation model trained by " +
+              "next-token prediction is only as good as its tokenizer, and he " +
+              "showed that building the tokens from jet-radius-normalised " +
+              "features rather than detector-specific kinematics is what carries " +
+              "one across datasets.",
         links: [
           { label: "Talk", url: "https://indico.physi.uni-heidelberg.de/event/1277/contributions/4221/" },
         ],
@@ -368,7 +345,7 @@ const NEWS = [
   {
     date: "July 2026",
     title: "EuCAIFCon 2026: Heidelberg, 24–28 August",
-    body: "The third European AI for Fundamental Physics Conference takes place at the Kirchhoff Institute for Physics in Heidelberg from 24 to 28 August 2026. EuCAIF is a joint activity of ECFA, NuPECC and APPEC; Tobias Golling was among the signatories of the founding expression of interest and co-leads its working group on foundation models. Pradyun Hebbar, Giovanni Ottaviano, Andreas Hermansen and Theresa Reisch have submitted abstracts.",
+    body: "The third European AI for Fundamental Physics Conference takes place at the Kirchhoff Institute for Physics in Heidelberg from 24 to 28 August 2026. EuCAIF is a joint activity of ECFA, NuPECC and APPEC; Tobias Golling was among the signatories of the founding expression of interest and co-leads its working group on foundation models. Alexander Froch, Andreas Hermansen, Giovanni Ottaviano and Theresa Reisch will each give a talk.",
     link: "https://indico.physi.uni-heidelberg.de/event/1277/",
   },
   {

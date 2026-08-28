@@ -490,11 +490,7 @@ figure.band figcaption {
   border-left: 2px solid var(--rule); padding: 0 0 0 1.1rem;
   margin-top: 1.2rem; max-width: var(--measure);
 }
-.news-entries h4 { font-size: 1rem; margin: 0 0 .15em; }
-.news-entry-who {
-  font-size: .82rem; letter-spacing: .06em; text-transform: uppercase;
-  color: var(--accent); margin: 0 0 .5em;
-}
+.news-entries h4 { font-size: 1rem; margin: 0 0 .35em; color: var(--accent); }
 .news-list .news-entry-links {
   display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .6rem;
 }
