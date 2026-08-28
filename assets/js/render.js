@@ -612,8 +612,8 @@ function renderDetector(target) {
 /* A PhD entry only ever reaches the page if it has a funding source and a
    deadline that has not passed. tools/check_positions.py enforces the same
    rule in CI — please keep both. openUntilFilled waives the deadline half for
-   one position whose applications are still being read; the page then says as
-   much, so nobody applies to something that closed. The funding half stands. */
+   a position whose applications are still being read; the advert then keeps
+   showing its original date. The funding half stands. */
 function positionIsLive(p) {
   if (p.status !== "open") return false;
   if (p.level !== "PhD") return true;
@@ -640,8 +640,7 @@ function renderPositions(target, level) {
         <dt>You should already have</dt><dd>${esc(p.prerequisites)}</dd>
         ${p.funding  ? `<dt>Funded by</dt><dd>${esc(p.funding)}</dd>` : ""}
         ${p.projectUrl ? `<dt>Project</dt><dd><a href="${esc(p.projectUrl)}">${esc(p.projectLabel || p.projectUrl)}</a></dd>` : ""}
-        ${p.deadline ? `<dt>Apply by</dt><dd>${esc(p.deadline)}${
-          p.openUntilFilled ? ` &mdash; late applications still considered` : ""}</dd>` : ""}
+        ${p.deadline ? `<dt>Apply by</dt><dd>${esc(p.deadline)}</dd>` : ""}
         ${p.applyUrl ? `<dt>How to apply</dt><dd><a href="${esc(p.applyUrl)}">${esc(p.applyLabel || "Application form")}</a></dd>` : ""}
       </dl>
     </article>`).join("");

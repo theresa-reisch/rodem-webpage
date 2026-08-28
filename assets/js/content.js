@@ -1963,8 +1963,9 @@ const DETECTOR = {
                 the advert stays up after the deadline, because applications
                 are still being read. Without it, the position drops off the
                 page by itself the day after the deadline and CI fails until
-                somebody sets status to "filled". Set it only when late
-                applications really are still considered — the page says so.
+                somebody sets status to "filled". The advert goes on showing
+                the deadline above, so set this only while late applications
+                really are still being considered.
    projectUrl   optional link to the wider project or programme the position
                 belongs to, shown as "Project".
    projectLabel optional link text for projectUrl (default: the URL itself).
