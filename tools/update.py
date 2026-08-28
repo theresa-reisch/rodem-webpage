@@ -104,7 +104,7 @@ SELECT = [
  ("CURTAINs for your sliding window",               "e"),
  ("Variational autoencoders for anomalous jet",     "e"),
  ("Morphing one dataset into another",              "e"),
- # ---- no id in PUB_CATEGORIES: renders under "Other" -----------------------
+ # ---- outside the five themes: the "Other" group at the end of the page ----
  ("heavy-flavored tetraquarks",                     "other"),
 ]
 

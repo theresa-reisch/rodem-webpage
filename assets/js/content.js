@@ -928,6 +928,8 @@ const SEMINARS = [
    Papers are grouped on the page by research theme, in the order listed here.
    The "id" is the short code you write in each publication's category field.
    Add, rename or reorder freely — the filter buttons update automatically.
+   Every category an entry names has to exist here; CI refuses a push otherwise,
+   because a typo would quietly bury the paper in the trailing "Other" group.
    ------------------------------------------------------------------------ */
 const PUB_CATEGORIES = [
   { id: "f", letter: "F", name: "Foundation models",
@@ -940,6 +942,12 @@ const PUB_CATEGORIES = [
     sub: "Simulation at the speed the LHC actually needs" },
   { id: "e", letter: "E", name: "Exploration",
     sub: "Searching without knowing what to search for" },
+  // Last, and deliberately not part of FORGE: papers by group members that are
+  // not machine learning for ATLAS at all and so belong to none of the five
+  // themes. tools/update.py writes this id for them; the renderer puts the
+  // group at the end of the page either way.
+  { id: "other", name: "Other",
+    sub: "Work by group members outside the five themes" },
 ];
 
 
