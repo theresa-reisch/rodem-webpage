@@ -323,8 +323,7 @@ const NEWS = [
           "fellow presented their work. The network\u2019s nine doctoral " +
           "candidates are spread over five 4EU+ universities, and three of them " +
           "are here in Geneva: Andreas Hermansen, Giovanni Ottaviano and Theresa " +
-          "Reisch. The network last met for its Geneva week at the Villa " +
-          "Boninchi in February.",
+          "Reisch.",
     link: "https://www.sites.uni-heidelberg.de/en/aiphy",
     photos: [
       { src: "images/EuCAIF/aiphy-network.jpg",
