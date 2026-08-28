@@ -495,15 +495,16 @@ figure.band figcaption {
   display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .6rem;
 }
 
-/* A strip of photographs under a news item. Three across on a wide screen,
-   two on a tablet, one on a phone — the pictures are all 4:3, so the rows stay
-   even however many wrap. */
+/* A strip of photographs under a news item: up to three across on a wide
+   screen, fewer as it narrows, one on a phone. auto-fit rather than a fixed
+   three columns so an item carrying a single photograph gets the full width
+   instead of a thumbnail in the left third; the minimum track width is what
+   caps it at three. Give the pictures in one item a common aspect ratio and
+   the rows stay even however many wrap. */
 .news-photos {
   display: grid; gap: 1rem; margin-top: 1.6rem;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
 }
-@media (max-width: 900px) { .news-photos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 560px) { .news-photos { grid-template-columns: 1fr; } }
 
 /* ------------------------------------------------------------ positions -- */
 .position { padding-block: 1.6rem; border-top: 1px solid var(--rule); max-width: var(--measure); }

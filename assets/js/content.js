@@ -316,6 +316,23 @@ const NEWS = [
   },
   {
     date: "August 2026",
+    title: "The AIPHY network meets in Heidelberg",
+    body: "AIPHY \u2014 Challenging AI with Challenges from Physics, the HORIZON " +
+          "MSCA doctoral network coordinated from Heidelberg \u2014 came together " +
+          "in Heidelberg on 27 August 2026, in the same week as EuCAIFCon. Every " +
+          "fellow presented their work. The network\u2019s nine doctoral " +
+          "candidates are spread over five 4EU+ universities, and three of them " +
+          "are here in Geneva: Andreas Hermansen, Giovanni Ottaviano and Theresa " +
+          "Reisch. The network last met for its Geneva week at the Villa " +
+          "Boninchi in February.",
+    link: "https://www.sites.uni-heidelberg.de/en/aiphy",
+    photos: [
+      { src: "images/EuCAIF/aiphy-network.jpg",
+        alt: "The AIPHY fellows and their supervisors on the steps outside the conference building in Heidelberg." },
+    ],
+  },
+  {
+    date: "August 2026",
     title: "Glühwein Workshop 2026 comes to Geneva: CERN, 14–16 December",
     body: "The Glühwein Workshop is at CERN this year, in the Salle Marie " +
           "Sklodowska-Curie, from 14 to 16 December 2026. Three days on the " +
