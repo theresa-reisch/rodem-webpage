@@ -283,8 +283,8 @@ const NEWS = [
       },
       {
         who: "Theresa Reisch",
-        body: "Theresa talked about Searching Everything, Everywhere, All at " +
-              "Once, a strategy for a scaled up, automated resonance search at " +
+        body: "Theresa talked about \u201cSearching Everything, Everywhere, All " +
+              "at Once\u201d, a strategy for a scaled up, automated resonance search at " +
               "the LHC, including statistical estimations and robust data-driven " +
               "methods.",
         links: [
