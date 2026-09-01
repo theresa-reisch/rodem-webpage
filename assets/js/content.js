@@ -979,7 +979,7 @@ const PUB_CATEGORIES = [
    large ATLAS Collaboration author lists.
    ------------------------------------------------------------------------ */
 const METRICS = {
-  updated: "August 2026",
+  updated: "September 2026",
   groups: [
     {
       label: "Papers with 10 or fewer authors",
@@ -997,7 +997,7 @@ const METRICS = {
       link: "https://inspirehep.net/literature?sort=mostrecent&size=25&page=1&q=find%20a%20tobias%20golling",
       stats: [
         { label: "Papers",    value: 1643 },
-        { label: "Citations", value: 246382 },
+        { label: "Citations", value: 246440 },
         { label: "h-index",   value: 219 },
       ],
     },
