@@ -301,7 +301,6 @@ const NEWS = [
               "simulation from LEP, a first step towards running it on recorded " +
               "Z decays.",
         links: [
-          { label: "arXiv:2603.04084", url: "https://arxiv.org/abs/2603.04084" },
           { label: "Slides", url: "https://indico.cern.ch/event/1664080/contributions/6995701/subcontributions/629209/attachments/3339903/5985482/CHEF_Riechers.pdf" },
         ],
       },
