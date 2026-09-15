@@ -316,6 +316,17 @@ const NEWS = [
     ],
   },
   {
+    date: "September 2026",
+    title: "Detector and machine-learning co-design at the Sixth MODE Workshop in Crete",
+    body: "Vincent Riechers presented his work at the Sixth MODE Workshop on " +
+          "Differentiable Programming for Experiment Design in Kolymbari, Crete, " +
+          "1\u20137 September 2026. The talk described a pipeline that optimises the " +
+          "geometry of a tungsten and silicon-pixel detector for identifying tau " +
+          "neutrinos, with a classifier that transfers across detector geometries " +
+          "and a surrogate model that proposes the next designs.",
+    link: "https://indico.cern.ch/event/1655754/contributions/7178828/",
+  },
+  {
     date: "August 2026",
     title: "Four talks at EuCAIFCon 2026 in Heidelberg",
     body: "The group was at the third European AI for Fundamental Physics " +
@@ -660,6 +671,16 @@ const TALKS = [
     event: "1st CHEF Plenary Meeting",
     location: "Bern, Switzerland",
     link: "https://indico.cern.ch/event/1664080/timetable/?view=standard",
+  },
+  {
+    year: 2026,
+    date: "3 September 2026",
+    kind: "Conference",
+    title: "Detector-ML co-design for tau-neutrino identification in a silicon pixel-tungsten detector",
+    speaker: "Vincent Riechers",
+    event: "Sixth MODE Workshop on Differentiable Programming for Experiment Design",
+    location: "Kolymbari, Crete, Greece",
+    link: "https://indico.cern.ch/event/1655754/contributions/7178828/",
   },
   {
     year: 2026,
