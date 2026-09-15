@@ -250,6 +250,72 @@ const TEAM = [
    ------------------------------------------------------------------------ */
 const NEWS = [
   {
+    date: "September 2026",
+    title: "Three plenary talks at the first CHEF meeting in Bern",
+    body: "CHEF, Swiss High Energy Physics for the FCC, held its first plenary " +
+          "meeting at the University of Bern on 8 and 9 September 2026. Two days " +
+          "of talks from the early-career researchers working on Switzerland's " +
+          "contributions to the Future Circular Collider, from detector " +
+          "development and simulation to theory and data analysis. Vincent " +
+          "Riechers, Pradyun Hebbar and Alexander Froch each gave a plenary talk " +
+          "on their work, and Tobias Golling convened one of the project sessions.",
+    link: "https://indico.cern.ch/event/1664080/",
+    entries: [
+      {
+        who: "Alexander Froch",
+        body: "In “From ATLAS GN3 to FCC Flavour Tagging”, Alexander " +
+              "showed how the ideas behind GN3, the newest ATLAS flavour tagger, " +
+              "carry over to the FCC-ee. Trained with the same software pipeline " +
+              "on 70 million Higgs jets from the IDEA detector concept, the model " +
+              "separates b- and c-jets well out of the box, can tag strange jets, " +
+              "and predicts track origins and secondary vertices along the way. " +
+              "The aim is a flavour-tagging baseline and a reusable workflow for " +
+              "future detector studies.",
+        links: [
+          { label: "Slides", url: "https://indico.cern.ch/event/1664080/contributions/6995694/subcontributions/629198/attachments/3339127/5984297/260908_FCC_CHEF.pdf" },
+        ],
+      },
+      {
+        who: "Pradyun Hebbar",
+        body: "Pradyun presented “Domain Shift in Self-Supervised Jet " +
+              "Foundation Models”, asking whether it matters if a jet " +
+              "foundation model is pretrained on data or on simulation, and " +
+              "whether a model built at the LHC can be reused at the FCC-ee. His " +
+              "first results show that the choice of pretraining sample makes no " +
+              "measurable difference, that the domain shift enters at fine-tuning, " +
+              "and that an LHC-pretrained model transfers to FCC-ee jets, helping " +
+              "most where labelled data is scarce.",
+        links: [
+          { label: "Slides", url: "https://indico.cern.ch/event/1664080/contributions/6995694/subcontributions/629196/attachments/3339177/5984049/v2_Bern_CHEF_2026.pdf" },
+        ],
+      },
+      {
+        who: "Vincent Riechers",
+        body: "Vincent talked about “Machine-Learned Particle-Flow " +
+              "Reconstruction for FCC-ee Detector Studies”. Because HitPF " +
+              "learns particle flow from simulation, a new detector layout is a " +
+              "retraining rather than a re-tuning. He used it to measure what the " +
+              "ARC particle-identification detector costs the CLD concept: " +
+              "photons and neutral hadrons lose efficiency and resolution, charged " +
+              "particles do not. He also showed HitPF trained on the DELPHI " +
+              "simulation from LEP, a first step towards running it on recorded " +
+              "Z decays.",
+        links: [
+          { label: "arXiv:2603.04084", url: "https://arxiv.org/abs/2603.04084" },
+          { label: "Slides", url: "https://indico.cern.ch/event/1664080/contributions/6995701/subcontributions/629209/attachments/3339903/5985482/CHEF_Riechers.pdf" },
+        ],
+      },
+    ],
+    photos: [
+      { src: "images/CHEF/froch-talk.jpg",
+        alt: "Alexander Froch beside the CHEF plenary poster in the Kuppelraum of the University of Bern, his title slide \"From ATLAS GN3 to FCC Flavour Tagging\" projected behind him." },
+      { src: "images/CHEF/hebbar-talk.jpg",
+        alt: "Pradyun Hebbar presenting a slide asking what a foundation model should be pretrained on." },
+      { src: "images/CHEF/riechers-talk.jpg",
+        alt: "Vincent Riechers at the lectern next to the CHEF plenary poster, a slide introducing HitPF machine-learned particle flow on the screen." },
+    ],
+  },
+  {
     date: "August 2026",
     title: "Four talks at EuCAIFCon 2026 in Heidelberg",
     body: "The group was at the third European AI for Fundamental Physics " +
@@ -565,6 +631,36 @@ const TALK_KINDS = ["Invited", "Conference", "Seminar", "Lecture", "Poster"];
 // The entries for Tobias Golling come from the "Selected invitations" section
 // of his CV and go back to 2019; the full CV lists earlier ones too.
 const TALKS = [
+  {
+    year: 2026,
+    date: "9 September 2026",
+    kind: "Conference",
+    title: "Machine-Learned Particle-Flow Reconstruction for FCC-ee Detector Studies",
+    speaker: "Vincent Riechers",
+    event: "1st CHEF Plenary Meeting",
+    location: "Bern, Switzerland",
+    link: "https://indico.cern.ch/event/1664080/timetable/?view=standard",
+  },
+  {
+    year: 2026,
+    date: "8 September 2026",
+    kind: "Conference",
+    title: "From ATLAS GN3 to FCC Flavour Tagging",
+    speaker: "Alexander Froch",
+    event: "1st CHEF Plenary Meeting",
+    location: "Bern, Switzerland",
+    link: "https://indico.cern.ch/event/1664080/timetable/?view=standard",
+  },
+  {
+    year: 2026,
+    date: "8 September 2026",
+    kind: "Conference",
+    title: "Domain Shift in Self-Supervised Jet Foundation Models",
+    speaker: "Pradyun Hebbar",
+    event: "1st CHEF Plenary Meeting",
+    location: "Bern, Switzerland",
+    link: "https://indico.cern.ch/event/1664080/timetable/?view=standard",
+  },
   {
     year: 2026,
     date: "August 2026",
