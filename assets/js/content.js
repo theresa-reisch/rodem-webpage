@@ -1113,7 +1113,7 @@ const METRICS = {
       link: "https://inspirehep.net/literature?sort=mostrecent&size=25&page=1&q=find%20a%20tobias%20golling",
       stats: [
         { label: "Papers",    value: 1644 },
-        { label: "Citations", value: 247269 },
+        { label: "Citations", value: 247299 },
         { label: "h-index",   value: 220 },
       ],
     },
@@ -1139,6 +1139,26 @@ const METRICS = {
    >>> contains real papers. Citation counts are a snapshot, not live.
    ------------------------------------------------------------------------ */
 const PUBLICATIONS = [
+  {
+    category: "o",
+    year: 2026,
+    title: "Mind the gap: navigating inference with optimal transport maps",
+    authors: "M. Algren, T. Golling, F. A. Di Bello, C. Pollard",
+    journal: "Mach.Learn.Sci.Tech. 7, 055017 (2026)",
+    citations: 3,
+    arxiv: "https://arxiv.org/abs/2507.08867",
+    doi: "https://doi.org/10.1088/2632-2153/ae98e3",
+    inspire: "https://inspirehep.net/literature/2945883",
+    bibtex: `@article{Algren:2025zff,
+  title   = {{Mind the gap: navigating inference with optimal transport maps}},
+  author  = {Algren, Malte and Golling, Tobias and Di Bello, Francesco Armando and Pollard, Christopher},
+  journal = {Mach.Learn.Sci.Tech.},
+  volume  = {7},
+  year    = {2026},
+  eprint  = {2507.08867},
+  doi     = {10.1088/2632-2153/ae98e3},
+}`,
+  },
   {
     category: "o",
     year: 2026,
@@ -1286,22 +1306,6 @@ const PUBLICATIONS = [
   year    = {2025},
   eprint  = {2501.05382},
   doi     = {10.1140/epjc/s10052-025-14707-8},
-}`,
-  },
-  {
-    category: "o",
-    year: 2025,
-    title: "Mind the Gap: Navigating Inference with Optimal Transport Maps",
-    authors: "M. Algren, T. Golling, F. A. Di Bello, C. Pollard",
-    journal: "arXiv:2507.08867 (preprint)",
-    citations: 3,
-    arxiv: "https://arxiv.org/abs/2507.08867",
-    inspire: "https://inspirehep.net/literature/2945883",
-    bibtex: `@article{Algren:2025zff,
-  title   = {{Mind the Gap: Navigating Inference with Optimal Transport Maps}},
-  author  = {Algren, Malte and Golling, Tobias and Di Bello, Francesco Armando and Pollard, Christopher},
-  year    = {2025},
-  eprint  = {2507.08867},
 }`,
   },
   {
