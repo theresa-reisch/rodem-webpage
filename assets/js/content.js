@@ -1113,7 +1113,7 @@ const METRICS = {
       link: "https://inspirehep.net/literature?sort=mostrecent&size=25&page=1&q=find%20a%20tobias%20golling",
       stats: [
         { label: "Papers",    value: 1647 },
-        { label: "Citations", value: 247516 },
+        { label: "Citations", value: 247546 },
         { label: "h-index",   value: 220 },
       ],
     },
