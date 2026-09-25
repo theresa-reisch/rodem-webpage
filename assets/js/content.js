@@ -600,7 +600,7 @@ const CV = {
         { period: "since 2024", what: "WP4: AI", where: "JENA Computing" },
         { period: "since 2023", what: "Founding Board member", where: "EuCAIF, the European initiative for AI in fundamental physics" },
         { period: "since 2023", what: "Coordinator", where: "Swiss Women in Physics Career Symposium" },
-        { period: "since 2022", what: "Executive Board member", where: "CHIPP" },
+        { period: "2022–2025", what: "Executive Board member", where: "CHIPP" },
         { period: "since 2021", what: "Collaboration Board deputy", where: "Geneva FCC" },
         { period: "since 2021", what: "Reviewer", where: "NeurIPS" },
         { period: "since 2016", what: "Advisory board", where: "Machine Learning HEP school" },
