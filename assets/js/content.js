@@ -1103,7 +1103,7 @@ const METRICS = {
       link: "https://inspirehep.net/literature?sort=mostrecent&size=100&page=1&q=find%20a%20tobias%20golling&author_count=10%20authors%20or%20fewer",
       stats: [
         { label: "Papers",    value: 60 },
-        { label: "Citations", value: 1242 },
+        { label: "Citations", value: 1243 },
         { label: "h-index",   value: 19 },
       ],
     },
@@ -1112,8 +1112,8 @@ const METRICS = {
       note: "Including ATLAS Collaboration papers.",
       link: "https://inspirehep.net/literature?sort=mostrecent&size=25&page=1&q=find%20a%20tobias%20golling",
       stats: [
-        { label: "Papers",    value: 1648 },
-        { label: "Citations", value: 248089 },
+        { label: "Papers",    value: 1649 },
+        { label: "Citations", value: 248167 },
         { label: "h-index",   value: 220 },
       ],
     },
@@ -1884,7 +1884,7 @@ const PUBLICATIONS = [
     title: "ATLAS flavour-tagging algorithms for the LHC Run 2 pp collision dataset",
     authors: "ATLAS Collaboration",
     journal: "Eur.Phys.J.C 83, 681 (2023)",
-    citations: 472,
+    citations: 473,
     star: true,
     arxiv: "https://arxiv.org/abs/2211.16345",
     doi: "https://doi.org/10.1140/epjc/s10052-023-11699-1",
