@@ -1113,7 +1113,7 @@ const METRICS = {
       link: "https://inspirehep.net/literature?sort=mostrecent&size=25&page=1&q=find%20a%20tobias%20golling",
       stats: [
         { label: "Papers",    value: 1649 },
-        { label: "Citations", value: 248305 },
+        { label: "Citations", value: 248339 },
         { label: "h-index",   value: 220 },
       ],
     },
@@ -1294,7 +1294,7 @@ const PUBLICATIONS = [
     title: "Large physics models: towards a collaborative approach with large language models and foundation models",
     authors: "K. G. Barman, S. Caron, E. Sullivan, H. W. de Regt, R. R. de Austri, M. Boon, M. Färber, S. Fröse, T. Golling, L. G. Lopez, et al.",
     journal: "Eur.Phys.J.C 85, 1066 (2025)",
-    citations: 18,
+    citations: 19,
     arxiv: "https://arxiv.org/abs/2501.05382",
     doi: "https://doi.org/10.1140/epjc/s10052-025-14707-8",
     inspire: "https://inspirehep.net/literature/2866594",
