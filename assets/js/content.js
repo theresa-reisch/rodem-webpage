@@ -141,7 +141,6 @@ const TEAM = [
       { name: "Matej Repik",        role: "PhD Student", photo: "images/team/Matej.jpg", blurb: "ATLAS ITk Upgrade Development.", links: {} },
       { name: "Vincent Riechers",   role: "PhD Student", photo: "images/team/Vincent.jpg", blurb: "Optimal Detector Design and high-level Reconstruction at the FCC.", links: {} },
       { name: "Franck Rothen",      role: "PhD Student", photo: "", blurb: "Uncertainty Aware Classification.", links: {} },
-      { name: "Guillaume Quétant",      role: "PhD Student", photo: "images/team/Guillaume.jpg", blurb: "Co-supervised with Prof. Voloshynovskiy. Information Theory, Generative and Foundation Models.", links: {} },
     ],
   },
   {
@@ -158,6 +157,7 @@ const TEAM = [
       // where they are now. Anyone without a "left" year is listed last.
       { name: "Malte Algren",       role: "PhD Student", photo: "images/team/Malte.png", left: 2026, blurb: "", links: {} },
       { name: "Tomke Schröer",      role: "PhD Student", photo: "images/team/Tomke.png", left: 2026, blurb: "", links: {} },
+      { name: "Guillaume Quétant",  role: "PhD Student", photo: "images/team/Guillaume.jpg", left: 2026, blurb: "", links: {} },
       { name: "Alexandra Kolev",      role: "Master Student", photo: "", left: 2025, blurb: " ", links: {} },
       { name: "Lucrezia Boccardo",      role: "Visiting PhD Student", photo: "", left: 2025, blurb: "PhD Student in Genoa.", links: {} },
       { name: "Yusong Tian",      role: "Postdoctoral Researcher", photo: "", left: 2025, blurb: " ", links: {} },
