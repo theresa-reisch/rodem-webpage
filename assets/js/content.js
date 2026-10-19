@@ -113,13 +113,6 @@ const TEAM = [
         links: {},
       },
       {
-        name: "André Aimé Atangana Likéné",
-        role: "Postdoctoral Researcher",
-        photo: "images/team/Andre.jpeg",
-        blurb: "Part of the Swiss Government Excellence Scholarship. Decoding LHC exotics via amplitude analysis and deep learning.",
-        links: {},
-      },
-      {
         name: "Gwen Gardner",
         role: "Postdoctoral Researcher",
         photo: "images/team/Gwen.jpg",
@@ -158,6 +151,7 @@ const TEAM = [
       { name: "Malte Algren",       role: "PhD Student", photo: "images/team/Malte.png", left: 2026, blurb: "", links: {} },
       { name: "Tomke Schröer",      role: "PhD Student", photo: "images/team/Tomke.png", left: 2026, blurb: "", links: {} },
       { name: "Guillaume Quétant",  role: "PhD Student", photo: "images/team/Guillaume.jpg", left: 2026, blurb: "", links: {} },
+      { name: "André Aimé Atangana Likéné", role: "Postdoctoral Researcher", photo: "images/team/Andre.jpeg", left: 2026, blurb: "", links: {} },
       { name: "Alexandra Kolev",      role: "Master Student", photo: "", left: 2025, blurb: " ", links: {} },
       { name: "Lucrezia Boccardo",      role: "Visiting PhD Student", photo: "", left: 2025, blurb: "PhD Student in Genoa.", links: {} },
       { name: "Yusong Tian",      role: "Postdoctoral Researcher", photo: "", left: 2025, blurb: " ", links: {} },
@@ -249,6 +243,26 @@ const TEAM = [
               see images/EuCAIF/README.md for how the files are sized.
    ------------------------------------------------------------------------ */
 const NEWS = [
+  {
+    date: "October 2026",
+    title: "FUNDIS kicks off at the Villa Boninchi",
+    body: "Foundation Models for Scientific Discovery (FUNDIS), the University " +
+          "of Geneva's four-year initiative to build AI foundation models for " +
+          "science, held its kickoff meeting at the Villa Boninchi in Geneva. " +
+          "Three invited speakers joined from outside the project: Robert Les on " +
+          "the roadmap to foundation models in high-energy physics, Maurizio " +
+          "Pierini on RAISE and SCIANCE, the EU initiative for AI in science " +
+          "and its coordination project, and Verena Kain on LeJEPA at CERN.",
+    link: "https://www.unige.ch/sciences/AISC/research/fundis",
+    photos: [
+      { src: "images/FUNDIS/les-talk.jpg",
+        alt: "Robert Les presenting \"Scales of Nature\", the opening slide of his talk on foundation models in high-energy physics." },
+      { src: "images/FUNDIS/pierini-talk.jpg",
+        alt: "Maurizio Pierini in front of a slide on foundation models and the strategic question of whether science should build its own." },
+      { src: "images/events/boninchi-2026-fundis.jpg",
+        alt: "The participants of the FUNDIS kickoff on the lawn by the lake, the far shore under low cloud behind them." },
+    ],
+  },
   {
     date: "September 2026",
     title: "Three plenary talks at the first CHEF meeting in Bern",
@@ -2235,6 +2249,15 @@ const EVENTS = [
 
   /* --- The Geneva weeks at the Villa Boninchi, run through G·IST, the
          theoretical-sciences institute of the University of Geneva. -------- */
+  {
+    year: 2026, title: "Foundation Models for Scientific Discovery (FUNDIS) — Kickoff",
+    series: "G·IST · Villa Boninchi", dates: "October 2026",
+    venue: "Villa Boninchi, Geneva", role: "Organiser",
+    body: "The start of FUNDIS, the University of Geneva's four-year initiative to build foundation models for science, with invited talks from outside the project.",
+    speakers: ["Robert Les (IJCLab, Université Paris-Saclay)", "Maurizio Pierini (CERN)", "Verena Kain (CERN)"],
+    image: "images/events/boninchi-2026-fundis.jpg",
+    imageAlt: "The participants standing on the lawn by the lake in October, the far shore and the Jura under low cloud behind them.",
+  },
   {
     year: 2026, title: "ML opportunities for HEP in the era of agentic AI",
     series: "G·IST · Villa Boninchi", dates: "May 2026",
