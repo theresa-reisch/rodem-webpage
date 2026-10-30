@@ -23,6 +23,7 @@ rodem-webpage-updated.zip
 # images/events/README.md for how they are made.
 /images/*.jpg
 /images/*.jpeg
+/images/*.JPG
 /images/*.png
 /images/EuCAIF/IMG_*.jpg
 /images/EuCAIF/AIPHY.jpg

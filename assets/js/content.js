@@ -245,6 +245,25 @@ const TEAM = [
 const NEWS = [
   {
     date: "October 2026",
+    title: "Poster prize for Theresa Reisch at the HMBS + Exotics workshop",
+    body: "The 2026 ATLAS HMBS + Exotics workshop took place in Clermont-Ferrand " +
+          "from 26 to 30 October. Theresa Reisch won the poster prize with a " +
+          "poster on a pool of BSM signals for benchmarking anomaly detection, " +
+          "and gave a talk on machine-learning tools, the look-elsewhere effect " +
+          "and a search budget. Tobias Golling represented the LHC Anomaly " +
+          "Detection Task Force.",
+    link: "https://indico.cern.ch/event/1667892/",
+    photos: [
+      { src: "images/HMBS-Exotics/poster-session.jpg",
+        alt: "Theresa Reisch explaining the poster \"A BSM signal pool for anomaly detection\" to a group of participants at the workshop's poster session.",
+        credit: "Photograph by Nicolas Cartalade." },
+      { src: "images/HMBS-Exotics/poster-prize.jpg",
+        alt: "Theresa Reisch smiling at a sheet of card, a colleague with a workshop lanyard standing behind, seated guests in the foreground of a restaurant.",
+        credit: "Photograph by Nicolas Cartalade." },
+    ],
+  },
+  {
+    date: "October 2026",
     title: "FUNDIS kicks off at the Villa Boninchi",
     body: "Foundation Models for Scientific Discovery (FUNDIS), the University " +
           "of Geneva's four-year initiative to build AI foundation models for " +
