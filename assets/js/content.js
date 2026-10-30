@@ -245,7 +245,7 @@ const TEAM = [
 const NEWS = [
   {
     date: "October 2026",
-    title: "Poster prize for Theresa Reisch at the HMBS + Exotics workshop",
+    title: "Presentations at the 2026 HMBS + Exotics workshop",
     body: "The 2026 ATLAS HMBS + Exotics workshop took place in Clermont-Ferrand " +
           "from 26 to 30 October. Theresa Reisch won the poster prize with a " +
           "poster on a pool of BSM signals for benchmarking anomaly detection, " +
@@ -255,7 +255,7 @@ const NEWS = [
     link: "https://indico.cern.ch/event/1667892/",
     photos: [
       { src: "images/HMBS-Exotics/poster-session.jpg",
-        alt: "Theresa Reisch explaining the poster \"A BSM signal pool for anomaly detection\" to a group of participants at the workshop's poster session.",
+        alt: "Theresa Reisch explaining the poster \"A BSM signal pool for anomaly detection\" to participants at the workshop's poster session.",
         credit: "Photograph by Nicolas Cartalade." },
       { src: "images/HMBS-Exotics/poster-prize.jpg",
         alt: "Theresa Reisch smiling at a sheet of card, a colleague with a workshop lanyard standing behind, seated guests in the foreground of a restaurant.",
