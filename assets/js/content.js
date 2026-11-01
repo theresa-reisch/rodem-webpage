@@ -1128,7 +1128,7 @@ const PUB_CATEGORIES = [
    large ATLAS Collaboration author lists.
    ------------------------------------------------------------------------ */
 const METRICS = {
-  updated: "October 2026",
+  updated: "November 2026",
   groups: [
     {
       label: "Papers with 10 or fewer authors",
@@ -1146,7 +1146,7 @@ const METRICS = {
       link: "https://inspirehep.net/literature?sort=mostrecent&size=25&page=1&q=find%20a%20tobias%20golling",
       stats: [
         { label: "Papers",    value: 1650 },
-        { label: "Citations", value: 249736 },
+        { label: "Citations", value: 249832 },
         { label: "h-index",   value: 221 },
       ],
     },
@@ -1286,7 +1286,7 @@ const PUBLICATIONS = [
     title: "Transforming jet flavour tagging at ATLAS",
     authors: "ATLAS Collaboration",
     journal: "Nature Commun. 17, 541 (2026)",
-    citations: 151,
+    citations: 153,
     star: true,
     arxiv: "https://arxiv.org/abs/2505.19689",
     doi: "https://doi.org/10.1038/s41467-025-65059-6",
@@ -1917,7 +1917,7 @@ const PUBLICATIONS = [
     title: "ATLAS flavour-tagging algorithms for the LHC Run 2 pp collision dataset",
     authors: "ATLAS Collaboration",
     journal: "Eur.Phys.J.C 83, 681 (2023)",
-    citations: 486,
+    citations: 487,
     star: true,
     arxiv: "https://arxiv.org/abs/2211.16345",
     doi: "https://doi.org/10.1140/epjc/s10052-023-11699-1",
