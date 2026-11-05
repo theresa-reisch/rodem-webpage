@@ -1136,7 +1136,7 @@ const METRICS = {
       link: "https://inspirehep.net/literature?sort=mostrecent&size=100&page=1&q=find%20a%20tobias%20golling&author_count=10%20authors%20or%20fewer",
       stats: [
         { label: "Papers",    value: 60 },
-        { label: "Citations", value: 1280 },
+        { label: "Citations", value: 1281 },
         { label: "h-index",   value: 19 },
       ],
     },
@@ -1146,7 +1146,7 @@ const METRICS = {
       link: "https://inspirehep.net/literature?sort=mostrecent&size=25&page=1&q=find%20a%20tobias%20golling",
       stats: [
         { label: "Papers",    value: 1650 },
-        { label: "Citations", value: 250033 },
+        { label: "Citations", value: 250064 },
         { label: "h-index",   value: 221 },
       ],
     },
@@ -1307,7 +1307,7 @@ const PUBLICATIONS = [
     title: "Is Tokenization Needed for Masked Particle Modelling?",
     authors: "M. Leigh, S. Klein, F. Charton, T. Golling, L. Heinrich, M. Kagan, I. Ochoa, M. Osadchy",
     journal: "Mach.Learn.Sci.Tech. 6, 025075 (2025)",
-    citations: 36,
+    citations: 37,
     arxiv: "https://arxiv.org/abs/2409.12589",
     doi: "https://doi.org/10.1088/2632-2153/addb98",
     inspire: "https://inspirehep.net/literature/2830443",
