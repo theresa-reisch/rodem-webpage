@@ -1136,7 +1136,7 @@ const METRICS = {
       link: "https://inspirehep.net/literature?sort=mostrecent&size=100&page=1&q=find%20a%20tobias%20golling&author_count=10%20authors%20or%20fewer",
       stats: [
         { label: "Papers",    value: 60 },
-        { label: "Citations", value: 1281 },
+        { label: "Citations", value: 1282 },
         { label: "h-index",   value: 19 },
       ],
     },
@@ -1146,7 +1146,7 @@ const METRICS = {
       link: "https://inspirehep.net/literature?sort=mostrecent&size=25&page=1&q=find%20a%20tobias%20golling",
       stats: [
         { label: "Papers",    value: 1653 },
-        { label: "Citations", value: 250622 },
+        { label: "Citations", value: 250768 },
         { label: "h-index",   value: 221 },
       ],
     },
@@ -1487,7 +1487,7 @@ const PUBLICATIONS = [
     title: "Weakly supervised anomaly detection for resonant new physics in the dijet final state using proton-proton collisions at √s=13 TeV with the ATLAS detector",
     authors: "ATLAS Collaboration",
     journal: "Phys.Rev.D 112, 072009 (2025)",
-    citations: 40,
+    citations: 41,
     arxiv: "https://arxiv.org/abs/2502.09770",
     doi: "https://doi.org/10.1103/2yq5-vj59",
     inspire: "https://inspirehep.net/literature/2880274",
