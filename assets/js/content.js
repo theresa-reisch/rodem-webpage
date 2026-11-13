@@ -1136,7 +1136,7 @@ const METRICS = {
       link: "https://inspirehep.net/literature?sort=mostrecent&size=100&page=1&q=find%20a%20tobias%20golling&author_count=10%20authors%20or%20fewer",
       stats: [
         { label: "Papers",    value: 60 },
-        { label: "Citations", value: 1295 },
+        { label: "Citations", value: 1296 },
         { label: "h-index",   value: 19 },
       ],
     },
@@ -1146,7 +1146,7 @@ const METRICS = {
       link: "https://inspirehep.net/literature?sort=mostrecent&size=25&page=1&q=find%20a%20tobias%20golling",
       stats: [
         { label: "Papers",    value: 1653 },
-        { label: "Citations", value: 250880 },
+        { label: "Citations", value: 250956 },
         { label: "h-index",   value: 221 },
       ],
     },
@@ -1266,7 +1266,7 @@ const PUBLICATIONS = [
     title: "Systematic study of fully heavy-flavored tetraquarks Q₁Q₂Q̄₁Q̄₂ (Q₁,₂ ∈ {b,c}): Mass spectra, threshold analysis, and confrontation with LHC data",
     authors: "A. A. A. Likéné, A. F. Rothen, D. N. Ongodo, G. H. Ben-Bolie, T. Golling",
     journal: "Phys.Rev.D 114, 034025 (2026)",
-    citations: 4,
+    citations: 5,
     arxiv: "https://arxiv.org/abs/2608.14154",
     doi: "https://doi.org/10.1103/y15p-jk18",
     inspire: "https://inspirehep.net/literature/3190676",
