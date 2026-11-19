@@ -1136,7 +1136,7 @@ const METRICS = {
       link: "https://inspirehep.net/literature?sort=mostrecent&size=100&page=1&q=find%20a%20tobias%20golling&author_count=10%20authors%20or%20fewer",
       stats: [
         { label: "Papers",    value: 60 },
-        { label: "Citations", value: 1297 },
+        { label: "Citations", value: 1298 },
         { label: "h-index",   value: 19 },
       ],
     },
@@ -1145,8 +1145,8 @@ const METRICS = {
       note: "Including ATLAS Collaboration papers.",
       link: "https://inspirehep.net/literature?sort=mostrecent&size=25&page=1&q=find%20a%20tobias%20golling",
       stats: [
-        { label: "Papers",    value: 1656 },
-        { label: "Citations", value: 251610 },
+        { label: "Papers",    value: 1657 },
+        { label: "Citations", value: 251758 },
         { label: "h-index",   value: 222 },
       ],
     },
@@ -1507,7 +1507,7 @@ const PUBLICATIONS = [
     title: "Masked particle modeling on sets: towards self-supervised high energy physics foundation models",
     authors: "T. Golling, L. Heinrich, M. Kagan, S. Klein, M. Leigh, M. Osadchy, J. A. Raine",
     journal: "Mach.Learn.Sci.Tech. 5, 035074 (2024)",
-    citations: 104,
+    citations: 105,
     star: true,
     arxiv: "https://arxiv.org/abs/2401.13537",
     doi: "https://doi.org/10.1088/2632-2153/ad64a8",
