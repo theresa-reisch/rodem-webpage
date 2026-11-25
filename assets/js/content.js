@@ -1088,6 +1088,30 @@ const SEMINARS = [
 
 
 /* ---------------------------------------------------------------------------
+   3d. TOOLS & ARTEFACTS
+   ------------------------------------------------------------------------
+   Things the group builds for others to use that are not papers: datasets,
+   indexes, software. Shown on the Output page in the order listed here.
+
+   Required : name, link, description
+   Optional : code   adds a "Code" tag pointing at the repository
+              paper  adds a "Paper" tag, for a tool with an arXiv entry
+   ------------------------------------------------------------------------ */
+const TOOLS = [
+  {
+    name: "Public BSM Signal Pool",
+    link: "https://bsm-signal-pool.docs.cern.ch/",
+    description: "A searchable index of publicly available BSM signal Monte Carlo " +
+                 "samples from ATLAS, CMS and DELPHI open data, the LHC Olympics 2020 " +
+                 "and DarkMachines. Each sample is tagged by resonant observable, " +
+                 "production mode, decay topology and event context, so signals from " +
+                 "different models that land in the same mass spectrum can be found together.",
+    code: "https://gitlab.cern.ch/treisch/signal-pool",
+  },
+];
+
+
+/* ---------------------------------------------------------------------------
    4. PUBLICATION CATEGORIES
    ------------------------------------------------------------------------
    Papers are grouped on the page by research theme, in the order listed here.

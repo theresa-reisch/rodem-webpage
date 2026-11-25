@@ -513,6 +513,30 @@ function renderSeminars(target) {
   }).join("");
 }
 
+/* ----------------------------------------------------------------- tools --- */
+
+// Tools and artefacts the group maintains, in the order given in TOOLS. The
+// name itself links to the tool; code and paper links sit as tags beneath.
+function renderTools(target) {
+  const host = el(target);
+  if (!host || typeof TOOLS === "undefined") return;
+
+  if (!TOOLS.length) { host.innerHTML = `<p class="empty">No tools listed yet.</p>`; return; }
+
+  const items = TOOLS.map((t) => {
+    const links = [
+      t.code  && `<a class="tag" href="${esc(t.code)}">Code</a>`,
+      t.paper && `<a class="tag" href="${esc(t.paper)}">Paper</a>`,
+    ].filter(Boolean).join("");
+    return `<li>
+      <p class="title"><a href="${esc(t.link)}">${esc(t.name)}</a></p>
+      <p class="authors">${esc(t.description)}</p>
+      ${links ? `<div class="tags">${links}</div>` : ""}
+    </li>`;
+  }).join("");
+  host.innerHTML = `<ul class="pub-list talk-list">${items}</ul>`;
+}
+
 /* -------------------------------------------------------------------- cv --- */
 
 function renderCV(target) {
@@ -823,6 +847,7 @@ document.addEventListener("DOMContentLoaded", function () {
   renderPublications("publications-root");
   renderTalks("talks-root");
   renderSeminars("seminars-root");
+  renderTools("tools-root");
   renderCV("cv-root");
   renderResearch("research-root");
   renderDetector("detector-root");

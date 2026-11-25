@@ -10,7 +10,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 CONTENT = ROOT / "assets" / "js" / "content.js"
 
 NAMES = ["SITE", "NAV", "TEAM", "NEWS", "TALKS", "TALK_KINDS", "PUB_CATEGORIES",
-         "PUBLICATIONS", "METRICS", "RESEARCH", "POSITIONS", "EVENTS", "FUNDING"]
+         "PUBLICATIONS", "METRICS", "TOOLS", "RESEARCH", "POSITIONS", "EVENTS", "FUNDING"]
 
 
 def load(names=None):
